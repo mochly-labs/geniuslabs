@@ -1,14 +1,14 @@
 {
   "Física": [
     {
-      "id": "fsc-ond-VCMp",
-      "link": "/apostilas/Física/fsc-ond-VCMp.html",
-      "nome": "Física - Ondas"
+      "id": "phy-wav-GIBb",
+      "link": "/apostilas/Física/phy-wav-GIBb.html",
+      "titulo": "Ondulatória"
     },
     {
-      "id": "phys-wave-hYlE",
-      "link": "/apostilas/Física/phys-wave-hYlE.html",
-      "nome": "Física de Ondas"
+      "id": "physics-kin-pBei",
+      "link": "/apostilas/Física/physics-kin-pBei.html",
+      "nome": "Estudo dos Movimentos"
     }
   ]
 }

@@ -203,8 +203,9 @@
         <button
           class="tab-button px-4 py-2 font-medium text-lg"
           data-tab="gerar"
+          disabled
         >
-          <i class="fas fa-robot mr-2"></i>Gerar
+          <i class="fas fa-robot mr-2"></i>Gerar - Em breve
         </button>
       </div>
     </div>
@@ -521,7 +522,7 @@
       </div>
     </div>
     <footer
-      class="dark:bg-dark-800 dark:text-dark-300 py-8 footer-border mt-auto absolute bottom-0 w-full"
+      class="dark:bg-dark-800 dark:text-dark-300 py-8 footer-border mt-auto w-full"
     >
       <div class="container mx-auto px-4">
         <div class="flex flex-col md:flex-row justify-between items-center">
@@ -641,7 +642,7 @@
               apostilaCard.className =
                 "apostila-card rounded-xl overflow-hidden fade-in";
               apostilaCard.innerHTML = `
-                            <a href="${apostila.link}" target="_blank" class="block h-full">
+                            <a href="/geniuslabs/${apostila.link}" target="_blank" class="block h-full">
                                 <div class="p-6">
                                     <div class="flex items-center mb-4">
                                         <div class="bg-dark-700 p-3 rounded-full mr-4">
