@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeniusLab - Apostilas e Gerador</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              dark: {
+                100: "#E5E7EB",
+                200: "#D1D5DB",
+                300: "#9CA3AF",
+                400: "#6B7280",
+                500: "#4B5563",
+                600: "#374151",
+                700: "#1F2937",
+                800: "#111827",
+                900: "#0F172A",
+              },
+              primary: {
+                light: "#a8e063",
+                dark: "#56ab2f",
+              },
+              purple: {
+                500: "#8B5CF6",
+                600: "#7C3AED",
+                700: "#6D28D9",
+              },
+              emerald: {
+                500: "#10B981",
+                600: "#059669",
+              },
+              red: {
+                500: "#EF4444",
+                600: "#DC2626",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #0f172a;
+        color: #e5e7eb;
+      }
+
+      .subject-gradient {
+        background: linear-gradient(to right, #56ab2f, #2d5821);
+      }
+
+      .apostila-card {
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        background-color: #1f2937;
+        border: 1px solid #374151;
+      }
+
+      .apostila-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        border-color: #56ab2f;
+      }
+
+      .nav-arrow {
+        transition: all 0.3s ease;
+        color: #9ca3af;
+      }
+
+      .nav-arrow:hover {
+        transform: scale(1.2);
+        color: #56ab2f;
+      }
+
+      .fade-in {
+        animation: fadeIn 0.5s ease-in;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .footer-border {
+        border-top: 1px solid #374151;
+      }
+
+      .shadow-purple {
+        box-shadow: 0 4px 14px 0 rgba(139, 92, 246, 0.2);
+      }
+
+      .dialog-enter {
+        animation: dialogEnter 0.3s ease-out forwards;
+      }
+
+      .dialog-exit {
+        animation: dialogExit 0.2s ease-in forwards;
+      }
+
+      .spin {
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes dialogEnter {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes dialogExit {
+        from {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        to {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+      }
+
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .tab-button {
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .tab-button.active {
+        color: #56ab2f;
+      }
+
+      .tab-button.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #56ab2f;
+      }
+    </style>
+  </head>
+  <body class="dark:bg-dark-900 dark:text-dark-100 min-h-screen">
+    <header class="dark:bg-dark-800 shadow-md">
+      <div class="container mx-auto px-4 py-6">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center space-x-2">
+            <i class="fas fa-book-open text-3xl text-primary-dark"></i>
+            <h1 class="text-2xl font-bold dark:text-dark-100">Genius Lab</h1>
+          </div>
+          <div class="hidden md:block">
+            <p class="dark:text-dark-300" id="cpuUsage">CPU: 0%</p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Tab Navigation -->
+    <div class="container mx-auto px-4 pt-4">
+      <div class="flex border-b border-dark-600">
+        <button
+          class="tab-button px-4 py-2 font-medium text-lg active"
+          data-tab="apostilas"
+        >
+          <i class="fas fa-book mr-2"></i>Apostilas
+        </button>
+        <button
+          class="tab-button px-4 py-2 font-medium text-lg"
+          data-tab="gerar"
+        >
+          <i class="fas fa-robot mr-2"></i>Gerar
+        </button>
+      </div>
+    </div>
+
+    <!-- Apostilas Tab Content -->
+    <div id="apostilas-tab" class="tab-content active">
+      <main class="container mx-auto px-4 py-8">
+        <!-- Subject Selector -->
+        <div class="max-w-3xl mx-auto mb-12">
+          <div class="flex items-center justify-center space-x-4 md:space-x-8">
+            <button id="prev-subject" class="nav-arrow focus:outline-none">
+              <i class="fas fa-chevron-left text-3xl"></i>
+            </button>
+
+            <div
+              class="dark:bg-dark-700 rounded-xl shadow-lg p-6 text-center w-full subject-gradient"
+            >
+              <h2
+                id="current-subject"
+                class="text-2xl md:text-3xl font-bold text-white"
+              >
+                Carregando...
+              </h2>
+            </div>
+
+            <button id="next-subject" class="nav-arrow focus:outline-none">
+              <i class="fas fa-chevron-right text-3xl"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Apostilas List -->
+        <div
+          id="apostilas-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+        >
+          <div class="col-span-full text-center py-8">
+            <div
+              class="animate-spin inline-block w-10 h-10 border-4 border-primary-dark border-t-transparent rounded-full"
+            ></div>
+            <p class="mt-4 dark:text-dark-300">Carregando apostilas...</p>
+          </div>
+        </div>
+
+        <!-- Info Section -->
+        <div
+          class="dark:bg-dark-800 rounded-xl shadow-lg p-6 mb-8 border border-dark-600"
+        >
+          <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-6 md:mb-0 md:pr-6">
+              <h3 class="text-xl font-bold dark:text-dark-100 mb-4">
+                Como usar a plataforma
+              </h3>
+              <ul class="space-y-3 dark:text-dark-300">
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-check-circle text-primary-dark mt-1 mr-2"
+                  ></i>
+                  <span
+                    >Navegue entre as matérias usando as setas laterais</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-check-circle text-primary-dark mt-1 mr-2"
+                  ></i>
+                  <span
+                    >Clique em qualquer apostila para acessar seu conteúdo</span
+                  >
+                </li>
+                <li class="flex items-start">
+                  <i
+                    class="fas fa-check-circle text-primary-dark mt-1 mr-2"
+                  ></i>
+                  <span
+                    >Todas as apostilas estão disponíveis gratuitamente</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="md:w-1/2">
+              <div
+                class="bg-dark-700 rounded-lg p-4 border border-primary-dark"
+              >
+                <h4 class="font-bold text-primary-dark mb-2">Dica</h4>
+                <p class="text-dark-200">
+                  Organize seu estudo criando um cronograma com as matérias que
+                  você precisa revisar. Utilize nossas apostilas como material
+                  de apoio!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Gerar Tab Content -->
+    <div id="gerar-tab" class="tab-content">
+      <div class="container mx-auto px-4 py-8">
+        <div
+          class="w-full max-w-2xl mx-auto rounded-xl shadow-lg overflow-hidden transition-all duration-300"
+        >
+          <div class="p-6 sm:p-8">
+            <div
+              class="flex items-center mb-6 mx-auto justify-center align-center items-center"
+            >
+              <div
+                class="w-10 h-10 rounded-full bg-primary-dark flex items-center justify-center mr-3"
+              >
+                <i class="fas fa-robot text-primary-light text-lg"></i>
+              </div>
+              <div>
+                <h1 class="text-2xl font-bold text-dark-100">
+                  Gerador de Apostilas
+                </h1>
+              </div>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <label
+                  for="titulo"
+                  class="block text-sm font-medium text-dark-300 mb-1"
+                  >Assunto</label
+                >
+                <div class="relative">
+                  <input
+                    type="text"
+                    id="titulo"
+                    placeholder="Digite o assunto do conteúdo"
+                    class="w-full px-4 py-3 rounded-lg border border-dark-600 bg-dark-700 text-dark-100 focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition duration-200"
+                  />
+                  <div class="absolute right-3 top-3 text-dark-400">
+                    <i class="fas fa-heading"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  for="descricao"
+                  class="block text-sm font-medium text-dark-300 mb-1"
+                  >Descrição (opcional)</label
+                >
+                <div class="relative">
+                  <textarea
+                    id="descricao"
+                    rows="5"
+                    placeholder="Insira recursos adicionais para incluir..."
+                    class="w-full px-4 py-3 rounded-lg border border-dark-600 bg-dark-700 text-dark-100 focus:ring-2 focus:ring-primary-dark focus:border-primary-dark outline-none transition duration-200"
+                  ></textarea>
+                  <div class="absolute right-3 top-3 text-dark-400">
+                    <i class="fas fa-align-left"></i>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-2">
+                <button
+                  id="gerarBtn"
+                  class="w-full bg-primary-dark hover:bg-primary-light text-white font-medium py-3 px-6 rounded-lg shadow-purple transition-all duration-300 flex items-center justify-center"
+                >
+                  <i class="fas fa-star mr-2"></i>
+                  <span>Gerar por IA</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading Dialog -->
+    <div
+      id="loadingDialog"
+      class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden"
+    >
+      <div class="bg-dark-800 rounded-xl max-w-md w-full p-6 dialog-enterx">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold text-dark-100">
+            Gerando sua apostila...
+          </h3>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-center justify-center mb-4">
+            <div
+              class="w-16 h-16 rounded-full bg-primary-dark flex items-center justify-center"
+            >
+              <i class="fas fa-cog text-primary-light text-2xl spin"></i>
+            </div>
+          </div>
+
+          <p class="text-center text-dark-300">
+            Estamos criando sua apostila personalizada com atividades. Isso pode
+            levar alguns instantes.
+          </p>
+
+          <p id="progressText" class="text-center text-sm text-dark-400 mt-2">
+            Status Desconhecido
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Dialog -->
+    <div
+      id="errorDialog"
+      class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden"
+    >
+      <div class="bg-dark-800 rounded-xl max-w-md w-full p-6 dialog-enterx">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold text-dark-100">Ocorreu um erro</h3>
+          <button
+            id="closeErrorDialog"
+            class="text-dark-400 hover:text-dark-600"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-center justify-center mb-4">
+            <div
+              class="w-16 h-16 rounded-full bg-red-600 flex items-center justify-center"
+            >
+              <i class="fas fa-exclamation-triangle text-red-300 text-2xl"></i>
+            </div>
+          </div>
+
+          <p class="text-center text-dark-300">
+            Não foi possível gerar sua apostila no momento. Por favor, tente
+            novamente mais tarde.
+          </p>
+
+          <div class="pt-4">
+            <button
+              id="tryAgainBtn"
+              class="w-full bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center"
+            >
+              <i class="fas fa-redo mr-2"></i>
+              <span>Tentar novamente</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Success Dialog -->
+    <div
+      id="successDialog"
+      class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 hidden"
+    >
+      <div class="bg-dark-800 rounded-xl max-w-md w-full p-6 dialog-enterx">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-lg font-semibold text-dark-100">Apostila Gerada!</h3>
+          <button
+            id="closeSuccessDialog"
+            class="text-dark-400 hover:text-dark-600"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+
+        <div class="space-y-4">
+          <div class="flex items-center justify-center mb-4">
+            <div
+              class="w-16 h-16 rounded-full bg-emerald-600 flex items-center justify-center"
+            >
+              <i class="fas fa-check-circle text-emerald-300 text-2xl"></i>
+            </div>
+          </div>
+
+          <p class="text-dark-300 text-center">
+            Seu conteúdo foi gerado com sucesso! Escolha uma opção abaixo:
+          </p>
+
+          <div class="space-y-3">
+            <button
+              id="copyLinkBtn"
+              class="items-center justify-between p-3 border border-dark-600 rounded-lg hover:bg-dark-700 transition w-full hidden"
+            >
+              <div class="flex items-center">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary-dark flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-link text-primary-light"></i>
+                </div>
+                <span class="font-medium text-dark-100"
+                  >Copiar link de Download</span
+                >
+              </div>
+              <i class="fas fa-chevron-right text-dark-400"></i>
+            </button>
+
+            <a
+              id="downloadLink"
+              href="#"
+              target="_blank"
+              class="flex items-center justify-between p-3 border border-dark-600 rounded-lg hover:bg-dark-700 transition"
+            >
+              <div class="flex items-center">
+                <div
+                  class="w-8 h-8 rounded-full bg-primary-dark flex items-center justify-center mr-3"
+                >
+                  <i class="fas fa-file text-primary-light"></i>
+                </div>
+                <span class="font-medium text-dark-100">Abrir Material</span>
+              </div>
+              <i class="fas fa-chevron-right text-dark-400"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="dark:bg-dark-800 dark:text-dark-300 py-8 footer-border mt-auto absolute bottom-0 w-full"
+    >
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-4 md:mb-0">
+            <h2 class="text-xl font-bold flex items-center">
+              <i class="fas fa-book-open mr-2 text-primary-dark"></i>
+              Genius Lab
+            </h2>
+            <p class="dark:text-dark-400 mt-1">
+              © 2025 | Licenciado sob a
+              <a
+                href="https://opensource.org/licenses/MIT"
+                target="_blank"
+                class="text-primary-dark hover:underline"
+                >Licença MIT</a
+              >
+            </p>
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="https://github.com/geniu-labs"
+              class="dark:text-dark-400 hover:text-primary-dark transition"
+            >
+              <i class="fab fa-github text-xl"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Tab switching functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Remove active class from all buttons and contents
+            tabButtons.forEach((btn) => btn.classList.remove("active"));
+            tabContents.forEach((content) =>
+              content.classList.remove("active")
+            );
+
+            // Add active class to clicked button and corresponding content
+            button.classList.add("active");
+            const tabId = button.getAttribute("data-tab");
+            document.getElementById(`${tabId}-tab`).classList.add("active");
+          });
+        });
+
+        // Sample data - in a real scenario, this would come from /apostilas.json
+        let apostilasData = {};
+
+        // In a real implementation, you would fetch this data:
+        fetch("/materiais/apostilas.json")
+          .then((response) => response.json())
+          .then((data) => {
+            apostilasData = data;
+            initApp(apostilasData);
+          })
+          .catch((error) => {
+            console.error("Error loading apostilas:", error);
+          });
+
+        function initApp(data) {
+          const subjects = Object.keys(data);
+          let currentSubjectIndex = 0;
+
+          // DOM elements
+          const currentSubjectEl = document.getElementById("current-subject");
+          const apostilasContainer = document.getElementById(
+            "apostilas-container"
+          );
+          const prevSubjectBtn = document.getElementById("prev-subject");
+          const nextSubjectBtn = document.getElementById("next-subject");
+
+          // Initial render
+          renderSubject(subjects[currentSubjectIndex]);
+          renderApostilas(data[subjects[currentSubjectIndex]]);
+
+          // Navigation event listeners
+          prevSubjectBtn.addEventListener("click", () => {
+            currentSubjectIndex =
+              (currentSubjectIndex - 1 + subjects.length) % subjects.length;
+            renderSubject(subjects[currentSubjectIndex]);
+            renderApostilas(data[subjects[currentSubjectIndex]]);
+          });
+
+          nextSubjectBtn.addEventListener("click", () => {
+            currentSubjectIndex = (currentSubjectIndex + 1) % subjects.length;
+            renderSubject(subjects[currentSubjectIndex]);
+            renderApostilas(data[subjects[currentSubjectIndex]]);
+          });
+
+          function renderSubject(subject) {
+            currentSubjectEl.textContent = subject;
+            currentSubjectEl.classList.add("fade-in");
+            setTimeout(() => currentSubjectEl.classList.remove("fade-in"), 500);
+          }
+
+          function renderApostilas(apostilas) {
+            apostilasContainer.innerHTML = "";
+
+            if (apostilas.length === 0) {
+              apostilasContainer.innerHTML = `
+                            <div class="col-span-full text-center py-8">
+                                <i class="fas fa-book-open text-4xl text-dark-400 mb-4"></i>
+                                <p class="dark:text-dark-300">Nenhuma apostila disponível para esta matéria.</p>
+                            </div>
+                        `;
+              return;
+            }
+
+            apostilas.forEach((apostila) => {
+              const apostilaCard = document.createElement("div");
+              apostilaCard.className =
+                "apostila-card rounded-xl overflow-hidden fade-in";
+              apostilaCard.innerHTML = `
+                            <a href="${apostila.link}" target="_blank" class="block h-full">
+                                <div class="p-6">
+                                    <div class="flex items-center mb-4">
+                                        <div class="bg-dark-700 p-3 rounded-full mr-4">
+                                            <i class="fas fa-book text-primary-dark"></i>
+                                        </div>
+                                        <h3 class="text-lg font-semibold dark:text-dark-100">${apostila.nome}</h3>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm dark:text-dark-400">ID: ${apostila.id}</span>
+                                        <span class="text-primary-dark font-medium">Acessar <i class="fas fa-arrow-right ml-1"></i></span>
+                                    </div>
+                                </div>
+                            </a>
+                        `;
+              apostilasContainer.appendChild(apostilaCard);
+            });
+          }
+        }
+
+        // Gerar functionality
+        const gerarBtn = document.getElementById("gerarBtn");
+        const loadingDialog = document.getElementById("loadingDialog");
+        const errorDialog = document.getElementById("errorDialog");
+        const successDialog = document.getElementById("successDialog");
+        const closeErrorDialog = document.getElementById("closeErrorDialog");
+        const cpuUsage = document.getElementById("cpuUsage");
+        const closeSuccessDialog =
+          document.getElementById("closeSuccessDialog");
+        const tryAgainBtn = document.getElementById("tryAgainBtn");
+        const copyLinkBtn = document.getElementById("copyLinkBtn");
+        const downloadLink = document.getElementById("downloadLink");
+        const progressText = document.getElementById("progressText");
+        const api = ""
+        let progressInterval;
+        let checkStatusInterval;
+        let generatedId = null;
+
+        function setProgress(text) {
+          progressText.textContent = `${text}`;
+        }
+
+        function closeAllDialogs() {
+          [loadingDialog, errorDialog, successDialog].forEach((dialog) => {
+            dialog.classList.add("hidden");
+            const content = dialog.querySelector(".dialog-enterx");
+            if (content) content.classList.remove("dialog-enter");
+          });
+          clearInterval(progressInterval);
+          clearInterval(checkStatusInterval);
+        }
+
+        function showLoadingDialog() {
+          closeAllDialogs();
+          loadingDialog.classList.remove("hidden");
+          setTimeout(() => {
+            const content = loadingDialog.querySelector(".dialog-enterx");
+            if (content) content.classList.add("dialog-enter");
+          }, 10);
+        }
+
+        function showErrorDialog() {
+          closeAllDialogs();
+          errorDialog.classList.remove("hidden");
+          setTimeout(() => {
+            const content = errorDialog.querySelector(".dialog-enterx");
+            if (content) content.classList.add("dialog-enter");
+          }, 10);
+        }
+
+        function showSuccessDialog(url) {
+          closeAllDialogs();
+          downloadLink.href = url;
+          successDialog.classList.remove("hidden");
+          setTimeout(() => {
+            const content = successDialog.querySelector(".dialog-enterx");
+            if (content) content.classList.add("dialog-enter");
+          }, 10);
+        }
+
+        function checkStatus(id) {
+          fetch(`${api}/status?id=${id}`)
+            .then((response) => {
+              if (!response.ok) throw new Error("Status not found");
+              return response.json();
+            })
+            .then((data) => {
+              if (data.status === "completed") {
+                progressText.textContent = "Concluído";
+                clearInterval(progressInterval);
+                clearInterval(checkStatusInterval);
+                setTimeout(() => showSuccessDialog(data.url), 500);
+              }
+              if (data.message) setProgress(data.message);
+              if (data?.cpuUsage) cpuUsage.innerText = `CPU: ${data.cpuUsage}`;
+            })
+            .catch((err) => {
+              console.error(err);
+              clearInterval(progressInterval);
+              clearInterval(checkStatusInterval);
+              showErrorDialog();
+            });
+        }
+
+        gerarBtn.addEventListener("click", function () {
+          const assunto = document.getElementById("titulo").value.trim();
+          const descricao = document.getElementById("descricao").value.trim();
+
+          if (!assunto) {
+            alert("Por favor, insira um assunto para a apostila.");
+            return;
+          }
+
+          showLoadingDialog();
+
+          fetch(
+            `${api}/gerar?assunto=${encodeURIComponent(
+              assunto
+            )}&descricao=${encodeURIComponent(descricao)}`
+          )
+            .then((response) => {
+              if (!response.ok) throw new Error("Erro na requisição");
+              return response.json();
+            })
+            .then((data) => {
+              if (data.id) {
+                generatedId = data.id;
+                checkStatusInterval = setInterval(
+                  () => checkStatus(generatedId),
+                  1000
+                );
+              } else {
+                throw new Error("ID não recebido");
+              }
+            })
+            .catch(() => showErrorDialog());
+        });
+
+        closeErrorDialog.addEventListener("click", closeAllDialogs);
+        closeSuccessDialog.addEventListener("click", closeAllDialogs);
+
+        tryAgainBtn.addEventListener("click", function () {
+          closeAllDialogs();
+          gerarBtn.click();
+        });
+
+        copyLinkBtn.addEventListener("click", function () {
+          const url = downloadLink.href;
+          navigator.clipboard
+            .writeText(url)
+            .then(() => {
+              const originalText = copyLinkBtn.querySelector("span");
+              const originalTextContent = originalText.textContent;
+              originalText.textContent = "Link copiado!";
+              setTimeout(() => {
+                originalText.textContent = originalTextContent;
+              }, 2000);
+            })
+            .catch(() =>
+              alert(
+                "Não foi possível copiar o link. Por favor, copie manualmente."
+              )
+            );
+        });
+
+        [loadingDialog, errorDialog, successDialog].forEach((dialog) => {
+          dialog.addEventListener("click", function (e) {
+            if (e.target === dialog && dialog !== loadingDialog) {
+              closeAllDialogs();
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
