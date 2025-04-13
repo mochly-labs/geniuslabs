@@ -1,12 +1,12 @@
 {
   "Física": [
     {
-      "id": "phy-wav-GIBb",
+      "id": "fis-wav-GIBb",
       "link": "/apostilas/Física/phy-wav-GIBb.html",
       "nome": "Ondulatória"
     },
     {
-      "id": "physics-kin-pBei",
+      "id": "fis-kin-pBei",
       "link": "/apostilas/Física/physics-kin-pBei.html",
       "nome": "Estudo dos Movimentos"
     },
@@ -14,6 +14,60 @@
       "id": "fis-mov-DHuy",
       "link": "/apostilas/Física/fis-mov-DHuy.html",
       "nome": "Estudo dos Movimentos (Simplificado, Modo Infantil)"
+    }
+  ],
+  "Matemática": [
+    {
+      "id": "mat-func-nWMX",
+      "link": "/apostilas/Matemática/mat-func-nWMX.html",
+      "nome": "Funções"
+    }
+  ],
+  "Química": [
+    {
+      "id": "quim-bal-nQvr",
+      "link": "/apostilas/Química/atom-bal-nQvr.html",
+      "nome": "Balanceamento (Leitura Rápida)"
+    },
+    {
+      "id": "quim-bal-ibqz",
+      "link": "/apostilas/Química/quim-bal-ibqz.html",
+      "nome": "Balanceamento (Leitura Focada)"
+    }
+  ],
+  "Biologia": [
+    {
+      "id": "bio-ini-qlwX",
+      "link": "/apostilas/Biologia/vida-ini-qlwX.html",
+      "nome": "Origem da Vida"
+    }
+  ],
+  "Inglês": [
+    {
+      "id": "ling-nhUP",
+      "link": "/apostilas/Inglês/ling-nhUP.html",
+      "nome": "Present Perfect Continuous"
+    }
+  ],
+  "Português": [
+    {
+      "id": "port-pcs-pCZO",
+      "link": "/apostilas/Português/port-pcs-pCZO.html",
+      "nome": "Período composto por subordinação"
+    }
+  ],
+  "História": [
+    {
+      "id": "his-eravargas-bSTU",
+      "link": "/apostilas/História/hnovo-sec-bSTU.html",
+      "nome": "Era Vargas"
+    }
+  ],
+  "Geografia": [
+    {
+      "id": "geo-asia-nat-RTKZ",
+      "link": "/apostilas/Geografia/geo-asia-nat-RTKZ.html",
+      "nome": "Ásia I - Aspectos Naturais"
     }
   ]
 }

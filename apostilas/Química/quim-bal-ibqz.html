@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeniusLab</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900">
+  
+<div class="bg-gray-900 text-white min-h-screen p-4 md:p-8 font-sans">
+
+    <!-- Título Principal -->
+    <h1 class="text-4xl font-bold text-center mb-8 text-cyan-400 animate-pulse">🧪✨ Química Mágica: Desvendando o Balanceamento de Equações! ✨🧪</h1>
+
+    <!-- Introdução -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-emerald-400">Olá, Pequenos Cientistas! 👋</h2>
+        <p class="text-lg mb-4">Bem-vindos a uma aventura incrível no mundo da Química! 🔬 Hoje, vamos aprender um truque super importante que os químicos usam todos os dias: o <strong class="text-yellow-400">balanceamento de equações químicas</strong>.</p>
+        <p class="text-lg">Pode parecer complicado, mas é como montar um quebra-cabeça 🧩 ou seguir uma receita de bolo 🎂! Precisamos ter a quantidade certa de cada "ingrediente" (os átomos) dos dois lados da nossa "receita" (a equação química). Vamos descobrir juntos como fazer isso?</p>
+    </div>
+
+    <!-- Por que Balancear? -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-emerald-400">🤔 Por que Balancear é Tão Importante? A Lei do Tio Lavoisier!</h2>
+        <p class="text-lg mb-4">Imaginem um cientista muito esperto chamado <strong class="text-purple-400">Antoine Lavoisier</strong>. Ele descobriu algo fundamental há muito, muito tempo: "Na natureza, nada se cria, nada se perde, tudo se transforma." 🌍</p>
+        <p class="text-lg mb-4">Isso significa que, quando misturamos substâncias e elas reagem (se transformam), os átomos que estavam lá no começo <strong class="text-orange-400">não desaparecem</strong> e nem <strong class="text-orange-400">surgem do nada</strong>! Eles apenas se reorganizam, formando novas substâncias.</p>
+        <p class="text-lg">Balancear uma equação química é garantir que essa lei seja respeitada! O número de átomos de cada tipo (como Hidrogênio <span class="text-blue-300 font-bold">H</span>, Oxigênio <span class="text-red-400 font-bold">O</span>, Cobre <span class="text-orange-500 font-bold">Cu</span>) tem que ser <strong class="text-yellow-400">EXATAMENTE O MESMO</strong> antes da setinha (<span class="text-gray-400 font-mono">---></span>) e depois dela.</p>
+        <ul class="list-disc list-inside mt-4 space-y-2 text-lg">
+            <li><strong class="text-pink-400">Reagentes:</strong> As substâncias que colocamos para reagir (antes da seta).</li>
+            <li><strong class="text-teal-400">Produtos:</strong> As novas substâncias que se formam (depois da seta).</li>
+        </ul>
+        <p class="text-lg mt-4">Balancear é colocar os <strong class="text-lime-400">números certos (coeficientes)</strong> na frente das fórmulas químicas para que a contagem de átomos feche dos dois lados! ✅</p>
+    </div>
+
+    <!-- Método das Tentativas (Geral) -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-emerald-400">🔧 Método das Tentativas: O Começo da Magia!</h2>
+        <p class="text-lg mb-4">Para muitas reações, podemos usar o <strong class="text-yellow-400">Método das Tentativas</strong>. É como tentar encaixar as peças do quebra-cabeça até dar certo!</p>
+        <p class="text-lg mb-2">A ideia geral é seguir uma ordem, conhecida como <strong class="text-cyan-400">MACHO</strong>:</p>
+        <ol class="list-decimal list-inside mt-4 space-y-2 text-lg pl-5">
+            <li><strong class="text-gray-400">M</strong>etais: Comece acertando a quantidade de átomos de metais (Ex: Ferro Fe, Sódio Na, Cobre Cu).</li>
+            <li><strong class="text-purple-400">A</strong>metais: Depois, acerte os ametais (Ex: Cloro Cl, Enxofre S, Nitrogênio N - exceto C, H, O).</li>
+            <li><strong class="text-gray-200">C</strong>arbono: Em seguida, o Carbono (C).</li>
+            <li><strong class="text-blue-300">H</strong>idrogênio: Depois, o Hidrogênio (H).</li>
+            <li><strong class="text-red-400">O</strong>xigênio: Por último, confira (e acerte, se precisar) o Oxigênio (O). Ele geralmente se acerta sozinho se você fez o resto certo! 😉</li>
+        </ol>
+        <p class="text-lg mt-4">Você vai colocar <strong class="text-lime-400">números inteiros (coeficientes)</strong> na frente das fórmulas. Lembre-se: <strong class="text-red-500">NUNCA mude os números pequenos (índices)</strong> dentro das fórmulas (como o 2 em H<sub class="text-xs">2</sub>O), pois isso mudaria a substância!</p>
+        <p class="text-lg mt-2">Exemplo simples: <code class="bg-gray-700 px-2 py-1 rounded">H₂ + O₂ ---> H₂O</code></p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-lg pl-5">
+            <li>Temos 2 Hidrogênios (H) antes e 2 depois. Ok! 👍</li>
+            <li>Temos 2 Oxigênios (O) antes e só 1 depois. Não Ok! 👎</li>
+            <li>Vamos colocar um <strong class="text-lime-400">2</strong> na frente do H₂O: <code class="bg-gray-700 px-2 py-1 rounded">H₂ + O₂ ---> <span class="text-lime-400 font-bold">2</span>H₂O</code></li>
+            <li>Agora temos 2 Oxigênios depois (2 x 1 = 2). Oxigênio Ok! 👍</li>
+            <li>Mas agora temos 4 Hidrogênios depois (2 x 2 = 4) e só 2 antes. Não Ok! 👎</li>
+            <li>Vamos colocar um <strong class="text-lime-400">2</strong> na frente do H₂: <code class="bg-gray-700 px-2 py-1 rounded"><span class="text-lime-400 font-bold">2</span>H₂ + O₂ ---> <span class="text-lime-400 font-bold">2</span>H₂O</code></li>
+            <li>Contando de novo:
+                <ul class="list-inside list-disc pl-5 mt-1">
+                    <li>Antes: 4 H (2x2), 2 O (1x2)</li>
+                    <li>Depois: 4 H (2x2), 2 O (2x1)</li>
+                </ul>
+            </li>
+            <li>Agora sim! Tudo igual dos dois lados! 🎉 Equação balanceada!</li>
+        </ul>
+    </div>
+
+    <!-- Foco na Reação Específica: Cu + HNO3 -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8 border-l-4 border-cyan-500">
+        <h2 class="text-2xl font-semibold mb-4 text-cyan-400">🔥 Foco Especial: A Reação do Cobre com Ácido Nítrico!</h2>
+        <p class="text-lg mb-4">Agora, vamos analisar uma reação um pouquinho mais desafiadora, que aparece bastante por aí:</p>
+        <p class="text-xl font-mono text-center bg-gray-700 p-3 rounded mb-4">
+            <span class="text-orange-500">Cu</span> + <span class="text-blue-300">H</span><span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub> <span class="text-gray-400">---></span> <span class="text-orange-500">Cu</span>(<span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub>)<sub class="text-xs">2</sub> + <span class="text-purple-400">N</span><span class="text-red-400">O</span> + <span class="text-blue-300">H</span><sub class="text-xs">2</sub><span class="text-red-400">O</span>
+        </p>
+        <p class="text-lg mb-4">Para essa reação, o método das tentativas pode ficar complicado. Existe um método mais poderoso para reações como essa, chamado <strong class="text-yellow-400">Método da Oxirredução (ou Redox)</strong>. Ele envolve olhar para "cargas" imaginárias dos átomos, chamadas <strong class="text-pink-400">Número de Oxidação (Nox)</strong>.</p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-400"> redox Passo 1: Descobrir os Números de Oxidação (Nox) 🔢</h3>
+        <p class="text-lg mb-4">Precisamos encontrar o Nox de cada átomo em todas as substâncias. Existem regrinhas para isso:</p>
+        <ul class="list-disc list-inside space-y-2 text-lg pl-5 mb-4">
+            <li>Substância simples (só um tipo de átomo, como Cu ou O₂): Nox é <strong class="text-lime-400">zero (0)</strong>.</li>
+            <li>Hidrogênio (H): Geralmente é <strong class="text-lime-400">+1</strong> (exceto em hidretos metálicos, mas não temos aqui).</li>
+            <li>Oxigênio (O): Geralmente é <strong class="text-lime-400">-2</strong> (exceto em peróxidos e superóxidos, mas não temos aqui).</li>
+            <li>A soma dos Nox em uma molécula neutra (como HNO₃ ou H₂O) é <strong class="text-lime-400">zero (0)</strong>.</li>
+            <li>A soma dos Nox em um íon (como o NO₃⁻ dentro do Cu(NO₃)₂) é igual à <strong class="text-lime-400">carga do íon</strong>.</li>
+        </ul>
+
+        <p class="text-lg mb-2">Vamos calcular para a nossa reação:</p>
+        <div class="overflow-x-auto">
+            <table class="w-full text-left text-lg bg-gray-700 rounded mb-4">
+                <thead>
+                    <tr class="border-b border-gray-600">
+                        <th class="p-3">Substância</th>
+                        <th class="p-3">Cálculo do Nox</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-gray-600">
+                        <td class="p-3 font-mono"><span class="text-orange-500">Cu</span></td>
+                        <td class="p-3"><span class="text-orange-500">Cu</span>: Nox = <strong class="text-lime-400">0</strong> (substância simples)</td>
+                    </tr>
+                    <tr class="border-b border-gray-600">
+                        <td class="p-3 font-mono"><span class="text-blue-300">H</span><span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub></td>
+                        <td class="p-3">
+                            <span class="text-blue-300">H</span>: Nox = <strong class="text-lime-400">+1</strong> <br>
+                            <span class="text-red-400">O</span>: Nox = <strong class="text-lime-400">-2</strong> (temos 3 oxigênios: 3 x -2 = -6)<br>
+                            <span class="text-purple-400">N</span>: Nox = ? <br>
+                            Soma = 0 => (+1) + (Nox N) + (-6) = 0 => Nox N = <strong class="text-lime-400">+5</strong>
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-600">
+                        <td class="p-3 font-mono"><span class="text-orange-500">Cu</span>(<span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub>)<sub class="text-xs">2</sub></td>
+                        <td class="p-3">
+                            O íon nitrato (NO₃) tem carga -1. Como temos dois nitratos, a carga total deles é -2. Para a molécula ser neutra, o Cobre (Cu) deve ter Nox <strong class="text-lime-400">+2</strong>.<br>
+                            Dentro do NO₃⁻: <span class="text-red-400">O</span> = -2 (3 x -2 = -6). Soma = -1 => (Nox N) + (-6) = -1 => Nox N = <strong class="text-lime-400">+5</strong>. (Note que o Nox do N aqui não mudou em relação ao HNO₃!)
+                        </td>
+                    </tr>
+                     <tr class="border-b border-gray-600">
+                        <td class="p-3 font-mono"><span class="text-purple-400">N</span><span class="text-red-400">O</span></td>
+                        <td class="p-3">
+                            <span class="text-red-400">O</span>: Nox = <strong class="text-lime-400">-2</strong><br>
+                            <span class="text-purple-400">N</span>: Nox = ?<br>
+                            Soma = 0 => (Nox N) + (-2) = 0 => Nox N = <strong class="text-lime-400">+2</strong>
+                        </td>
+                    </tr>
+                     <tr>
+                        <td class="p-3 font-mono"><span class="text-blue-300">H</span><sub class="text-xs">2</sub><span class="text-red-400">O</span></td>
+                        <td class="p-3">
+                             <span class="text-blue-300">H</span>: Nox = <strong class="text-lime-400">+1</strong><br>
+                             <span class="text-red-400">O</span>: Nox = <strong class="text-lime-400">-2</strong><br>
+                             (Soma: 2 x (+1) + (-2) = 0)
+                         </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-400"> redox Passo 2: Quem Mudou o Nox? 🧐</h3>
+        <p class="text-lg mb-4">Vamos ver quais átomos tiveram seu Nox alterado do lado dos reagentes para o lado dos produtos:</p>
+        <ul class="list-disc list-inside space-y-2 text-lg pl-5 mb-4">
+            <li><strong class="text-orange-500">Cobre (Cu)</strong>: Foi de <strong class="text-yellow-400">0</strong> para <strong class="text-yellow-400">+2</strong>. O Nox <strong class="text-green-400">aumentou</strong>. Dizemos que ele <strong class="text-green-400">OXIDOU</strong> (perdeu elétrons imaginários). Variação: +2.</li>
+            <li><strong class="text-purple-400">Nitrogênio (N)</strong>: No HNO₃, era <strong class="text-yellow-400">+5</strong>. Uma parte dele virou N no Cu(NO₃)₂ (Nox <strong class="text-yellow-400">+5</strong>, não mudou!), mas outra parte virou N no NO (Nox <strong class="text-yellow-400">+2</strong>). O Nox <strong class="text-red-400">diminuiu</strong> (de +5 para +2). Dizemos que ele <strong class="text-red-400">REDUZIU</strong> (ganhou elétrons imaginários). Variação: -3 (de +5 para +2).</li>
+            <li>Hidrogênio (H) e Oxigênio (O) não mudaram seus Nox principais (+1 e -2, respectivamente).</li>
+        </ul>
+
+        <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-400"> redox Passo 3: Balanceando a "Troca de Elétrons" ⚖️</h3>
+        <p class="text-lg mb-4">Agora vem o truque! A quantidade total de "elétrons perdidos" na oxidação tem que ser igual à quantidade total de "elétrons ganhos" na redução.</p>
+        <ul class="list-disc list-inside space-y-2 text-lg pl-5 mb-4">
+            <li>O Cu variou <strong class="text-green-400">2</strong> unidades (de 0 para +2).</li>
+            <li>O N (que virou NO) variou <strong class="text-red-400">3</strong> unidades (de +5 para +2).</li>
+        </ul>
+        <p class="text-lg mb-4">Para igualar, precisamos encontrar um número comum entre 2 e 3. O menor é 6! </p>
+         <ul class="list-disc list-inside space-y-2 text-lg pl-5 mb-4">
+            <li>Para ter uma variação total de 6 na oxidação do Cu, precisamos multiplicar sua variação (2) por <strong class="text-lime-400">3</strong>. Isso significa que teremos <strong class="text-lime-400">3</strong> átomos de Cu oxidando.</li>
+            <li>Para ter uma variação total de 6 na redução do N, precisamos multiplicar sua variação (3) por <strong class="text-lime-400">2</strong>. Isso significa que teremos <strong class="text-lime-400">2</strong> átomos de N reduzindo (formando NO).</li>
+        </ul>
+        <p class="text-lg mb-4">Esses números (<strong class="text-lime-400">3</strong> para o Cu e <strong class="text-lime-400">2</strong> para o N que reduz) serão os <strong class="text-yellow-400">coeficientes</strong> das substâncias que contêm esses átomos que mudaram de Nox:</p>
+        <p class="text-xl font-mono text-center bg-gray-700 p-3 rounded mb-4">
+            <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span> + HNO<sub class="text-xs">3</sub> <span class="text-gray-400">---></span> <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span>(NO<sub class="text-xs">3</sub>)<sub class="text-xs">2</sub> + <span class="text-lime-400 font-bold">2</span><span class="text-purple-400">N</span>O + H<sub class="text-xs">2</sub>O
+        </p>
+        <p class="text-lg mb-4">(Colocamos o 3 na frente do Cu e do Cu(NO₃)₂. Colocamos o 2 na frente do NO).</p>
+
+        <h3 class="text-xl font-semibold mt-6 mb-3 text-emerald-400"> redox Passo 4: Terminando por Tentativa (M.A.C.H.O.)  завершить</h3>
+        <p class="text-lg mb-4">Agora, usamos esses coeficientes como ponto de partida e terminamos o balanceamento por tentativa, geralmente focando nos outros átomos (H e O por último).</p>
+        <p class="text-xl font-mono text-center bg-gray-700 p-3 rounded mb-4">
+            <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span> + <span class="text-pink-400 font-bold">?</span><span class="text-blue-300">H</span><span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub> <span class="text-gray-400">---></span> <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span>(<span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub>)<sub class="text-xs">2</sub> + <span class="text-lime-400 font-bold">2</span><span class="text-purple-400">N</span><span class="text-red-400">O</span> + <span class="text-teal-400 font-bold">?</span><span class="text-blue-300">H</span><sub class="text-xs">2</sub><span class="text-red-400">O</span>
+        </p>
+        <ol class="list-decimal list-inside mt-4 space-y-2 text-lg pl-5">
+            <li><strong class="text-orange-500">Cobre (Cu)</strong>: Já está certo! 3 de cada lado. ✅</li>
+            <li><strong class="text-purple-400">Nitrogênio (N)</strong>:
+                <ul class="list-inside list-disc pl-5 mt-1">
+                    <li>Produtos: Temos N no Cu(NO₃)₂ e no NO.
+                        <ul>
+                           <li>No Cu(NO₃)₂: Temos 3 moléculas, cada uma com 2 N (dentro do parêntese). Total: 3 x 2 = 6 N.</li>
+                           <li>No NO: Temos 2 moléculas, cada uma com 1 N. Total: 2 x 1 = 2 N.</li>
+                           <li>Total nos produtos: 6 + 2 = <strong class="text-yellow-400">8 N</strong>.</li>
+                        </ul>
+                    </li>
+                    <li>Reagentes: Precisamos de 8 N. Eles vêm do HNO₃. Então, o coeficiente do HNO₃ deve ser <strong class="text-lime-400">8</strong>.</li>
+                </ul>
+                <p class="text-xl font-mono text-center bg-gray-700 p-3 rounded my-4">
+                    <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span> + <span class="text-lime-400 font-bold">8</span><span class="text-blue-300">H</span><span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub> <span class="text-gray-400">---></span> <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span>(<span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub>)<sub class="text-xs">2</sub> + <span class="text-lime-400 font-bold">2</span><span class="text-purple-400">N</span><span class="text-red-400">O</span> + <span class="text-teal-400 font-bold">?</span><span class="text-blue-300">H</span><sub class="text-xs">2</sub><span class="text-red-400">O</span>
+                </p>
+            </li>
+            <li><strong class="text-blue-300">Hidrogênio (H)</strong>:
+                <ul class="list-inside list-disc pl-5 mt-1">
+                    <li>Reagentes: Temos 8 H no 8HNO₃.</li>
+                    <li>Produtos: Precisamos de 8 H. Eles vêm da H₂O. Como cada H₂O tem 2 H, precisamos de 8 / 2 = <strong class="text-lime-400">4</strong> moléculas de H₂O. O coeficiente da H₂O é <strong class="text-lime-400">4</strong>.</li>
+                </ul>
+                 <p class="text-xl font-mono text-center bg-gray-700 p-3 rounded my-4">
+                    <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span> + <span class="text-lime-400 font-bold">8</span><span class="text-blue-300">H</span><span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub> <span class="text-gray-400">---></span> <span class="text-lime-400 font-bold">3</span><span class="text-orange-500">Cu</span>(<span class="text-purple-400">N</span><span class="text-red-400">O</span><sub class="text-xs">3</sub>)<sub class="text-xs">2</sub> + <span class="text-lime-400 font-bold">2</span><span class="text-purple-400">N</span><span class="text-red-400">O</span> + <span class="text-lime-400 font-bold">4</span><span class="text-blue-300">H</span><sub class="text-xs">2</sub><span class="text-red-400">O</span>
+                </p>
+            </li>
+            <li><strong class="text-red-400">Oxigênio (O)</strong>: Conferência Final! 🧐
+                 <ul class="list-inside list-disc pl-5 mt-1">
+                    <li>Reagentes: No 8HNO₃, temos 8 x 3 = <strong class="text-yellow-400">24 O</strong>.</li>
+                    <li>Produtos:
+                        <ul>
+                            <li>No 3Cu(NO₃)₂: 3 moléculas x (2 nitratos/molécula) x (3 O/nitrato) = 3 x 2 x 3 = 18 O.</li>
+                            <li>No 2NO: 2 moléculas x 1 O/molécula = 2 O.</li>
+                            <li>No 4H₂O: 4 moléculas x 1 O/molécula = 4 O.</li>
+                            <li>Total nos produtos: 18 + 2 + 4 = <strong class="text-yellow-400">24 O</strong>.</li>
+                        </ul>
+                    </li>
+                </ul>
+                Deu certo! 🎉 Os oxigênios bateram!
+            </li>
+        </ol>
+
+        <p class="text-lg mt-6 text-center font-semibold text-green-400 animate-bounce">
+            A equação balanceada é: <br>
+             <code class="text-xl font-mono bg-gray-700 px-2 py-1 rounded">3Cu + 8HNO₃ ---> 3Cu(NO₃)₂ + 2NO + 4H₂O</code>
+        </p>
+    </div>
+
+    <!-- Resumo -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-emerald-400">📝 Resumindo a Mágica!</h2>
+        <ul class="list-disc list-inside space-y-2 text-lg">
+            <li>Balancear equações químicas é garantir que o número de átomos de cada tipo seja <strong class="text-yellow-400">igual</strong> nos reagentes e nos produtos (Lei de Lavoisier).</li>
+            <li>Usamos <strong class="text-lime-400">coeficientes</strong> (números na frente das fórmulas) para ajustar as quantidades. <strong class="text-red-500">NÃO</strong> mudamos os índices (números pequenos dentro das fórmulas).</li>
+            <li>O método das <strong class="text-cyan-400">Tentativas (MACHO)</strong> funciona bem para reações mais simples.</li>
+            <li>Para reações mais complexas como <code class="bg-gray-700 px-1 rounded text-sm">Cu + HNO₃</code>, o método da <strong class="text-pink-400">Oxirredução (Redox)</strong> é mais eficiente:
+                <ol class="list-decimal list-inside pl-5 mt-2 space-y-1">
+                    <li>Achar os <strong class="text-yellow-400">Nox</strong> de todos os átomos.</li>
+                    <li>Identificar quem <strong class="text-green-400">oxidou</strong> (Nox aumentou) e quem <strong class="text-red-400">reduziu</strong> (Nox diminuiu).</li>
+                    <li>Calcular a <strong class="text-orange-400">variação</strong> do Nox para cada um.</li>
+                    <li>Igualar a variação total multiplicando pelos <strong class="text-lime-400">coeficientes</strong> adequados (inverter as variações ou achar o MMC).</li>
+                    <li>Usar esses coeficientes como ponto de partida e terminar o balanceamento por <strong class="text-cyan-400">tentativa</strong>.</li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Atividades -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg mb-8">
+        <h2 class="text-2xl font-semibold mb-4 text-yellow-400">🧠 Hora de Praticar! (Modo Infantil - 10 Questões)</h2>
+        <form id="quiz-form" class="space-y-6">
+
+            <!-- Questão 1 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">1. O que significa balancear uma equação química?</p>
+                <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q1" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Criar novos tipos de átomos.</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q1" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Garantir que o número de átomos de cada elemento seja igual antes e depois da reação.</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q1" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Mudar as fórmulas químicas das substâncias.</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">2. Quem descobriu a lei que diz "Na natureza, nada se cria, nada se perde, tudo se transforma"?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q2" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Einstein</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q2" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Newton</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q2" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Lavoisier</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">3. Na equação <code class="bg-gray-600 px-1 rounded text-sm">2H₂ + O₂ ---> 2H₂O</code>, o número <code class="bg-gray-600 px-1 rounded text-sm">2</code> na frente do H₂O é chamado de:</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q3" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Índice</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q3" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Coeficiente</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q3" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Expoente</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 4 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">4. Qual o número de átomos de Oxigênio (O) na fórmula <code class="bg-gray-600 px-1 rounded text-sm">3Cu(NO₃)₂</code>?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q4" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>6</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q4" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>9</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q4" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>18</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 5 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">5. Na reação <code class="bg-gray-600 px-1 rounded text-sm">Cu + HNO₃ ---> Cu(NO₃)₂ + NO + H₂O</code>, qual elemento OXIDOU (seu Nox aumentou)?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q5" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Hidrogênio (H)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q5" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Cobre (Cu)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q5" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Nitrogênio (N)</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 6 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">6. Na mesma reação (<code class="bg-gray-600 px-1 rounded text-sm">Cu + HNO₃ ...</code>), qual elemento REDUZIU (seu Nox diminuiu)?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q6" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Oxigênio (O)</span>
+                    </label>
+                     <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q6" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Cobre (Cu)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q6" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Nitrogênio (N) (que formou NO)</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 7 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">7. Balanceie a equação: <code class="bg-gray-600 px-1 rounded text-sm">N₂ + H₂ ---> NH₃</code>. Quais são os coeficientes corretos?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q7" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>1, 1, 1</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q7" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>1, 3, 2</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q7" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>2, 3, 1</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 8 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">8. Qual o coeficiente que falta na equação balanceada: <code class="bg-gray-600 px-1 rounded text-sm">__Fe + O₂ ---> Fe₂O₃</code>?</p>
+                <p class="text-sm italic mb-2">(Dica: Balanceie toda a equação para achar o coeficiente do Fe).</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q8" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>2</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q8" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>3</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q8" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>4</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 9 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">9. No método das tentativas (MACHO), qual elemento geralmente deixamos para balancear por último?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q9" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Metais (M)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q9" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Hidrogênio (H)</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q9" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>Oxigênio (O)</span>
+                    </label>
+                </div>
+            </div>
+
+             <!-- Questão 10 -->
+            <div class="bg-gray-700 p-4 rounded-lg">
+                <p class="text-lg font-semibold mb-2">10. Na equação balanceada <code class="bg-gray-600 px-1 rounded text-sm">3Cu + 8HNO₃ ---> 3Cu(NO₃)₂ + 2NO + 4H₂O</code>, qual é o coeficiente do ácido nítrico (HNO₃)?</p>
+                 <div class="space-y-2">
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q10" value="a" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>3</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q10" value="b" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>8</span>
+                    </label>
+                    <label class="flex items-center space-x-2 p-2 rounded hover:bg-gray-600 transition-colors">
+                        <input type="radio" name="q10" value="c" class="form-radio h-5 w-5 text-cyan-500 bg-gray-800 border-gray-600 focus:ring-cyan-600">
+                        <span>4</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Botão de Envio (Opcional, apenas visual aqui) -->
+             <!-- <button type="submit" class="mt-6 w-full bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                Verificar Respostas
+            </button> -->
+
+        </form>
+    </div>
+
+     <!-- Gabarito -->
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <details class="text-lg">
+            <summary class="font-semibold text-xl text-yellow-400 cursor-pointer hover:text-yellow-300">🔑 Gabarito</summary>
+            <div class="mt-4 space-y-2 pt-4 border-t border-gray-700">
+                <p><strong class="text-cyan-400">1.</strong> b) Garantir que o número de átomos de cada elemento seja igual antes e depois da reação.</p>
+                <p><strong class="text-cyan-400">2.</strong> c) Lavoisier</p>
+                <p><strong class="text-cyan-400">3.</strong> b) Coeficiente</p>
+                <p><strong class="text-cyan-400">4.</strong> c) 18 (3 moléculas x 2 grupos NO₃/molécula x 3 O/grupo = 18)</p>
+                <p><strong class="text-cyan-400">5.</strong> b) Cobre (Cu) (Nox foi de 0 para +2)</p>
+                <p><strong class="text-cyan-400">6.</strong> c) Nitrogênio (N) (que formou NO) (Nox foi de +5 para +2)</p>
+                <p><strong class="text-cyan-400">7.</strong> b) 1, 3, 2 (<code class="bg-gray-700 px-1 rounded text-sm">1N₂ + 3H₂ ---> 2NH₃</code>)</p>
+                <p><strong class="text-cyan-400">8.</strong> c) 4 (A equação balanceada é <code class="bg-gray-700 px-1 rounded text-sm">4Fe + 3O₂ ---> 2Fe₂O₃</code>)</p>
+                <p><strong class="text-cyan-400">9.</strong> c) Oxigênio (O)</p>
+                <p><strong class="text-cyan-400">10.</strong> b) 8</p>
+            </div>
+        </details>
+    </div>
+
+</div>
+
+  <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-50">
+    GeniusLab BETA II
+  </div>
+</body>
+</html>
