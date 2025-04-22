@@ -3,71 +3,96 @@
     {
       "id": "fis-wav-GIBb",
       "link": "/apostilas/Física/phy-wav-GIBb.html",
-      "nome": "Ondulatória"
+      "nome": "Ondulatória",
+      "descricao": "Estudo das ondas e suas propriedades."
     },
     {
       "id": "fis-kin-pBei",
       "link": "/apostilas/Física/physics-kin-pBei.html",
-      "nome": "Estudo dos Movimentos"
+      "nome": "Estudo dos Movimentos",
+      "descricao": "Introdução à cinemática e análise dos movimentos."
     },
     {
       "id": "fis-mov-DHuy",
       "link": "/apostilas/Física/fis-mov-DHuy.html",
-      "nome": "Estudo dos Movimentos (Simplificado, Modo Infantil)"
+      "nome": "Estudo dos Movimentos",
+      "descricao": "Versão simplificada do estudo dos movimentos para crianças."
+    },
+    {
+      "id": "phy-UwbO",
+      "link": "/apostilas/Física/phy-UwbO.html",
+      "nome": "Forças e Leis de Newton",
+      "descricao": "Explora conceitos de força, movimento, grandezas escalares e vetoriais, culminando nas Leis de Newton."
     }
   ],
   "Matemática": [
     {
       "id": "mat-func-nWMX",
       "link": "/apostilas/Matemática/mat-func-nWMX.html",
-      "nome": "Funções"
+      "nome": "Funções",
+      "descricao": "Conceitos básicos e aplicações de funções matemáticas."
     }
   ],
   "Química": [
     {
       "id": "quim-bal-nQvr",
       "link": "/apostilas/Química/atom-bal-nQvr.html",
-      "nome": "Balanceamento (Leitura Rápida)"
+      "nome": "Balanceamento (Leitura Rápida)",
+      "descricao": "Métodos rápidos para balanceamento de equações químicas."
     },
     {
       "id": "quim-bal-ibqz",
       "link": "/apostilas/Química/quim-bal-ibqz.html",
-      "nome": "Balanceamento (Leitura Focada)"
+      "nome": "Balanceamento (Leitura Focada)",
+      "descricao": "Abordagem detalhada para balanceamento de equações químicas."
     }
   ],
   "Biologia": [
     {
       "id": "bio-ini-qlwX",
       "link": "/apostilas/Biologia/vida-ini-qlwX.html",
-      "nome": "Origem da Vida"
+      "nome": "Origem da Vida",
+      "descricao": "Teorias e estudos sobre a origem da vida na Terra."
     }
   ],
   "Inglês": [
     {
       "id": "ling-nhUP",
       "link": "/apostilas/Inglês/ling-nhUP.html",
-      "nome": "Present Perfect Continuous"
+      "nome": "Present Perfect Continuous",
+      "descricao": "Uso e estrutura do tempo verbal Present Perfect Continuous."
     }
   ],
   "Português": [
     {
       "id": "port-pcs-pCZO",
       "link": "/apostilas/Português/port-pcs-pCZO.html",
-      "nome": "Período composto por subordinação"
+      "nome": "Período composto por subordinação",
+      "descricao": "Estudo das orações subordinadas e sua estrutura."
     }
   ],
   "História": [
     {
       "id": "his-eravargas-bSTU",
       "link": "/apostilas/História/hnovo-sec-bSTU.html",
-      "nome": "Era Vargas"
+      "nome": "Era Vargas",
+      "descricao": "Análise do período histórico da Era Vargas no Brasil."
     }
   ],
   "Geografia": [
     {
       "id": "geo-asia-nat-RTKZ",
       "link": "/apostilas/Geografia/geo-asia-nat-RTKZ.html",
-      "nome": "Ásia I - Aspectos Naturais"
+      "nome": "Ásia I - Aspectos Naturais",
+      "descricao": "Estudo dos aspectos naturais do continente asiático."
+    }
+  ],
+  "Redação": [
+    {
+      "id": "redacao-romance-aNXp",
+      "link": "/apostilas/Redação/redacao-romance-aNXp.html",
+      "nome": "Como Escrever um Romance",
+      "descricao": "Dicas e técnicas para escrever um romance."
     }
   ]
 }
