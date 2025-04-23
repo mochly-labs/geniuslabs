@@ -23,6 +23,12 @@
       "link": "/apostilas/Física/phy-UwbO.html",
       "nome": "Forças e Leis de Newton",
       "descricao": "Explora conceitos de força, movimento, grandezas escalares e vetoriais, culminando nas Leis de Newton."
+    },
+    {
+      "id": "fisica-enermec-cons-zGJG",
+      "link": "/apostilas/Física/fisica-enermec-cons-zGJG.html",
+      "nome": "Energia Mecânica e Conservação",
+      "descricao": "Estudo da energia mecanica incluindo energia cinetica e potencial e sua conservacao em sistemas isolados"
     }
   ],
   "Matemática": [
@@ -31,6 +37,12 @@
       "link": "/apostilas/Matemática/mat-func-nWMX.html",
       "nome": "Funções",
       "descricao": "Conceitos básicos e aplicações de funções matemáticas."
+    },
+    {
+      "id": "mat-quad-nOpX",
+      "link": "/apostilas/Matemática/mat-quad-nOpX.html",
+      "nome": "Equações Quadráticas",
+      "descricao": "Estudo das equacoes quadraticas, incluindo coeficientes, delta, interpretacao grafica, metodos de resolucao e pontos importantes."
     }
   ],
   "Química": [
@@ -53,6 +65,12 @@
       "link": "/apostilas/Biologia/vida-ini-qlwX.html",
       "nome": "Origem da Vida",
       "descricao": "Teorias e estudos sobre a origem da vida na Terra."
+    },
+    {
+      "id": "bio-evol-Scmf",
+      "link": "/apostilas/Biologia/bio-evol-Scmf.html",
+      "nome": "A Teoria da Evolução",
+      "descricao": "Explicações para a diversidade dos seres vivos, hipótese do fixismo, teoria da evolução (Lamarckismo e Darwinismo), e evidências da evolução (paleontológicas, embriologia, anatomia, moleculares)."
     }
   ],
   "Inglês": [
@@ -61,6 +79,12 @@
       "link": "/apostilas/Inglês/ling-nhUP.html",
       "nome": "Present Perfect Continuous",
       "descricao": "Uso e estrutura do tempo verbal Present Perfect Continuous."
+    },
+    {
+      "id": "english-EGVw",
+      "link": "/apostilas/Inglês/english-EGVw.html",
+      "nome": "Conectando Eventos Passados",
+      "descricao": "Past perfect, falar sobre talentos, eventos em diferentes momentos no passado, autoaperfeicoamento"
     }
   ],
   "Português": [
@@ -69,6 +93,12 @@
       "link": "/apostilas/Português/port-pcs-pCZO.html",
       "nome": "Período composto por subordinação",
       "descricao": "Estudo das orações subordinadas e sua estrutura."
+    },
+    {
+      "id": "portugues-morf-nQzp",
+      "link": "/apostilas/Português/portugues-morf-nQzp.html",
+      "nome": "Desvendando os Morfemas: A Estrutura das Palavras",
+      "descricao": "Explora a estrutura interna das palavras, abordando radicais, desinencias nominais e verbais, e vogal tematica. Relembra gerundio, participio e infinitivo."
     }
   ],
   "História": [
@@ -77,6 +107,12 @@
       "link": "/apostilas/História/hnovo-sec-bSTU.html",
       "nome": "Era Vargas",
       "descricao": "Análise do período histórico da Era Vargas no Brasil."
+    },
+    {
+      "id": "hist-sgm-vdXb",
+      "link": "/apostilas/História/hist-sgm-vdXb.html",
+      "nome": "Segunda Guerra Mundial - Conflito Global e Impactos",
+      "descricao": "Aborda as causas da Segunda Guerra Mundial, suas diferentes fases, a participação brasileira, o desenrolar nas frentes europeia e asiática, o Dia D e a guerra no Pacífico."
     }
   ],
   "Geografia": [
@@ -85,6 +121,12 @@
       "link": "/apostilas/Geografia/geo-asia-nat-RTKZ.html",
       "nome": "Ásia I - Aspectos Naturais",
       "descricao": "Estudo dos aspectos naturais do continente asiático."
+    },
+    {
+      "id": "geo-asia-kjuJ",
+      "link": "/apostilas/Geografia/geo-asia-kjuJ.html",
+      "nome": "Ásia II - População e Aspectos Humanos",
+      "descricao": "Diversidade, estrutura, IDH e dinâmica populacional na Ásia."
     }
   ],
   "Redação": [
@@ -93,6 +135,30 @@
       "link": "/apostilas/Redação/redacao-romance-aNXp.html",
       "nome": "Como Escrever um Romance",
       "descricao": "Dicas e técnicas para escrever um romance."
+    }
+  ],
+  "Japonês": [
+    {
+      "id": "jap-hira-MdrX",
+      "link": "/apostilas/Japonês/jap-hira-MdrX.html",
+      "nome": "Hiragana: A Base Para Começar a Ler e Escrever!",
+      "descricao": "Descubra o Hiragana, a base da escrita japonesa. Aprenda a ler e escrever os primeiros sons e palavras!",
+      "private": true
+    
+    }
+  ],
+  "Educação Física": [
+    {
+      "id": "ef-gcf-eJHp",
+      "link": "/apostilas/Educação Física/ef-gcf-eJHp.html",
+      "nome": "Introdução à Ginástica de Condicionamento Físico",
+      "descricao": "A ginastica de condicionamento fisico como ferramenta para saude e bem estar"
+    },
+    {
+      "id": "fisica-cond-rVTm",
+      "link": "/apostilas/Educação Física/fisica-cond-rVTm.html",
+      "nome": "Ginástica de Condicionamento Físico",
+      "descricao": "Aborda a ginastica de condicionamento fisico e seus exercicios limites flexibilidade Crossfit e diferentes tipos de ginastica"
     }
   ]
 }

@@ -671,7 +671,7 @@
             </p>
           </div>
 
-          <div class="grid grid-cols-2 gap-4">
+          <div class="grid gap-4">
             <button
               id="tryAgainBtn"
               class="bg-gradient-to-r from-indigo-600 to-indigo-500 hover:from-indigo-700 hover:to-indigo-600 text-white font-medium py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center card-hover glow-indigo"
@@ -1110,7 +1110,7 @@
                               `;
 
               apostilaCard.addEventListener("click", () =>
-                openMaterialModal(apostila)
+                apostila.private ? DialogAPI.showError("Nope.", "Você aparenta ser algum tipo de ser inferior, infelizmente não permitirei sua passagem!") : openMaterialModal(apostila)
               );
               apostilasContainer.appendChild(apostilaCard);
             });
@@ -1277,11 +1277,15 @@
 
       function openMaterialModal(material) {
         modalTitle.textContent = material.nome;
-        modalSubject.textContent = material.nome.split(" ")[0];
+        modalSubject.textContent = material.link.replaceAll("/apostilas/", "").split("/")[0];
         modalPages.textContent = `${material.id}`;
         modalDescription.textContent = material.descricao;
         FSCREENhref = material.link;
-        modalIframe.src = `/geniuslabs${material.link}`;
+        modalIframe.src = `${
+          window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1"
+            ? ""
+            : "geniuslabs/"}${material.link}`;
 
         materialModal.classList.remove("hidden");
         document.body.style.overflow = "hidden";
