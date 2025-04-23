@@ -286,7 +286,7 @@
         data-tab="apostilas"
       >
         <!-- Subject Selector -->
-        <div class="max-w-4xl mx-auto mb-8">
+        <div class="max-w-[80vw] mx-auto mb-8">
           <div class="flex flex-col items-center">
             <h2
               class="text-lg md:text-xl font-semibold mb-4 text-dark-300 text-center"
@@ -301,7 +301,7 @@
                 <!-- Dots will be added by JS -->
               </div>
               <div
-                class="subject-card rounded-xl p-4 md:p-6 text-center w-full"
+                class="subject-card rounded-xl p-4 md:p-6 text-center w-full mt-4"
               >
                 <h2
                   id="current-subject"
@@ -962,7 +962,12 @@
         let apostilasData = {};
 
         // In a real implementation, you would fetch this data:
-        fetch("/geniuslabs/apostilas.json")
+        fetch(
+          window.location.hostname === "localhost" ||
+            window.location.hostname === "127.0.0.1"
+            ? "/apostilas.json"
+            : "/geniuslabs/apostilas.json"
+        )
           .then((response) => response.json())
           .then((data) => {
             apostilasData = data;
@@ -993,23 +998,46 @@
           apostilasDisponiveisEl.textContent = totalApostilas;
 
           // Create subject dots
-          subjects.forEach((subject, index) => {
-            const dot = document.createElement("div");
-            dot.className =
-              "nav-dot w-3 h-3 rounded-full bg-dark-600 cursor-pointer";
-            dot.dataset.subjectIndex = index;
+          //if (window.innerWidth <= 640) {
+            // Mobile: Use buttons with subject names
+            subjects.forEach((subject, index) => {
+              const button = document.createElement("button");
+              button.className =
+                "bg-dark-700 text-dark-300 px-4 py-2 rounded-lg hover:bg-dark-600 transition my-2 nav-btn";
+              button.textContent = subject;
+              button.dataset.subjectIndex = index;
 
-            if (index === currentSubjectIndex) {
-              dot.classList.add("active");
-            }
+              if (index === currentSubjectIndex) {
+                button.classList.add("bg-primary-dark", "text-white");
+              }
 
-            dot.addEventListener("click", () => {
-              currentSubjectIndex = index;
-              updateSubject();
+              button.addEventListener("click", () => {
+                currentSubjectIndex = index;
+                updateSubject();
+              });
+
+              subjectSelector.appendChild(button);
             });
+          /*} else {
+            // Desktop: Use dots
+            subjects.forEach((subject, index) => {
+              const dot = document.createElement("div");
+              dot.className =
+                "nav-dot w-3 h-3 rounded-full bg-dark-600 cursor-pointer";
+              dot.dataset.subjectIndex = index;
 
-            subjectSelector.appendChild(dot);
-          });
+              if (index === currentSubjectIndex) {
+                dot.classList.add("active");
+              }
+
+              dot.addEventListener("click", () => {
+                currentSubjectIndex = index;
+                updateSubject();
+              });
+
+              subjectSelector.appendChild(dot);
+            });
+          }*/
 
           // Initial render
           updateSubject();
@@ -1018,13 +1046,23 @@
             const currentSubject = subjects[currentSubjectIndex];
 
             // Update active dot
-            document.querySelectorAll(".nav-dot").forEach((dot, index) => {
-              if (index === currentSubjectIndex) {
-                dot.classList.add("active");
-              } else {
-                dot.classList.remove("active");
-              }
-            });
+           // if (window.innerWidth <= 640) {
+              document.querySelectorAll(".nav-btn").forEach((dot, index) => {
+                if (index === currentSubjectIndex) {
+                  dot.classList.add("bg-primary-dark", "text-white");
+                } else {
+                  dot.classList.remove("bg-primary-dark", "text-white");
+                }
+              });
+           /* } else {
+              document.querySelectorAll(".nav-dot").forEach((dot, index) => {
+                if (index === currentSubjectIndex) {
+                  dot.classList.add("active");
+                } else {
+                  dot.classList.remove("active");
+                }
+              });
+            }*/
 
             // Update subject name
             currentSubjectEl.textContent = currentSubject;
