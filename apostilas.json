@@ -113,6 +113,18 @@
       "link": "/apostilas/História/hist-sgm-vdXb.html",
       "nome": "Segunda Guerra Mundial - Conflito Global e Impactos",
       "descricao": "Aborda as causas da Segunda Guerra Mundial, suas diferentes fases, a participação brasileira, o desenrolar nas frentes europeia e asiática, o Dia D e a guerra no Pacífico."
+    },
+    {
+      "id": "hist-MVcd",
+      "link": "/apostilas/História/hist-MVcd.html",
+      "nome": "A Guerra Fria",
+      "descricao": "O periodo de tensao politica e ideologica entre EUA e URSS sem confronto direto."
+    },
+    {
+      "id": "historia-descol-AQdq",
+      "link": "/apostilas/História/historia-descol-AQdq.html",
+      "nome": "Descolonizacao Afro-Asiatica",
+      "descricao": "A descolonizacao na Asia e Africa incluindo India China Indonesia Indochina e a Conferencia de Bandung."
     }
   ],
   "Geografia": [
@@ -127,6 +139,18 @@
       "link": "/apostilas/Geografia/geo-asia-kjuJ.html",
       "nome": "Ásia II - População e Aspectos Humanos",
       "descricao": "Diversidade, estrutura, IDH e dinâmica populacional na Ásia."
+    },
+    {
+      "id": "geo-asia-eco-GaZH",
+      "link": "/apostilas/Geografia/geo-asia-eco-GaZH.html",
+      "nome": "Ásia III - Aspectos Econômicos",
+      "descricao": "Atividades economicas e atuacao no mercado internacional das regioes asiaticas"
+    },
+    {
+      "id": "geog-asia4-bhiJ",
+      "link": "/apostilas/Geografia/geog-asia4-bhiJ.html",
+      "nome": "Ásia IV - Tensões e Conflitos",
+      "descricao": "Analisa a diversidade socioeconomica regional e os conflitos ambientais territoriais etnicos e religiosos na Asia."
     }
   ],
   "Redação": [
@@ -144,7 +168,6 @@
       "nome": "Hiragana: A Base Para Começar a Ler e Escrever!",
       "descricao": "Descubra o Hiragana, a base da escrita japonesa. Aprenda a ler e escrever os primeiros sons e palavras!",
       "private": true
-    
     }
   ],
   "Educação Física": [
@@ -159,6 +182,50 @@
       "link": "/apostilas/Educação Física/fisica-cond-rVTm.html",
       "nome": "Ginástica de Condicionamento Físico",
       "descricao": "Aborda a ginastica de condicionamento fisico e seus exercicios limites flexibilidade Crossfit e diferentes tipos de ginastica"
+    }
+  ],
+  "Jogos Digitais": [
+    {
+      "id": "jogos-oneshot-ZzGO",
+      "link": "/apostilas/Jogos Digitais/jogos-oneshot-ZzGO.html",
+      "nome": "A História Completa de OneShot e Seu DLC",
+      "descricao": "Exploracao detalhada da narrativa principal e do conteudo adicional do aclamado jogo OneShot"
+    }
+  ],
+  "Oneshot": [
+    {
+      "id": "oneshot-niko-DLPy",
+      "link": "/apostilas/Oneshot/oneshot-niko-DLPy.html",
+      "nome": "Niko: O Protagonista de Oneshot",
+      "descricao": "Explicação detalhada sobre Niko a história do jogo Oneshot e seu DLC."
+    }
+  ],
+  "Onimai": [
+    {
+      "id": "onimai-mahiro-OXXc",
+      "link": "/apostilas/Onimai/onimai-mahiro-OXXc.html",
+      "nome": "A Jornada de Mahiro Oyama",
+      "descricao": "Exploracao detalhada da historia de Mahiro Oyama na serie Onimai desde o inicio focando exclusivamente em seu desenvolvimento sem atividades e ilustrado unicamente com imagens da obra."
+    },
+    {
+      "id": "onimai-mahiro-Oxen",
+      "link": "/apostilas/Onimai/onimai-mahiro-Oxen.html",
+      "nome": "A Transformacao Super Fofa de Mahiro Oyama",
+      "descricao": "Conheca a historia do nosso querido Mahiro Oyama que de repente se tornou uma garotinha incrivelmente fofa! Descubra os desafios adoraveis da sua nova vida e porque ele e o personagem mais fofinho que existe!"
+    }
+  ],
+  "Minecraft": [
+    {
+      "id": "mc-vil-QfsA",
+      "link": "/apostilas/Minecraft/mc-vil-QfsA.html",
+      "nome": "Guia Completo de Aldeões",
+      "descricao": "Aprenda tudo sobre aldeões, trocas, profissões e fazendas automáticas no Minecraft."
+    },
+    {
+      "id": "minecraft-villager-NPlA",
+      "link": "/apostilas/Minecraft/minecraft-villager-NPlA.html",
+      "nome": "Aldeões no Minecraft",
+      "descricao": "Explica trocas, profissoes, reproducao, farms de ferro e mais sobre aldeoes no Minecraft."
     }
   ]
 }
