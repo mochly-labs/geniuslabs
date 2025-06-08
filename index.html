@@ -1005,6 +1005,13 @@
         let subjects = [];
         let currentSubjectName = null;
 
+        // --- Material Modal Functions ---
+        const materialModal = document.getElementById("materialModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalSubjectEl = document.getElementById("modalSubject");
+        const modalIdEl = document.getElementById("modalPages");
+        const modalDescription = document.getElementById("modalDescription");
+        const modalIframe = document.getElementById("modalIframe");
         // --- Tab switching and memory ---
         const setActiveTab = (tabId) => {
           tabButtons.forEach((btn) => btn.classList.remove("active"));
@@ -1412,13 +1419,6 @@
           if (e.target === helpModal) helpModal.classList.add("hidden");
         });
 
-        // --- Material Modal Functions ---
-        const materialModal = document.getElementById("materialModal");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalSubjectEl = document.getElementById("modalSubject");
-        const modalIdEl = document.getElementById("modalPages");
-        const modalDescription = document.getElementById("modalDescription");
-        const modalIframe = document.getElementById("modalIframe");
 
         document
           .getElementById("fullscreenBtn")
