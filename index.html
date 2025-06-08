@@ -288,7 +288,7 @@
               <input
                 type="text"
                 id="searchApostilas"
-                placeholder="Pesquisar em todos os materiais..."
+                placeholder="Pesquisar..."
                 class="w-full px-4 py-3 rounded-lg bg-nord-night1 border border-nord-night3 focus:ring-2 focus:ring-nord-frost_blue_medium focus:border-nord-frost_blue_medium outline-none transition text-nord-snow0 placeholder-nord-snow0/70"
               />
             </div>
@@ -446,9 +446,38 @@
                 <i class="fas fa-gem mr-2"></i>
                 Dica do Dia
               </h4>
-              <p class="text-nord-snow0">
-                Estude em blocos de 25 minutos com pausas de 5 minutos (Técnica
-                Pomodoro). Ajuda a manter o foco!
+              <ul class="text-nord-snow0 list-disc list-inside space-y-1">
+                <li>
+                  <strong>Inglês:</strong> Foque em textos! Leia enunciados com
+                  calma e procure palavras cognatas (aquelas parecidas com o
+                  português).
+                </li>
+                <li>
+                  <strong>Redação:</strong> Treine uma estrutura básica
+                  (introdução, 2 argumentos, conclusão). Se der branco, comece
+                  pela conclusão e volte!
+                </li>
+                <li>
+                  <strong>Português:</strong> Revise funções da linguagem, tipos
+                  de sujeito e interpretação. Preste atenção nos verbos!
+                </li>
+                <li>
+                  <strong>Educação Física:</strong> Lembra daquelas aulas sobre
+                  saúde, esportes e movimento? Cai isso mesmo! Foco em
+                  benefícios da atividade física.
+                </li>
+                <li>
+                  <strong>Artes:</strong> Gruda nos estilos (modernismo,
+                  renascimento, etc.), artistas famosos e características das
+                  obras. Vale anotar nomes chave!
+                </li>
+              </ul>
+              <p class="mt-3 text-nord-aurora_yellow">
+                Última dica: Dorme bem! Cérebro descansado lembra mais que uma
+                madrugada virada.
+              </p>
+              <p class="mt-3 text-nord-aurora_yellow">
+                (qualquer coisa chama na DM)
               </p>
             </div>
           </div>
@@ -794,7 +823,6 @@
     </div>
 
     <script>
-
       let DURL = "";
       const DialogAPI = {
         showLoading: function (
@@ -1418,7 +1446,6 @@
         helpModal.addEventListener("click", (e) => {
           if (e.target === helpModal) helpModal.classList.add("hidden");
         });
-
 
         document
           .getElementById("fullscreenBtn")
