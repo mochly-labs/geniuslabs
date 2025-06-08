@@ -4,7 +4,80 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GeniusLab</title>
-  <script src="https://cdn.tailwindcss.com"></script>  <link rel="stylesheet" href="/global.css">
+  <script src="https://cdn.tailwindcss.com"/>
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>  <link rel="stylesheet" href="/global.css">
 
 </head>
 <body class="bg-gray-900">

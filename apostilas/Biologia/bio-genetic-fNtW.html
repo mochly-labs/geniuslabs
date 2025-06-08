@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeniusLab</title>
+  <script src="https://cdn.tailwindcss.com"/>
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-gray-900">
+  
+<div class="dark:bg-gray-900 dark:text-gray-100 min-h-screen p-4 sm:p-6 md:p-8 font-sans leading-relaxed">
+
+    <div class="container mx-auto max-w-screen-lg">
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 mt-4 dark:text-blue-400">
+            Engenharia Genética e Biotecnologia: Entendendo as Manipulações da Vida 🧬🌱🔬
+        </h1>
+
+        <p class="text-lg mb-8 text-center dark:text-gray-300">
+            Nesta apostila, vamos explorar como os seres humanos aprenderam a "mexer" com as instruções da vida (o DNA) para criar coisas novas e úteis, desde plantas mais resistentes até medicamentos importantes.
+        </p>
+
+        <!-- Tópico 1: Seleção Artificial -->
+        <section id="selecao-artificial" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-blue-300">1. Seleção Artificial: O Começo da Interferência Humana</h2>
+            <p class="mb-4">
+                Antes mesmo de saber o que era DNA ou genes, os seres humanos já praticavam uma forma simples de "modificar" organismos: a <strong>Seleção Artificial</strong>. 🧑‍🌾🐶
+            </p>
+            <p class="mb-4">
+                Funciona assim: as pessoas observavam plantas ou animais e escolhiam aqueles que tinham as características que elas queriam (mais carne, frutas maiores, mais leite, ser mais manso, etc.). Depois, faziam esses indivíduos se reproduzirem. Com o tempo, essas características desejadas se tornavam mais comuns na população.
+            </p>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Exemplos Clássicos:</strong></li>
+                <li>Variedades de milho: Do teosinto selvagem (pequeno) até o milho grande e cheio de grãos que conhecemos hoje.</li>
+                <li>Raças de cachorros: Todos vieram do lobo, mas a seleção artificial criou chihuahuas, labradores, poodles, etc.</li>
+                <li>Plantas cultivadas: Brócolis, couve-flor, repolho vêm todos de uma mesma planta ancestral selvagem (a mostarda selvagem), modificada por seleção artificial.</li>
+            </ul>
+            <p class="mb-4">
+                A seleção artificial é um processo lento, que depende das variações naturais que já existem nos organismos. É uma forma de "guiar" a evolução para os interesses humanos.
+            </p>
+
+            <!-- Pergunta Rápida 1 -->
+            <div class="bg-gray-700 p-4 rounded-md mt-6">
+                <p class="font-semibold mb-3">Pergunta Rápida 1:</p>
+                <p class="mb-3">Qual a principal diferença entre a Seleção Artificial e a Seleção Natural (evolução sem a interferência humana)?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q1_a" name="quiz1" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q1_a" class="ml-2 text-gray-200">A) A Seleção Artificial é mais rápida que a natural.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q1_b" name="quiz1" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q1_b" class="ml-2 text-gray-200">B) A Seleção Artificial é feita pelo ser humano escolhendo características desejadas.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q1_c" name="quiz1" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q1_c" class="ml-2 text-gray-200">D) A Seleção Natural só acontece em animais selvagens.</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" id="q1_d" name="quiz1" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q1_d" class="ml-2 text-gray-200">E) Não há diferença, são a mesma coisa.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quiz1', 'b', 'result1')">Verificar Resposta</button>
+                <div id="result1" class="mt-3 text-sm font-semibold"></div>
+            </div>
+            <!-- Nota para JS: Adicionar lógica JS para checkAnswer -->
+
+        </section>
+
+        <!-- Tópico 2: Biotecnologia -->
+        <section id="biotecnologia" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-blue-300">2. Biotecnologia: Usando a Vida para o Nosso Benefício</h2>
+            <p class="mb-4">
+                A <strong>Biotecnologia</strong> é o uso de sistemas biológicos (organismos, partes de organismos, processos biológicos) para criar produtos ou resolver problemas. 🧪🔬🦠
+            </p>
+            <p class="mb-4">
+                Essa área não é nova! Fazer pão, queijo ou bebidas alcoólicas usando fungos (fermento) ou bactérias é biotecnologia antiga. Criar vacinas e usar microrganismos para limpar poluição também são exemplos.
+            </p>
+            <p class="mb-4">
+                Com o avanço da ciência, especialmente depois de descobrirmos a estrutura do DNA, a biotecnologia ficou muito mais poderosa e precisa. Hoje, ela inclui técnicas avançadas, como a engenharia genética.
+            </p>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Áreas da Biotecnologia (cores - apenas para organização):</strong></li>
+                <li>🔴 <strong>Biotecnologia Vermelha:</strong> Saúde e Medicina (vacinas, remédios, diagnóstico de doenças).</li>
+                <li>🟢 <strong>Biotecnologia Verde:</strong> Agricultura (plantas mais resistentes, alimentos com mais nutrientes).</li>
+                <li>⚪ <strong>Biotecnologia Branca:</strong> Indústria (produção de enzimas, biocombustíveis).</li>
+                <li>🔵 <strong>Biotecnologia Azul:</strong> Ambientes aquáticos (produtos de organismos marinhos, controle de poluição na água).</li>
+            </ul>
+            <p class="mb-4">
+                A biotecnologia moderna, muitas vezes, depende da nossa capacidade de entender e manipular o material genético.
+            </p>
+        </section>
+
+        <!-- Tópico 3: História da Engenharia Genética -->
+        <section id="historia-eng-genetica" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-blue-300">3. História da Engenharia Genética: Decifrando e Editando o Código da Vida</h2>
+            <p class="mb-4">
+                A <strong>Engenharia Genética</strong> é uma parte da Biotecnologia que se dedica a modificar diretamente o material genético (DNA) de um organismo. É como se pudéssemos "ler", "copiar", "colar" ou "editar" partes do manual de instruções da vida. 📜✂️🧬
+            </p>
+            <p class="mb-4">
+                Os marcos mais importantes nessa história incluem:
+            </p>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Anos 1950:</strong> James Watson e Francis Crick, junto com Rosalind Franklin e Maurice Wilkins, descobrem a estrutura em dupla hélice do DNA. Saber como o DNA é organizado foi fundamental!</li>
+                <li><strong>Anos 1970:</strong> Desenvolvimento de técnicas de DNA recombinante. Isso significa conseguir cortar um pedaço de DNA (um gene) de um organismo e "colar" em outro organismo. ✂️🧬➡️🦠</li>
+                <li><strong>1973:</strong> Herb Boyer e Stanley Cohen criam o primeiro organismo geneticamente modificado (uma bactéria com DNA de sapo).</li>
+                <li><strong>Anos 1980:</strong> Começam a surgir os primeiros produtos de engenharia genética, como a insulina humana produzida por bactérias (antes usava-se insulina de porcos!).</li>
+                <li><strong>Anos 1990/2000:</strong> Desenvolvimento e comercialização dos primeiros alimentos geneticamente modificados (OGMs).</li>
+                <li><strong>Anos 2010 em diante:</strong> Surgimento e aprimoramento de ferramentas de edição genética mais precisas, como a CRISPR-Cas9, que permite "editar" genes com mais facilidade.</li>
+            </ul>
+            <p class="mb-4">
+                A engenharia genética abriu portas para manipular características de formas que a seleção artificial nunca permitiria, pois permite mover genes entre espécies diferentes.
+            </p>
+
+            <!-- Pergunta Rápida 2 -->
+             <div class="bg-gray-700 p-4 rounded-md mt-6">
+                <p class="font-semibold mb-3">Pergunta Rápida 2:</p>
+                <p class="mb-3">Quem são os cientistas famosos por descrever a estrutura em dupla hélice do DNA?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q2_a" name="quiz2" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q2_a" class="ml-2 text-gray-200">A) Charles Darwin e Alfred Wallace</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q2_b" name="quiz2" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q2_b" class="ml-2 text-gray-200">B) Gregor Mendel e Louis Pasteur</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q2_c" name="quiz2" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q2_c" class="ml-2 text-gray-200">C) James Watson e Francis Crick</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" id="q2_d" name="quiz2" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q2_d" class="ml-2 text-gray-200">E) Marie Curie e Albert Einstein</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quiz2', 'c', 'result2')">Verificar Resposta</button>
+                <div id="result2" class="mt-3 text-sm font-semibold"></div>
+            </div>
+        </section>
+
+        <!-- Tópico 4: Organismos Geneticamente Modificados (OGMs) -->
+        <section id="ogms" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-blue-300">4. Organismos Geneticamente Modificados (OGMs): Criando Novas Características</h2>
+            <p class="mb-4">
+                Um <strong>Organismo Geneticamente Modificado (OGM)</strong>, também chamado de transgênico, é aquele cujo material genético (DNA) foi alterado usando técnicas de engenharia genética. 🧬✨
+            </p>
+            <p class="mb-4">
+                A modificação geralmente envolve inserir um gene de outra espécie no organismo para dar a ele uma característica nova que ele não tinha naturalmente.
+            </p>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Como são feitos (ideia básica):</strong></li>
+                <li>Identificar um gene de interesse (ex: gene de resistência a insetos em uma bactéria).</li>
+                <li>Isolar e copiar esse gene.</li>
+                <li>Introduzir esse gene nas células do organismo que se quer modificar (ex: uma planta). Isso pode ser feito de várias formas, como com "armas de genes" ou usando bactérias que "infectam" a planta e inserem o DNA.</li>
+                <li>Garantir que o gene seja incorporado ao DNA do organismo e que ele funcione.</li>
+                <li>Reproduzir o organismo modificado.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 mt-6 dark:text-gray-200">Exemplos de OGMs:</h3>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Milho Bt:</strong> Tem um gene de uma bactéria (Bacillus thuringiensis) que produz uma toxina que mata certos insetos-praga. Menos necessidade de inseticidas químicos.</li>
+                <li><strong>Soja Resistente a Herbicidas:</strong> Tem um gene que a torna resistente a certos herbicidas (matam mato). Permite que os agricultores apliquem o herbicida sem matar a soja.</li>
+                <li><strong>Arroz Dourado (Golden Rice):</strong> Modificado para produzir betacaroteno (que o corpo transforma em Vitamina A). Desenvolvido para ajudar a combater a deficiência de Vitamina A em países onde o arroz é o alimento principal.</li>
+                <li><strong>Microrganismos que produzem Insulina:</strong> Bactérias modificadas para produzir insulina humana em larga escala.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 mt-6 dark:text-gray-200">Debates sobre OGMs: 🤔</h3>
+            <p class="mb-4">
+                O uso de OGMs gera muitas discussões. Existem vantagens e desvantagens:
+            </p>
+            <div class="overflow-x-auto mb-4">
+                <table class="table-auto w-full border-collapse border border-gray-700 dark:border-gray-600">
+                    <thead>
+                        <tr class="bg-gray-700 dark:bg-gray-600">
+                            <th class="border border-gray-700 dark:border-gray-600 p-2 text-left">Vantagens ✅</th>
+                            <th class="border border-gray-700 dark:border-gray-600 p-2 text-left">Possíveis Desvantagens ⚠️</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Aumento da produção de alimentos.</td>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Possível desenvolvimento de super-pragas ou super-ervas daninhas.</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Redução do uso de certos pesticidas químicos (como no Milho Bt).</td>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Impacto na biodiversidade (menos variedades tradicionais).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Melhora nutricional de alimentos (ex: Arroz Dourado).</td>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Preocupações com alergias (embora muito estudado e regulado).</td>
+                        </tr>
+                        <tr>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Desenvolvimento de plantas mais resistentes a secas, salinidade, etc.</td>
+                            <td class="border border-gray-700 dark:border-gray-600 p-2">Dependência de sementes geneticamente modificadas (geralmente patenteadas).</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="mb-4">
+                Em muitos países, incluindo o Brasil, os OGMs são rigorosamente estudados e regulados antes de serem aprovados para plantio ou consumo. É um campo que continua evoluindo e sendo debatido pela sociedade.
+            </p>
+        </section>
+
+        <!-- Tópico 5: Clonagem -->
+        <section id="clonagem" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 dark:text-blue-300">5. Clonagem: Fazendo Cópias Idênticas</h2>
+            <p class="mb-4">
+                <strong>Clonagem</strong> é o processo de criar uma cópia geneticamente idêntica de um organismo, célula ou molécula. 👯‍♀️🧬
+            </p>
+            <p class="mb-4">
+                Na natureza, a clonagem acontece naturalmente em organismos que se reproduzem assexuadamente (bactérias, algumas plantas, etc.). Gêmeos idênticos em humanos também são clones naturais. A clonagem que discutimos em biotecnologia é a feita artificialmente em laboratório.
+            </p>
+            <h3 class="text-xl font-semibold mb-3 mt-6 dark:text-gray-200">Tipos de Clonagem:</h3>
+            <ul class="list-disc ml-6 mb-4 dark:text-gray-300">
+                <li><strong>Clonagem Reprodutiva:</strong> Cria um novo organismo completo que é uma cópia genética de outro. O exemplo mais famoso é a ovelha Dolly.</li>
+                <li><strong>Clonagem Terapêutica:</strong> O objetivo não é criar um organismo completo, mas sim criar células-tronco geneticamente idênticas a um paciente para usar em tratamentos médicos (regenerar tecidos, estudar doenças). Ainda é uma área em pesquisa e com muitas discussões éticas.</li>
+            </ul>
+            <p class="mb-4">
+                A clonagem reprodutiva em animais complexos é tecnicamente difícil e geralmente resulta em indivíduos com problemas de saúde. A clonagem humana reprodutiva é amplamente condenada por questões éticas e legais em todo o mundo.
+            </p>
+            <p class="mb-4">
+                A clonagem terapêutica, por outro lado, tem potencial para avanços médicos, mas também levanta debates importantes sobre o uso de embriões.
+            </p>
+
+             <!-- Pergunta Rápida 3 -->
+             <div class="bg-gray-700 p-4 rounded-md mt-6">
+                <p class="font-semibold mb-3">Pergunta Rápida 3:</p>
+                <p class="mb-3">Qual é o nome da ovelha famosa que foi o primeiro mamífero clonado a partir de uma célula adulta?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q3_a" name="quiz3" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q3_a" class="ml-2 text-gray-200">A) Beth</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q3_b" name="quiz3" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q3_b" class="ml-2 text-gray-200">B) Dolly</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="q3_c" name="quiz3" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q3_c" class="ml-2 text-gray-200">C) Shaun</label>
+                </div>
+                <div class="flex items-center">
+                    <input type="radio" id="q3_d" name="quiz3" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="q3_d" class="ml-2 text-gray-200">E) Margot</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quiz3', 'b', 'result3')">Verificar Resposta</button>
+                <div id="result3" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+        </section>
+
+        <!-- Seção de Quiz Final -->
+        <section id="quiz-final" class="bg-gray-800 rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center dark:text-blue-300">Quiz Final: Teste Seus Conhecimentos! 🤔✅</h2>
+
+            <p class="mb-6 text-center dark:text-gray-300">Escolha a alternativa correta para cada pergunta e clique em "Verificar Resposta".</p>
+
+            <!-- Questões de Revisão Simples -->
+            <h3 class="text-xl font-semibold mb-4 dark:text-gray-200">Questões de Revisão Simples (5)</h3>
+
+            <!-- Questão Simples 1 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 1:</p>
+                <p class="mb-3">O que significa a sigla OGM?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs1_a" name="quizs1" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs1_a" class="ml-2 text-gray-200">A) Organismo Geneticamente Manipulado</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs1_b" name="quizs1" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs1_b" class="ml-2 text-gray-200">B) Objeto Grande e Metálico</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs1_c" name="quizs1" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs1_c" class="ml-2 text-gray-200">D) Ordem Geral de Micróbios</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qs1_d" name="quizs1" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs1_d" class="ml-2 text-gray-200">E) Organismo Natural Modificado</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizs1', 'a', 'results1')">Verificar Resposta</button>
+                <div id="results1" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Simples 2 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 2:</p>
+                <p class="mb-3">Qual técnica biológica permite criar uma cópia genética idêntica de um organismo?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs2_a" name="quizs2" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs2_a" class="ml-2 text-gray-200">A) Fermentação</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs2_b" name="quizs2" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs2_b" class="ml-2 text-gray-200">B) Fotossíntese</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs2_c" name="quizs2" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs2_c" class="ml-2 text-gray-200">D) Clonagem</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qs2_d" name="quizs2" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs2_d" class="ml-2 text-gray-200">E) Seleção Natural</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizs2', 'c', 'results2')">Verificar Resposta</button>
+                <div id="results2" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão Simples 3 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 3:</p>
+                <p class="mb-3">A Seleção Artificial envolve a escolha de características por quem?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs3_a" name="quizs3" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs3_a" class="ml-2 text-gray-200">A) Pelo ambiente</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs3_b" name="quizs3" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs3_b" class="ml-2 text-gray-200">B) Pelo acaso</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs3_c" name="quizs3" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs3_c" class="ml-2 text-gray-200">D) Pelo ser humano</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qs3_d" name="quizs3" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs3_d" class="ml-2 text-gray-200">E) Pelos animais selvagens</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizs3', 'c', 'results3')">Verificar Resposta</button>
+                <div id="results3" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão Simples 4 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 4:</p>
+                <p class="mb-3">A Biotecnologia envolve o uso de sistemas biológicos para:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs4_a" name="quizs4" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs4_a" class="ml-2 text-gray-200">A) Criar obras de arte</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs4_b" name="quizs4" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs4_b" class="ml-2 text-gray-200">B) Explorar o espaço</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs4_c" name="quizs4" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs4_c" class="ml-2 text-gray-200">D) Produzir alimentos processados</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qs4_d" name="quizs4" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs4_d" class="ml-2 text-gray-200">E) Criar produtos ou resolver problemas práticos</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizs4', 'd', 'results4')">Verificar Resposta</button>
+                <div id="results4" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Simples 5 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 5:</p>
+                <p class="mb-3">Qual dos cientistas abaixo contribuiu para a descoberta da estrutura do DNA?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs5_a" name="quizs5" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs5_a" class="ml-2 text-gray-200">A) Isaac Newton</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs5_b" name="quizs5" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs5_b" class="ml-2 text-gray-200">B) Albert Einstein</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qs5_c" name="quizs5" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs5_c" class="ml-2 text-gray-200">D) James Watson</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qs5_d" name="quizs5" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qs5_d" class="ml-2 text-gray-200">E) Galileo Galilei</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizs5', 'c', 'results5')">Verificar Resposta</button>
+                <div id="results5" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+
+            <!-- Questões Estilo Vestibular -->
+            <h3 class="text-xl font-semibold mb-4 mt-8 dark:text-gray-200">Questões Estilo Vestibular (10)</h3>
+
+             <!-- Questão Vestibular 1 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 6:</p>
+                <p class="mb-3">Um agricultor observa que algumas de suas laranjeiras produzem frutos maiores e mais doces que outras. Ele decide usar apenas galhos dessas árvores para fazer "mudas" (clones) e plantar um novo pomar. Essa prática é um exemplo de:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv1_a" name="quizv1" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv1_a" class="ml-2 text-gray-200">A) Engenharia genética</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv1_b" name="quizv1" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv1_b" class="ml-2 text-gray-200">B) Clonagem (reprodutiva)</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv1_c" name="quizv1" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv1_c" class="ml-2 text-gray-200">D) Produção de OGM</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv1_d" name="quizv1" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv1_d" class="ml-2 text-gray-200">E) Seleção artificial</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv1', 'b', 'resultv1')">Verificar Resposta</button>
+                <div id="resultv1" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 2 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 7:</p>
+                <p class="mb-3">Qual das aplicações da biotecnologia moderna <span class="font-bold">não</span> se enquadra diretamente na área da Engenharia Genética?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv2_a" name="quizv2" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv2_a" class="ml-2 text-gray-200">A) Criação de plantas resistentes a pragas pela inserção de genes.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv2_b" name="quizv2" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv2_b" class="ml-2 text-gray-200">B) Produção de insulina humana por bactérias modificadas.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv2_c" name="quizv2" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv2_c" class="ml-2 text-gray-200">D) Uso de leveduras para fazer pão crescer.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv2_d" name="quizv2" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv2_d" class="ml-2 text-gray-200">E) Desenvolvimento de terapias gênicas para corrigir defeitos genéticos.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv2', 'c', 'resultv2')">Verificar Resposta</button>
+                <div id="resultv2" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 3 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 8:</p>
+                <p class="mb-3">A criação do Arroz Dourado, modificado para conter betacaroteno, é um exemplo de OGM desenvolvido com o objetivo de:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv3_a" name="quizv3" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv3_a" class="ml-2 text-gray-200">A) Aumentar a resistência a herbicidas.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv3_b" name="quizv3" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv3_b" class="ml-2 text-gray-200">B) Reduzir a necessidade de água para o cultivo.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv3_c" name="quizv3" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv3_c" class="ml-2 text-gray-200">D) Melhorar o valor nutricional do alimento.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv3_d" name="quizv3" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv3_d" class="ml-2 text-gray-200">E) Aumentar a vida útil após a colheita.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv3', 'c', 'resultv3')">Verificar Resposta</button>
+                <div id="resultv3" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 4 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 9:</p>
+                <p class="mb-3">Qual das seguintes opções descreve corretamente o processo básico para criar um OGM?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv4_a" name="quizv4" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv4_a" class="ml-2 text-gray-200">A) Selecionar manualmente os indivíduos com as melhores características e fazê-los reproduzir.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv4_b" name="quizv4" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv4_b" class="ml-2 text-gray-200">B) Expor o organismo a radiação para induzir mutações aleatórias.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv4_c" name="quizv4" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv4_c" class="ml-2 text-gray-200">D) Isolar um gene de interesse de um organismo e introduzi-lo no DNA de outro.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv4_d" name="quizv4" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv4_d" class="ml-2 text-gray-200">E) Cruzas diferentes espécies para obter híbridos.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv4', 'c', 'resultv4')">Verificar Resposta</button>
+                <div id="resultv4" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 5 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 10:</p>
+                <p class="mb-3">A clonagem reprodutiva de mamíferos, como a ovelha Dolly, envolveu a transferência do núcleo de uma célula somática (não reprodutiva) para um óvulo sem núcleo. O principal objetivo dessa técnica é:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv5_a" name="quizv5" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv5_a" class="ml-2 text-gray-200">A) Produzir células-tronco para tratamento de doenças.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv5_b" name="quizv5" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv5_b" class="ml-2 text-gray-200">B) Criar um novo organismo geneticamente idêntico ao doador do núcleo.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv5_c" name="quizv5" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv5_c" class="ml-2 text-gray-200">D) Modificar geneticamente o óvulo para uma característica específica.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv5_d" name="quizv5" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv5_d" class="ml-2 text-gray-200">E) Realizar seleção artificial em laboratório.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv5', 'b', 'resultv5')">Verificar Resposta</button>
+                <div id="resultv5" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 6 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 11:</p>
+                <p class="mb-3">A produção de insulina humana por bactérias geneticamente modificadas é um grande avanço médico. Isso só foi possível porque:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv6_a" name="quizv6" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv6_a" class="ml-2 text-gray-200">A) Bactérias naturalmente produzem insulina.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv6_b" name="quizv6" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv6_b" class="ml-2 text-gray-200">B) O código genético (DNA) é universal, permitindo que o gene humano funcione em bactérias.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv6_c" name="quizv6" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv6_c" class="ml-2 text-gray-200">D) A clonagem de bactérias produz grandes quantidades rapidamente.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv6_d" name="quizv6" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv6_d" class="ml-2 text-gray-200">E) A seleção artificial tornou as bactérias capazes de produzir insulina.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv6', 'b', 'resultv6')">Verificar Resposta</button>
+                <div id="resultv6" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 7 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 12:</p>
+                <p class="mb-3">Qual das alternativas lista uma vantagem e uma desvantagem (ou preocupação) sobre os OGMs na agricultura?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv7_a" name="quizv7" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv7_a" class="ml-2 text-gray-200">A) Vantagem: Aumento da biodiversidade; Desvantagem: Necessidade de mais pesticidas.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv7_b" name="quizv7" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv7_b" class="ml-2 text-gray-200">B) Vantagem: Resistência a pragas; Desvantagem: Possível impacto na biodiversidade de plantas nativas.</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv7_c" name="quizv7" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv7_c" class="ml-2 text-gray-200">D) Vantagem: Redução da produção; Desvantagem: Alimentos mais nutritivos.</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv7_d" name="quizv7" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv7_d" class="ml-2 text-gray-200">E) Vantagem: Custo de produção mais alto; Desvantagem: Independência do agricultor.</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv7', 'b', 'resultv7')">Verificar Resposta</button>
+                <div id="resultv7" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 8 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 13:</p>
+                <p class="mb-3">A Biotecnologia Vermelha está relacionada a qual área de aplicação?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv8_a" name="quizv8" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv8_a" class="ml-2 text-gray-200">A) Indústria</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv8_b" name="quizv8" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv8_b" class="ml-2 text-gray-200">B) Meio ambiente</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv8_c" name="quizv8" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv8_c" class="ml-2 text-gray-200">D) Agricultura</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv8_d" name="quizv8" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv8_d" class="ml-2 text-gray-200">E) Saúde e medicina</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv8', 'd', 'resultv8')">Verificar Resposta</button>
+                <div id="resultv8" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 9 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 14:</p>
+                <p class="mb-3">A principal diferença entre a clonagem reprodutiva e a clonagem terapêutica é:</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv9_a" name="quizv9" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv9_a" class="ml-2 text-gray-200">A) O tipo de célula usada (reprodutiva usa células da pele, terapêutica usa células do sangue).</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv9_b" name="quizv9" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv9_b" class="ml-2 text-gray-200">B) O objetivo: criar um organismo completo (reprodutiva) vs. criar células para tratamento (terapêutica).</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv9_c" name="quizv9" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv9_c" class="ml-2 text-gray-200">D) A técnica utilizada (reprodutiva usa DNA, terapêutica usa RNA).</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv9_d" name="quizv9" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv9_d" class="ml-2 text-gray-200">E) A legalidade (reprodutiva é legal, terapêutica é ilegal em todo o mundo).</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv9', 'b', 'resultv9')">Verificar Resposta</button>
+                <div id="resultv9" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão Vestibular 10 -->
+            <div class="bg-gray-700 p-4 rounded-md mb-4">
+                <p class="font-semibold mb-3">Questão 15:</p>
+                <p class="mb-3">Considere os seguintes eventos históricos relacionados à genética e biotecnologia:</p>
+                <p class="mb-3">I. Descoberta da estrutura em dupla hélice do DNA.<br>II. Criação da primeira bactéria geneticamente modificada.<br>III. Início da prática de seleção artificial na agricultura.</p>
+                <p class="mb-3">Qual a ordem cronológica correta desses eventos?</p>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv10_a" name="quizv10" value="a" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv10_a" class="ml-2 text-gray-200">A) I - II - III</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv10_b" name="quizv10" value="b" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv10_b" class="ml-2 text-gray-200">B) III - I - II</label>
+                </div>
+                <div class="flex items-center mb-2">
+                    <input type="radio" id="qv10_c" name="quizv10" value="c" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv10_c" class="ml-2 text-gray-200">D) II - I - III</label>
+                </div>
+                 <div class="flex items-center">
+                    <input type="radio" id="qv10_d" name="quizv10" value="d" class="form-radio h-4 w-4 text-blue-600 dark:text-blue-400">
+                    <label for="qv10_d" class="ml-2 text-gray-200">E) I - III - II</label>
+                </div>
+                <button class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" onclick="checkAnswer('quizv10', 'b', 'resultv10')">Verificar Resposta</button>
+                <div id="resultv10" class="mt-3 text-sm font-semibold"></div>
+            </div>
+
+
+        </section>
+
+         <p class="text-center mt-8 mb-4 dark:text-gray-400 text-sm">Fim da Apostila</p>
+
+    </div>
+
+    <!-- Script for interactivity (Placeholder - actual JS code is not included as per instructions) -->
+    <!--
+    <script>
+        function checkAnswer(quizName, correctAnswer, resultElementId) {
+            const radios = document.querySelectorAll(`input[name="${quizName}"]`);
+            let selectedValue = null;
+            for (const radio of radios) {
+                if (radio.checked) {
+                    selectedValue = radio.value;
+                    break;
+                }
+            }
+            const resultElement = document.getElementById(resultElementId);
+            if (selectedValue === null) {
+                resultElement.textContent = "Por favor, selecione uma resposta.";
+                resultElement.className = "mt-3 text-sm font-semibold text-yellow-500";
+            } else if (selectedValue === correctAnswer) {
+                resultElement.textContent = "✅ Resposta Correta!";
+                resultElement.className = "mt-3 text-sm font-semibold text-green-500";
+            } else {
+                resultElement.textContent = "❌ Resposta Incorreta. Reveja o conteúdo.";
+                resultElement.className = "mt-3 text-sm font-semibold text-red-500";
+            }
+             // Optional: Disable radios and button after answering
+             // radios.forEach(radio => radio.disabled = true);
+             // document.querySelector(`button[onclick="checkAnswer('${quizName}', '${correctAnswer}', '${resultElementId}')"]`).disabled = true;
+        }
+    </script>
+    -->
+    <!-- Note: The JavaScript code above is commented out because the request specified HTML body content ONLY. -->
+    <!-- To make the quiz interactive, you need to include this script (uncommented) in the final HTML page -->
+
+</div>
+
+  <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-20">
+    GeniusLab RC 1
+  </div>
+</body>
+</html>

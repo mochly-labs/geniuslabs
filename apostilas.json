@@ -71,6 +71,24 @@
       "link": "/apostilas/Biologia/bio-evol-Scmf.html",
       "nome": "A Teoria da Evolução",
       "descricao": "Explicações para a diversidade dos seres vivos, hipótese do fixismo, teoria da evolução (Lamarckismo e Darwinismo), e evidências da evolução (paleontológicas, embriologia, anatomia, moleculares)."
+    },
+    {
+      "id": "bio-fltm",
+      "link": "/apostilas/Biologia/bio-fltm.html",
+      "nome": "Hereditariedade e Genética no 9 Ano",
+      "descricao": "Explorando a celula hereditariedade genetica e as leis de Mendel para alunos do 9 ano"
+    },
+    {
+      "id": "bio-genetica-EqnN",
+      "link": "/apostilas/Biologia/bio-genetica-EqnN.html",
+      "nome": "Engenharia Genética e Biotecnologia",
+      "descricao": "Explora a engenharia genetica OGM biotecnologia e clonagem para o 9 ano do ensino fundamental segundo a BNCC"
+    },
+    {
+      "id": "bio-genetic-fNtW",
+      "link": "/apostilas/Biologia/bio-genetic-fNtW.html",
+      "nome": "Engenharia Genética",
+      "descricao": "Estudo da manipulacao de genes, organismos geneticamente modificados e aplicacoes da biotecnologia."
     }
   ],
   "Inglês": [
@@ -89,16 +107,16 @@
   ],
   "Português": [
     {
-      "id": "port-pcs-pCZO",
-      "link": "/apostilas/Português/port-pcs-pCZO.html",
-      "nome": "Período composto por subordinação",
-      "descricao": "Estudo das orações subordinadas e sua estrutura."
-    },
-    {
       "id": "portugues-morf-nQzp",
       "link": "/apostilas/Português/portugues-morf-nQzp.html",
       "nome": "Desvendando os Morfemas: A Estrutura das Palavras",
       "descricao": "Explora a estrutura interna das palavras, abordando radicais, desinencias nominais e verbais, e vogal tematica. Relembra gerundio, participio e infinitivo."
+    },
+    {
+      "id": "port-oracoes-subs-gmsB",
+      "link": "/apostilas/Português/port-oracoes-subs-gmsB.html",
+      "nome": "Orações Substantivas: Palavras Espertas!",
+      "descricao": "Orações que funcionam como substantivos na frase, podendo ser sujeito, objeto ou predicativo!"
     }
   ],
   "História": [
@@ -159,6 +177,12 @@
       "link": "/apostilas/Redação/redacao-romance-aNXp.html",
       "nome": "Como Escrever um Romance",
       "descricao": "Dicas e técnicas para escrever um romance."
+    },
+    {
+      "id": "redacao-TAqE",
+      "link": "/apostilas/Redação/redacao-TAqE.html",
+      "nome": "Guia de Texto Dissertativo-Argumentativo",
+      "descricao": "Conteudo sobre texto dissertativo-argumentativo abordando introducao desenvolvimento conclusao vocabulario e estrutura para 9 ano BNCC"
     }
   ],
   "Japonês": [
@@ -182,50 +206,20 @@
       "link": "/apostilas/Educação Física/fisica-cond-rVTm.html",
       "nome": "Ginástica de Condicionamento Físico",
       "descricao": "Aborda a ginastica de condicionamento fisico e seus exercicios limites flexibilidade Crossfit e diferentes tipos de ginastica"
-    }
-  ],
-  "Jogos Digitais": [
-    {
-      "id": "jogos-oneshot-ZzGO",
-      "link": "/apostilas/Jogos Digitais/jogos-oneshot-ZzGO.html",
-      "nome": "A História Completa de OneShot e Seu DLC",
-      "descricao": "Exploracao detalhada da narrativa principal e do conteudo adicional do aclamado jogo OneShot"
-    }
-  ],
-  "Oneshot": [
-    {
-      "id": "oneshot-niko-DLPy",
-      "link": "/apostilas/Oneshot/oneshot-niko-DLPy.html",
-      "nome": "Niko: O Protagonista de Oneshot",
-      "descricao": "Explicação detalhada sobre Niko a história do jogo Oneshot e seu DLC."
-    }
-  ],
-  "Onimai": [
-    {
-      "id": "onimai-mahiro-OXXc",
-      "link": "/apostilas/Onimai/onimai-mahiro-OXXc.html",
-      "nome": "A Jornada de Mahiro Oyama",
-      "descricao": "Exploracao detalhada da historia de Mahiro Oyama na serie Onimai desde o inicio focando exclusivamente em seu desenvolvimento sem atividades e ilustrado unicamente com imagens da obra."
     },
     {
-      "id": "onimai-mahiro-Oxen",
-      "link": "/apostilas/Onimai/onimai-mahiro-Oxen.html",
-      "nome": "A Transformacao Super Fofa de Mahiro Oyama",
-      "descricao": "Conheca a historia do nosso querido Mahiro Oyama que de repente se tornou uma garotinha incrivelmente fofa! Descubra os desafios adoraveis da sua nova vida e porque ele e o personagem mais fofinho que existe!"
+      "id": "edufisica-dancas-Ejbi",
+      "link": "/apostilas/Educação Física/edufisica-dancas-Ejbi.html",
+      "nome": "Ritmos Globais: As Danças de Salão",
+      "descricao": "Conteudo de Educacao Fisica explorando dancas de salao do mundo para o 9 ano 2 bimestre"
     }
   ],
-  "Minecraft": [
+  "Artes": [
     {
-      "id": "mc-vil-QfsA",
-      "link": "/apostilas/Minecraft/mc-vil-QfsA.html",
-      "nome": "Guia Completo de Aldeões",
-      "descricao": "Aprenda tudo sobre aldeões, trocas, profissões e fazendas automáticas no Minecraft."
-    },
-    {
-      "id": "minecraft-villager-NPlA",
-      "link": "/apostilas/Minecraft/minecraft-villager-NPlA.html",
-      "nome": "Aldeões no Minecraft",
-      "descricao": "Explica trocas, profissoes, reproducao, farms de ferro e mais sobre aldeoes no Minecraft."
+      "id": "cena-adaptacao-fcys",
+      "link": "/apostilas/Artes/cena-adaptacao-fcys.html",
+      "nome": "Texto Teatral e Suas Formas",
+      "descricao": "Aborda a adaptacao de texto teatral, radionovela, novela e telenovela."
     }
   ]
 }
