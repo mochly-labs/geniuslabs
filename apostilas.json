@@ -115,6 +115,18 @@
       "link": "/apostilas/Inglês/ing-nmqr.html",
       "nome": "Aventuras nos Conditionals",
       "descricao": "Explore os zero, first e second conditionals de um jeito super facil! Aprenda a reconhecer e usar em frases divertidas!"
+    },
+    {
+      "id": "eng-perf-lDRw",
+      "link": "/apostilas/Inglês/eng-perf-lDRw.html",
+      "nome": "Tempos Perfeitos",
+      "descricao": "Estudo dos tempos verbais perfects em ingles"
+    },
+    {
+      "id": "eng-perfects-NlEo",
+      "link": "/apostilas/Inglês/eng-perfects-NlEo.html",
+      "nome": "Minigame: Tempos Perfeitos",
+      "descricao": "Desafio extremo de gramatica inglesa sobre os perfect tenses em formato minigame"
     }
   ],
   "Português": [
@@ -129,6 +141,12 @@
       "link": "/apostilas/Português/port-oracoes-subs-gmsB.html",
       "nome": "Orações Substantivas: Palavras Espertas!",
       "descricao": "Orações que funcionam como substantivos na frase, podendo ser sujeito, objeto ou predicativo!"
+    },
+    {
+      "id": "portugues-substantivas-PLgs",
+      "link": "/apostilas/Português/portugues-substantivas-PLgs.html",
+      "nome": "Ataque das Orações Substantivas",
+      "descricao": "Minigame interativo para identificar e classificar oracoes subordinadas substantivas conforme BNCC 9 ano"
     }
   ],
   "História": [

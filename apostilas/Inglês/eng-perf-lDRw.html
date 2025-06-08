@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeniusLabs</title>
+  <script src="https://cdn.tailwindcss.com"/>
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-gray-900">
+  
+<div class="min-h-screen bg-gray-900 text-gray-100 p-4 sm:p-6 lg:p-8 font-sans leading-relaxed">
+    <div class="max-w-4xl mx-auto">
+
+        <h1 class="text-3xl sm:text-4xl font-bold text-center mb-8 text-blue-400">
+            Tempos Perfeitos em Inglês: Guia Simples e Direto
+        </h1>
+
+        <!-- Present Perfect Simple -->
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-blue-300">1. Present Perfect Simple</h2>
+            <p class="mb-4">
+                O Present Perfect Simple é usado para falar sobre ações que começaram no passado, mas que têm alguma conexão com o presente. 🤔
+            </p>
+            <p class="mb-6">
+                A conexão pode ser:
+            </p>
+            <ul class="list-disc list-inside mb-6 ml-4 space-y-2">
+                <li>A ação continua acontecendo no presente.</li>
+                <li>A ação terminou, mas o resultado é importante AGORA.</li>
+                <li>Estamos falando de uma experiência de vida, sem especificar quando aconteceu.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Como formar? (Estrutura) 🛠️</h3>
+            <p class="mb-4">Usamos o verbo auxiliar "have" ou "has" (para he, she, it) + o particípio passado do verbo principal.</p>
+
+            <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-gray-700 rounded-md overflow-hidden">
+                    <thead>
+                        <tr class="bg-gray-600 text-gray-200 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Forma</th>
+                            <th class="py-3 px-6 text-left">Estrutura</th>
+                            <th class="py-3 px-6 text-left">Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200 text-sm font-light">
+                        <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Afirmativa (+)</td>
+                            <td class="py-3 px-6 text-left">Subject + have/has + Past Participle</td>
+                            <td class="py-3 px-6 text-left">I <span class="font-bold text-green-400">have lived</span> here for 5 years.</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Negativa (-)</td>
+                            <td class="py-3 px-6 text-left">Subject + have/has + not + Past Participle</td>
+                            <td class="py-3 px-6 text-left">She <span class="font-bold text-red-400">has not finished</span> her homework yet.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Interrogativa (?)</td>
+                            <td class="py-3 px-6 text-left">Have/Has + Subject + Past Participle + ?</td>
+                            <td class="py-3 px-6 text-left"><span class="font-bold text-yellow-400">Have you ever eaten</span> sushi?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Quando usar? (Usos Principais) 🎯</h3>
+            <ul class="list-disc list-inside mb-6 ml-4 space-y-2">
+                <li>Experiências de vida (sem dizer quando): <span class="italic text-gray-400">I have visited Paris.</span> (Já visitei Paris alguma vez na vida).</li>
+                <li>Ações completadas no passado, mas com resultado AGORA: <span class="italic text-gray-400">I have lost my keys.</span> (Perdi minhas chaves no passado, e o resultado é que não as tenho agora).</li>
+                <li>Ações que começaram no passado e continuam no presente (com <span class="font-bold">for</span> e <span class="font-bold">since</span>): <span class="italic text-gray-400">She has worked here for ten years.</span> (Ela trabalha aqui há dez anos e ainda trabalha).</li>
+                <li>Ações que aconteceram num passado recente (com <span class="font-bold">just</span>, <span class="font-bold">already</span>, <span class="font-bold">yet</span>): <span class="italic text-gray-400">They have just arrived.</span> (Eles acabaram de chegar).</li>
+            </ul>
+
+             <h3 class="text-xl font-semibold mb-3 text-blue-200">Palavras Comuns (Keywords) 🔑</h3>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                <li><span class="font-bold">just</span>: para ações que acabaram de acontecer.</li>
+                <li><span class="font-bold">already</span>: para ações que já aconteceram (geralmente em frases afirmativas).</li>
+                <li><span class="font-bold">yet</span>: para ações que ainda não aconteceram (geralmente em frases negativas ou interrogativas).</li>
+                <li><span class="font-bold">ever</span>: alguma vez (em perguntas sobre experiências).</li>
+                <li><span class="font-bold">never</span>: nunca (em frases negativas sobre experiências).</li>
+                <li><span class="font-bold">for</span>: por um período de tempo (<span class="italic text-gray-400">for two hours, for a week</span>).</li>
+                <li><span class="font-bold">since</span>: desde um ponto específico no tempo (<span class="italic text-gray-400">since 2010, since Monday</span>).</li>
+            </ul>
+        </section>
+
+        <!-- Present Perfect Continuous -->
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-blue-300">2. Present Perfect Continuous</h2>
+            <p class="mb-4">
+                O Present Perfect Continuous é usado para falar sobre ações que começaram no passado e *continuaram* até o presente ou muito recentemente. O foco é na *duração* da ação ou na *atividade* em si. 🏃‍♀️📚
+            </p>
+            <p class="mb-6">
+                 Pense nele quando quiser enfatizar quanto tempo algo tem acontecido ou a atividade que resultou em algo agora.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Como formar? (Estrutura) 🛠️</h3>
+            <p class="mb-4">Usamos o verbo auxiliar "have been" ou "has been" (para he, she, it) + o verbo principal com "-ing" (gerúndio).</p>
+
+             <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-gray-700 rounded-md overflow-hidden">
+                    <thead>
+                        <tr class="bg-gray-600 text-gray-200 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Forma</th>
+                            <th class="py-3 px-6 text-left">Estrutura</th>
+                            <th class="py-3 px-6 text-left">Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200 text-sm font-light">
+                         <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Afirmativa (+)</td>
+                            <td class="py-3 px-6 text-left">Subject + have/has been + Verb-ing</td>
+                            <td class="py-3 px-6 text-left">They <span class="font-bold text-green-400">have been waiting</span> for an hour.</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Negativa (-)</td>
+                            <td class="py-3 px-6 text-left">Subject + have/has + not + been + Verb-ing</td>
+                            <td class="py-3 px-6 text-left">He <span class="font-bold text-red-400">has not been feeling</span> well lately.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Interrogativa (?)</td>
+                            <td class="py-3 px-6 text-left">Have/Has + Subject + been + Verb-ing + ?</td>
+                            <td class="py-3 px-6 text-left"><span class="font-bold text-yellow-400">Have you been studying</span> hard for the test?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Quando usar? (Usos Principais) 🎯</h3>
+            <ul class="list-disc list-inside mb-6 ml-4 space-y-2">
+                <li>Ação que começou no passado e continua até o presente (foco na duração): <span class="italic text-gray-400">She has been learning English for two years.</span> (Ela estuda inglês há dois anos e ainda estuda - foco no tempo de estudo).</li>
+                <li>Ação que terminou muito recentemente, mas o resultado é visível AGORA (foco na atividade que causou o resultado): <span class="italic text-gray-400">Your eyes are red. Have you been crying?</span> (Seus olhos estão vermelhos - resultado. Você esteve chorando? - atividade que causou o resultado).</li>
+                <li>Ação repetida ao longo do tempo, até o presente: <span class="italic text-gray-400">I have been trying to call her all morning.</span> (Estive tentando ligar para ela a manhã toda).</li>
+            </ul>
+
+             <h3 class="text-xl font-semibold mb-3 text-blue-200">Palavras Comuns (Keywords) 🔑</h3>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                 <li><span class="font-bold">for</span>: por um período de tempo.</li>
+                <li><span class="font-bold">since</span>: desde um ponto específico no tempo.</li>
+                <li><span class="font-bold">how long</span>: por quanto tempo (em perguntas).</li>
+                <li><span class="font-bold">recently</span>, <span class="font-bold">lately</span>: recentemente.</li>
+                <li><span class="font-bold">all day</span>, <span class="font-bold">all morning</span>, etc.: por todo o período indicado.</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Present Perfect Simple vs. Continuous 🤔🆚</h3>
+            <p class="mb-4">Qual a diferença principal?</p>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                <li><span class="font-bold">Simple:</span> Foco na <span class="underline">conclusão</span> da ação ou no <span class="underline">resultado</span> no presente.</li>
+                <li><span class="font-bold">Continuous:</span> Foco na <span class="underline">duração</span> da ação ou na <span class="underline">atividade</span> que aconteceu até o presente.</li>
+            </ul>
+            <p class="italic text-gray-400">Exemplo:</p>
+            <ul class="list-disc list-inside ml-8 space-y-2 text-gray-400 italic">
+                <li><span class="font-bold">I have read</span> the book. (Eu li o livro - a ação de ler está completa).</li>
+                <li><span class="font-bold">I have been reading</span> the book. (Estou lendo o livro - a ação começou e ainda pode estar acontecendo, foco na atividade).</li>
+            </ul>
+        </section>
+
+         <!-- Past Perfect Simple -->
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-blue-300">3. Past Perfect Simple</h2>
+            <p class="mb-4">
+                O Past Perfect Simple é usado para falar sobre uma ação que aconteceu e foi <span class="underline font-bold">completada ANTES de outro momento ou ação no passado</span>. Pense nele como o "passado do passado". ⏪🕰️
+            </p>
+            <p class="mb-6">
+                É muito útil quando você está contando uma história ou explicando eventos que aconteceram em sequência no passado.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Como formar? (Estrutura) 🛠️</h3>
+            <p class="mb-4">Usamos o verbo auxiliar "had" (para todas as pessoas) + o particípio passado do verbo principal.</p>
+
+             <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-gray-700 rounded-md overflow-hidden">
+                    <thead>
+                        <tr class="bg-gray-600 text-gray-200 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Forma</th>
+                            <th class="py-3 px-6 text-left">Estrutura</th>
+                            <th class="py-3 px-6 text-left">Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200 text-sm font-light">
+                         <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Afirmativa (+)</td>
+                            <td class="py-3 px-6 text-left">Subject + had + Past Participle</td>
+                            <td class="py-3 px-6 text-left">When I arrived, they <span class="font-bold text-green-400">had already eaten</span>.</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Negativa (-)</td>
+                            <td class="py-3 px-6 text-left">Subject + had + not + Past Participle</td>
+                            <td class="py-3 px-6 text-left">She <span class="font-bold text-red-400">had not finished</span> the report before the meeting.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Interrogativa (?)</td>
+                            <td class="py-3 px-6 text-left">Had + Subject + Past Participle + ?</td>
+                            <td class="py-3 px-6 text-left"><span class="font-bold text-yellow-400">Had you ever seen</span> a live concert before that night?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Quando usar? (Usos Principais) 🎯</h3>
+            <ul class="list-disc list-inside mb-6 ml-4 space-y-2">
+                <li>Para mostrar que uma ação foi completada antes de outra ação no passado: <span class="italic text-gray-400">I couldn't get in because I had lost my key.</span> (Perder a chave aconteceu *antes* de não conseguir entrar).</li>
+                 <li>Para mostrar que algo aconteceu antes de um ponto específico no passado: <span class="italic text-gray-400">By 9 o'clock, I had finished my work.</span> (Terminei meu trabalho *antes* das 9 horas).</li>
+                 <li>Em reported speech (discurso indireto) para relatar frases que estavam no Present Perfect ou Past Simple: <span class="italic text-gray-400">"I have finished."</span> becomes <span class="italic text-gray-400">He said he had finished.</span></li>
+            </ul>
+
+             <h3 class="text-xl font-semibold mb-3 text-blue-200">Palavras Comuns (Keywords) 🔑</h3>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                <li><span class="font-bold">before</span>, <span class="font-bold">after</span>, <span class="font-bold">by the time</span>, <span class="font-bold">when</span> (para indicar a ordem dos eventos no passado).</li>
+                <li><span class="font-bold">already</span>, <span class="font-bold">just</span>, <span class="font-bold">yet</span> (usados de forma similar ao Present Perfect, mas em relação a um ponto no passado).</li>
+            </ul>
+        </section>
+
+         <!-- Past Perfect Continuous -->
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-blue-300">4. Past Perfect Continuous</h2>
+            <p class="mb-4">
+                O Past Perfect Continuous é usado para falar sobre uma ação que <span class="underline font-bold">estava continuando</span> até um certo ponto no passado. O foco é na <span class="underline">duração</span> da atividade que aconteceu antes desse ponto no passado. 🏃‍♀️📚⏪
+            </p>
+             <p class="mb-6">
+                Pense nele para mostrar que uma atividade estava em andamento por um tempo, antes de outra coisa acontecer no passado.
+            </p>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Como formar? (Estrutura) 🛠️</h3>
+            <p class="mb-4">Usamos o verbo auxiliar "had been" (para todas as pessoas) + o verbo principal com "-ing" (gerúndio).</p>
+
+             <div class="overflow-x-auto mb-6">
+                <table class="min-w-full bg-gray-700 rounded-md overflow-hidden">
+                    <thead>
+                        <tr class="bg-gray-600 text-gray-200 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Forma</th>
+                            <th class="py-3 px-6 text-left">Estrutura</th>
+                            <th class="py-3 px-6 text-left">Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200 text-sm font-light">
+                         <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Afirmativa (+)</td>
+                            <td class="py-3 px-6 text-left">Subject + had been + Verb-ing</td>
+                            <td class="py-3 px-6 text-left">She was tired because she <span class="font-bold text-green-400">had been studying</span> all night.</td>
+                        </tr>
+                        <tr class="border-b border-gray-700 hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Negativa (-)</td>
+                            <td class="py-3 px-6 text-left">Subject + had + not + been + Verb-ing</td>
+                            <td class="py-3 px-6 text-left">The road was wet, but it <span class="font-bold text-red-400">had not been raining</span> for long.</td>
+                        </tr>
+                        <tr class="hover:bg-gray-600">
+                            <td class="py-3 px-6 text-left">Interrogativa (?)</td>
+                            <td class="py-3 px-6 text-left">Had + Subject + been + Verb-ing + ?</td>
+                            <td class="py-3 px-6 text-left"><span class="font-bold text-yellow-400">Had they been living</span> there long before they moved?</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Quando usar? (Usos Principais) 🎯</h3>
+            <ul class="list-disc list-inside mb-6 ml-4 space-y-2">
+                <li>Para mostrar que uma ação contínua causou um resultado no passado: <span class="italic text-gray-400">He was hot because he had been running.</span> (Ele estava quente - resultado no passado - porque ele estava correndo - ação contínua que aconteceu antes).</li>
+                <li>Para mostrar a duração de uma ação que continuou até um ponto específico no passado: <span class="italic text-gray-400">They had been talking for an hour when I arrived.</span> (Eles estavam conversando há uma hora - duração - no momento em que cheguei - ponto no passado).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Palavras Comuns (Keywords) 🔑</h3>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                 <li><span class="font-bold">for</span>, <span class="font-bold">since</span> (para indicar a duração antes de um ponto no passado).</li>
+                <li><span class="font-bold">how long</span> (em perguntas sobre duração antes de um ponto no passado).</li>
+                 <li><span class="font-bold">all day</span>, <span class="font-bold">all morning</span>, etc. (para indicar a duração total antes de um ponto no passado).</li>
+            </ul>
+
+            <h3 class="text-xl font-semibold mb-3 text-blue-200">Past Perfect Simple vs. Continuous 🤔🆚</h3>
+            <p class="mb-4">Qual a diferença principal?</p>
+            <ul class="list-disc list-inside mb-4 ml-4 space-y-2">
+                <li><span class="font-bold">Simple:</span> Foco na <span class="underline">conclusão</span> da ação antes de outro ponto no passado.</li>
+                <li><span class="font-bold">Continuous:</span> Foco na <span class="underline">duração</span> da ação contínua antes de outro ponto no passado.</li>
+            </ul>
+            <p class="italic text-gray-400">Exemplo:</p>
+            <ul class="list-disc list-inside ml-8 space-y-2 text-gray-400 italic">
+                <li>When I arrived, they <span class="font-bold">had finished</span> eating. (Quando cheguei, eles *já tinham terminado* de comer - ação completa antes da minha chegada).</li>
+                <li>When I arrived, they <span class="font-bold">had been eating</span> for 30 minutes. (Quando cheguei, eles *estavam comendo* há 30 minutos - foco na duração da atividade antes da minha chegada).</li>
+            </ul>
+        </section>
+
+        <!-- Activities -->
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-6 text-blue-300">Atividades Práticas 💪</h2>
+
+            <h3 class="text-xl font-semibold mb-4 text-blue-200">Revisão Simples (5 Questões) 👇</h3>
+
+            <!-- Questão 1 -->
+            <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 1: Qual tempo verbal usamos para falar de uma ação que começou no passado e continua até o presente, focando na duração?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q1a" name="q1" value="a" class="mr-2">
+                        <label for="q1a">a) Past Simple</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1b" name="q1" value="b" class="mr-2">
+                        <label for="q1b">b) Present Simple</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q1c" name="q1" value="c" class="mr-2">
+                        <label for="q1c">c) Present Perfect Simple</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q1d" name="q1" value="d" class="mr-2">
+                        <label for="q1d">d) Present Perfect Continuous</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q1', 'd')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q1" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão 2 -->
+            <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 2: Complete a frase: "She ___ finished her homework yet."</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q2a" name="q2" value="a" class="mr-2">
+                        <label for="q2a">a) hasn't</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2b" name="q2" value="b" class="mr-2">
+                        <label for="q2b">b) haven't</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q2c" name="q2" value="c" class="mr-2">
+                        <label for="q2c">c) didn't</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q2d" name="q2" value="d" class="mr-2">
+                        <label for="q2d">d) won't</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q2', 'a')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q2" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão 3 -->
+            <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 3: Qual tempo verbal indica uma ação que foi completada ANTES de outro evento no passado?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q3a" name="q3" value="a" class="mr-2">
+                        <label for="q3a">a) Past Simple</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3b" name="q3" value="b" class="mr-2">
+                        <label for="q3b">b) Past Continuous</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q3c" name="q3" value="c" class="mr-2">
+                        <label for="q3c">c) Past Perfect Simple</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q3d" name="q3" value="d" class="mr-2">
+                        <label for="q3d">d) Past Perfect Continuous</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q3', 'c')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q3" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão 4 -->
+            <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 4: Complete a frase: "By the time I arrived, the movie ___ already started."</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q4a" name="q4" value="a" class="mr-2">
+                        <label for="q4a">a) has</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q4b" name="q4" value="b" class="mr-2">
+                        <label for="q4b">b) had</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q4c" name="q4" value="c" class="mr-2">
+                        <label for="q4c">c) was</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q4d" name="q4" value="d" class="mr-2">
+                        <label for="q4d">d) is</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q4', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q4" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 5 -->
+            <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 5: Qual a estrutura básica do Present Perfect Simple na afirmativa?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q5a" name="q5" value="a" class="mr-2">
+                        <label for="q5a">a) Subject + verb-ing</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q5b" name="q5" value="b" class="mr-2">
+                        <label for="q5b">b) Subject + have/has + past participle</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q5c" name="q5" value="c" class="mr-2">
+                        <label for="q5c">c) Subject + had + past participle</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q5d" name="q5" value="d" class="mr-2">
+                        <label for="q5d">d) Subject + am/is/are + verb-ing</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q5', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q5" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+
+            <h3 class="text-xl font-semibold mb-4 mt-8 text-blue-200">Questões Estilo Vestibular (10 Questões) 👇</h3>
+
+            <!-- Questão 6 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 6: Choose the correct form to complete the sentence: "She was exhausted because she ______ all day."</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q6a" name="q6" value="a" class="mr-2">
+                        <label for="q6a">a) has been working</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q6b" name="q6" value="b" class="mr-2">
+                        <label for="q6b">c) had been working</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q6c" name="q6" value="c" class="mr-2">
+                        <label for="q6c">b) worked</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q6d" name="q6" value="d" class="mr-2">
+                        <label for="q6d">d) works</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q6', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q6" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão 7 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 7: Which sentence correctly uses the Present Perfect Simple?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q7a" name="q7" value="a" class="mr-2">
+                        <label for="q7a">a) I have went to the store yesterday.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q7b" name="q7" value="b" class="mr-2">
+                        <label for="q7b">b) She has visited London many times.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q7c" name="q7" value="c" class="mr-2">
+                        <label for="q7c">c) We are living here since 2010.</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q7d" name="q7" value="d" class="mr-2">
+                        <label for="q7d">d) They finished the project by now.</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q7', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q7" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 8 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 8: The children's eyes were red. They ______ cartoons for hours.</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q8a" name="q8" value="a" class="mr-2">
+                        <label for="q8a">a) had watched</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q8b" name="q8" value="b" class="mr-2">
+                        <label for="q8b">b) have watched</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q8c" name="q8" value="c" class="mr-2">
+                        <label for="q8c">c) had been watching</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q8d" name="q8" value="d" class="mr-2">
+                        <label for="q8d">d) have been watching</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q8', 'c')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q8" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 9 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 9: "I can't find my phone. I ______ it." Which option fits best, implying a present result?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q9a" name="q9" value="a" class="mr-2">
+                        <label for="q9a">a) lost</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q9b" name="q9" value="b" class="mr-2">
+                        <label for="q9b">b) have lost</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q9c" name="q9" value="c" class="mr-2">
+                        <label for="q9c">c) had lost</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q9d" name="q9" value="d" class="mr-2">
+                        <label for="q9d">d) was losing</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q9', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q9" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 10 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 10: By the time his plane landed, she ______ at the airport for three hours.</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q10a" name="q10" value="a" class="mr-2">
+                        <label for="q10a">a) has waited</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q10b" name="q10" value="b" class="mr-2">
+                        <label for="q10b">b) has been waiting</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q10c" name="q10" value="c" class="mr-2">
+                        <label for="q10c">c) had waited</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q10d" name="q10" value="d" class="mr-2">
+                        <label for="q10d">d) had been waiting</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q10', 'd')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q10" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 11 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 11: They are celebrating because they ______ their exams.</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q11a" name="q11" value="a" class="mr-2">
+                        <label for="q11a">a) passed</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q11b" name="q11" value="b" class="mr-2">
+                        <label for="q11b">b) have passed</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q11c" name="q11" value="c" class="mr-2">
+                        <label for="q11c">c) had passed</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q11d" name="q11" value="d" class="mr-2">
+                        <label for="q11d">d) are passing</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q11', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q11" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 12 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 12: Choose the correct sentence.</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q12a" name="q12" value="a" class="mr-2">
+                        <label for="q12a">a) I have lived in this city since 2015.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q12b" name="q12" value="b" class="mr-2">
+                        <label for="q12b">b) I have been living in this city since 2015.</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q12c" name="q12" value="c" class="mr-2">
+                        <label for="q12c">c) Both a) and b) are correct.</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q12d" name="q12" value="d" class="mr-2">
+                        <label for="q12d">d) Neither a) nor b) is correct.</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q12', 'c')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q12" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 13 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 13: When I finally found my phone, I realized I ______ it on the bus.</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q13a" name="q13" value="a" class="mr-2">
+                        <label for="q13a">a) had left</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q13b" name="q13" value="b" class="mr-2">
+                        <label for="q13b">b) have left</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q13c" name="q13" value="c" class="mr-2">
+                        <label for="q13c">c) was leaving</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q13d" name="q13" value="d" class="mr-2">
+                        <label for="q13d">d) left</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q13', 'a')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q13" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+             <!-- Questão 14 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 14: How long ______ when it suddenly started snowing?</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q14a" name="q14" value="a" class="mr-2">
+                        <label for="q14a">a) were you skiing</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q14b" name="q14" value="b" class="mr-2">
+                        <label for="q14b">b) had you skied</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q14c" name="q14" value="c" class="mr-2">
+                        <label for="q14c">c) have you been skiing</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q14d" name="q14" value="d" class="mr-2">
+                        <label for="q14d">d) had you been skiing</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q14', 'd')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q14" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+            <!-- Questão 15 -->
+             <div class="mb-6 p-4 bg-gray-700 rounded-md shadow">
+                <p class="mb-3 font-medium">Questão 15: I ______ this movie three times. It's my favorite!</p>
+                <div class="space-y-2">
+                    <div>
+                        <input type="radio" id="q15a" name="q15" value="a" class="mr-2">
+                        <label for="q15a">a) watched</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q15b" name="q15" value="b" class="mr-2">
+                        <label for="q15b">b) have watched</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="q15c" name="q15" value="c" class="mr-2">
+                        <label for="q15c">c) had watched</label>
+                    </div>
+                     <div>
+                        <input type="radio" id="q15d" name="q15" value="d" class="mr-2">
+                        <label for="q15d">d) am watching</label>
+                    </div>
+                </div>
+                <button onclick="checkAnswer('q15', 'b')" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out">
+                    Verificar Resposta
+                </button>
+                <div id="result-q15" class="mt-2 text-sm font-semibold"></div>
+            </div>
+
+
+        </section>
+
+        <section class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg text-center">
+            <h2 class="text-2xl sm:text-3xl font-semibold mb-4 text-blue-300">Chegamos ao Fim! 🎉</h2>
+            <p class="mb-4">
+                Esperamos que esta apostila tenha ajudado você a entender melhor os tempos Present Perfect (Simple e Continuous) e Past Perfect (Simple e Continuous).
+            </p>
+            <p>
+                Continue praticando e usando esses tempos em suas frases! A prática leva à perfeição. Bons estudos! 👍
+            </p>
+        </section>
+
+    </div>
+
+    <script>
+        function checkAnswer(questionId, correctAnswer) {
+            const questionName = `q${questionId.replace('q', '')}`;
+            const selectedOption = document.querySelector(`input[name="${questionName}"]:checked`);
+            const resultDiv = document.getElementById(`result-${questionId}`);
+
+            if (!selectedOption) {
+                resultDiv.innerHTML = '<span class="text-yellow-400">Por favor, selecione uma opção. 🤔</span>';
+                return;
+            }
+
+            if (selectedOption.value === correctAnswer) {
+                resultDiv.innerHTML = '<span class="text-green-500">Correto! ✅ Muito bem!</span>';
+            } else {
+                resultDiv.innerHTML = '<span class="text-red-500">Errado. Tente novamente. ❌ Revise o conteúdo!</span>';
+            }
+        }
+    </script>
+
+</div>
+
+  <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-20">
+    GeniusLab RC 1
+  </div>
+</body>
+</html>
