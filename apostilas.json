@@ -7,12 +7,6 @@
       "descricao": "Estudo das ondas e suas propriedades."
     },
     {
-      "id": "fis-kin-pBei",
-      "link": "/apostilas/Física/physics-kin-pBei.html",
-      "nome": "Estudo dos Movimentos",
-      "descricao": "Introdução à cinemática e análise dos movimentos."
-    },
-    {
       "id": "fis-mov-DHuy",
       "link": "/apostilas/Física/fis-mov-DHuy.html",
       "nome": "Estudo dos Movimentos",
@@ -147,6 +141,12 @@
       "link": "/apostilas/Português/portugues-substantivas-PLgs.html",
       "nome": "Ataque das Orações Substantivas",
       "descricao": "Minigame interativo para identificar e classificar oracoes subordinadas substantivas conforme BNCC 9 ano"
+    },
+    {
+      "id": "portugues-sintaxe-cLvc",
+      "link": "/apostilas/Língua Portuguesa/portugues-sintaxe-cLvc.html",
+      "nome": "A Turma das Orações Substantivas",
+      "descricao": "Descobrindo as 6 Orações Subordinadas Substantivas e como achá-las. Explicações fáceis como para crianças, cobrindo BNCC 9 ano 2 bimestre."
     }
   ],
   "História": [
