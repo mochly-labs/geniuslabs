@@ -3,8 +3,14 @@
     {
       "id": "port-DtdT",
       "link": "/apostilas/Língua Portuguesa/port-DtdT.html",
-      "nome": "Os Conectores Mágicos: Pronomes Relativos",
+      "nome": "Pronomes Relativos",
       "descricao": "Vamos aprender sobre as palavras mágicas que conectam ideias e frases como que quem onde e cujo em uma aventura divertida pela gramática"
+    },
+    {
+      "id": "port-gram-Oblb",
+      "link": "/apostilas/Língua Portuguesa/port-gram-Oblb.html",
+      "nome": "Orações Subordinadas Adjetivas",
+      "descricao": "Vamos estudar para encontrar e usar as orações que dão qualidades secretas aos nomes com muitos exemplos e atividades!"
     }
   ]
 }

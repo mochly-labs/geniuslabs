@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GeniusLabs</title>
+  <script src="https://cdn.tailwindcss.com"/>
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+</head>
+<body class="bg-gray-900">
+  <div class="min-h-screen bg-gradient-to-br from-slate-950 via-gray-900 to-blue-950 text-gray-100 font-sans p-4 md:p-8 lg:p-12 antialiased">
+
+    <!-- Header Section -->
+    <header class="max-w-4xl mx-auto mb-10 text-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-blue-300 mb-4 leading-tight">Orações Subordinadas Adjetivas</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="max-w-4xl mx-auto bg-gray-800 rounded-lg shadow-xl p-6 md:p-10 lg:p-12 border border-gray-700">
+
+        <!-- Introdução -->
+        <section class="mb-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-4 flex items-center">
+                <span class="mr-2">💡</span> O que são as Orações Subordinadas Adjetivas?
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Imagine que você está descrevendo algo. Você usa <strong class="text-emerald-300">adjetivos</strong>, certo? Por exemplo: "O cachorro <strong class="text-emerald-300">bonito</strong> latiu." "Bonito" é um adjetivo.
+            </p>
+            <p class="text-lg leading-relaxed mb-4">
+                As Orações Subordinadas Adjetivas funcionam como <strong class="text-emerald-300">adjetivos enormes</strong>! Elas são frases inteiras que servem para <strong class="text-emerald-300">descrever</strong> ou <strong class="text-emerald-300">dar mais informações</strong> sobre um nome (substantivo) que apareceu na frase principal.
+            </p>
+            <p class="text-lg leading-relaxed mb-4">
+                Elas sempre vêm acompanhadas de um <strong class="text-orange-300">Pronome Relativo</strong> (vamos ver eles já, já!), que conecta essa "frase adjetivo" à frase principal.
+            </p>
+            <div class="bg-gray-700 border border-gray-600 rounded-md p-4 mt-4">
+                <p class="text-md text-gray-200"><strong class="text-blue-300">Lembre-se:</strong> Adjetivo <span class="text-orange-300">dá característica</span>. Oração Subordinada Adjetiva <span class="text-orange-300">é uma frase que dá característica</span>.</p>
+            </div>
+        </section>
+
+        <!-- Tópico: Identificação -->
+        <section class="mb-8 border-t border-gray-700 pt-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-4 flex items-center">
+                <span class="mr-2">🔎</span> Como identificar uma Oração Subordinada Adjetiva?
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Para encontrar uma Oração Subordinada Adjetiva, você deve procurar por três coisas principais:
+            </p>
+
+            <ul class="list-disc list-inside text-lg leading-relaxed mb-4 pl-4 space-y-2">
+                <li><strong class="text-blue-300">1. Um Pronome Relativo:</strong> Geralmente começam com "que", "quem", "onde", "cujo", "cujos", "cuja", "cujas", "quanto", "quantos", "quanta", "quantas". O "QUE" é o mais comum!</li>
+                <li><strong class="text-blue-300">2. Descreve um Termo Anterior:</strong> A oração vai estar ligada a um substantivo ou pronome que veio antes na frase principal, dando mais detalhes sobre ele.</li>
+                <li><strong class="text-blue-300">3. Pode ser substituída por um Adjetivo:</strong> Se você conseguir trocar a oração toda por um único adjetivo, é bem provável que seja uma Oração Subordinada Adjetiva.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-emerald-300 mt-6 mb-3">Exemplo Prático:</h3>
+            <div class="bg-gray-700 border border-gray-600 rounded-md p-4 text-lg">
+                <p class="mb-2">"Comprei o livro <span class="text-orange-300">que você me indicou</span>."</p>
+                <ul class="list-disc list-inside text-base pl-4 text-gray-200 space-y-1">
+                    <li><strong class="text-blue-300">Pronome Relativo:</strong> "que"</li>
+                    <li><strong class="text-blue-300">Descreve:</strong> "o livro" (que veio antes)</li>
+                    <li><strong class="text-blue-300">Poderia ser substituído por um adjetivo?</strong> Sim! "Comprei o livro <strong class="text-emerald-300">indicado</strong>."</li>
+                </ul>
+                <p class="mt-3">👉 Então, "<span class="text-orange-300">que você me indicou</span>" é uma Oração Subordinada Adjetiva!</p>
+            </div>
+        </section>
+
+        <!-- Tópico: Utilização e Tipos -->
+        <section class="mb-8 border-t border-gray-700 pt-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-4 flex items-center">
+                <span class="mr-2">📝</span> Tipos de Orações Subordinadas Adjetivas
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Existem dois tipos principais de Orações Subordinadas Adjetivas, e a diferença é <strong class="text-emerald-300">MUITO importante</strong> por causa do uso das <strong class="text-orange-300">vírgulas</strong>!
+            </p>
+
+            <h3 class="text-2xl font-semibold text-emerald-300 mt-6 mb-3 flex items-center">
+                <span class="mr-2">1.</span> Orações Subordinadas Adjetivas <strong class="ml-1">Restritivas</strong>
+            </h3>
+            <p class="text-lg leading-relaxed mb-4">
+                As Restritivas <strong class="text-blue-300">LIMITAM</strong> o sentido do nome que elas descrevem. Elas são essenciais para entender a frase e, por isso, <strong class="text-red-300">NUNCA vêm separadas por vírgulas</strong>.
+            </p>
+            <div class="bg-gray-700 border border-gray-600 rounded-md p-4 mb-4 text-lg">
+                <p class="mb-2">"Os alunos <strong class="text-orange-300">que estudam</strong> passam de ano."</p>
+                <ul class="list-disc list-inside text-base pl-4 text-gray-200 space-y-1">
+                    <li><strong class="text-blue-300">Sentido:</strong> Não são TODOS os alunos que passam, mas APENAS aqueles que estudam. A oração restringe o grupo de alunos.</li>
+                    <li><strong class="text-red-300">Sem vírgulas!</strong></li>
+                </ul>
+            </div>
+            <p class="text-lg leading-relaxed mb-4">
+                <strong class="text-blue-300">Dica:</strong> Se tirar a oração, o sentido muda completamente.
+            </p>
+
+            <h3 class="text-2xl font-semibold text-emerald-300 mt-6 mb-3 flex items-center">
+                <span class="mr-2">2.</span> Orações Subordinadas Adjetivas <strong class="ml-1">Explicativas</strong>
+            </h3>
+            <p class="text-lg leading-relaxed mb-4">
+                As Explicativas <strong class="text-blue-300">ADICIONAM uma informação extra</strong> sobre o nome, algo que já é sabido ou que não é essencial para a compreensão principal da frase. Por serem um "extra", elas <strong class="text-emerald-300">SEMPRE vêm separadas por vírgulas</strong>.
+            </p>
+            <div class="bg-gray-700 border border-gray-600 rounded-md p-4 mb-4 text-lg">
+                <p class="mb-2">"Os seres humanos<strong class="text-orange-300">, que são mortais,</strong> precisam de ar."</p>
+                <ul class="list-disc list-inside text-base pl-4 text-gray-200 space-y-1">
+                    <li><strong class="text-blue-300">Sentido:</strong> TODOS os seres humanos são mortais. A oração apenas explica uma característica já conhecida de todos. Se você tirar a oração, a frase ainda faz sentido ("Os seres humanos precisam de ar.").</li>
+                    <li><strong class="text-emerald-300">Com vírgulas!</strong></li>
+                </ul>
+            </div>
+            <p class="text-lg leading-relaxed mb-4">
+                <strong class="text-blue-300">Dica:</strong> Se tirar a oração, o sentido principal da frase continua o mesmo. É só uma informação adicional.
+            </p>
+
+            <div class="bg-blue-900 border border-blue-700 rounded-md p-4 mt-6">
+                <p class="text-md text-gray-200 mb-2"><strong class="text-blue-300">RESUMO DAS VÍRGULAS:</strong></p>
+                <ul class="list-disc list-inside text-md pl-4 text-gray-200 space-y-1">
+                    <li><strong class="text-orange-300">Restritiva = SEM vírgula</strong> (informação essencial)</li>
+                    <li><strong class="text-orange-300">Explicativa = COM vírgula</strong> (informação extra)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tópico: Lista de Pronomes Relativos -->
+        <section class="mb-8 border-t border-gray-700 pt-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-4 flex items-center">
+                <span class="mr-2">🔗</span> Os Pronomes Relativos (Os Conectores!)
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Os Pronomes Relativos são a "cola" que liga a oração adjetiva ao termo que ela descreve. Conhecer eles é super importante!
+            </p>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-gray-700 rounded-lg shadow-md mb-6">
+                    <thead>
+                        <tr class="bg-gray-600 text-left text-blue-200 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6">Pronome Relativo</th>
+                            <th class="py-3 px-6">Quando usar / O que substitui</th>
+                            <th class="py-3 px-6">Exemplo</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-200 text-sm font-light">
+                        <tr class="border-b border-gray-500 hover:bg-gray-600">
+                            <td class="py-3 px-6 whitespace-nowrap"><strong class="text-emerald-300">QUE</strong></td>
+                            <td class="py-3 px-6">O mais comum! Substitui pessoas ou coisas.</td>
+                            <td class="py-3 px-6">A caneta <span class="text-orange-300">que</span> comprei é azul.</td>
+                        </tr>
+                        <tr class="border-b border-gray-500 hover:bg-gray-600">
+                            <td class="py-3 px-6 whitespace-nowrap"><strong class="text-emerald-300">QUEM</strong></td>
+                            <td class="py-3 px-6">Somente para pessoas.</td>
+                            <td class="py-3 px-6">A professora, a <span class="text-orange-300">quem</span> entreguei o trabalho, elogiou.</td>
+                        </tr>
+                        <tr class="border-b border-gray-500 hover:bg-gray-600">
+                            <td class="py-3 px-6 whitespace-nowrap"><strong class="text-emerald-300">ONDE</strong></td>
+                            <td class="py-3 px-6">Para lugares.</td>
+                            <td class="py-3 px-6">A cidade <span class="text-orange-300">onde</span> nasci é linda.</td>
+                        </tr>
+                        <tr class="border-b border-gray-500 hover:bg-gray-600">
+                            <td class="py-3 px-6 whitespace-nowrap"><strong class="text-emerald-300">CUJO(A)(S)</strong></td>
+                            <td class="py-3 px-6">Indica posse (de quem/de que). Cuidado: nunca use artigo depois de "cujo"! (Ex: "cujo o livro" está errado!)</td>
+                            <td class="py-3 px-6">Vi o aluno <span class="text-orange-300">cujos</span> pais conheço.</td>
+                        </tr>
+                        <tr class="border-b border-gray-500 hover:bg-gray-600">
+                            <td class="py-3 px-6 whitespace-nowrap"><strong class="text-emerald-300">QUANTO(A)(S)</strong></td>
+                            <td class="py-3 px-6">Quando se refere a um pronome indefinido (tudo, todos, tanto).</td>
+                            <td class="py-3 px-6">Ela comeu <span class="text-orange-300">tudo quanto</span> queria.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="bg-gray-700 border border-gray-600 rounded-md p-4 mt-4">
+                <p class="text-md text-gray-200"><strong class="text-blue-300">Fique Ligado!</strong> O "QUE" é o campeão! Mas ele pode ter outras funções (conjunção integrante, por exemplo). Para ser Pronome Relativo, ele precisa se referir a um termo anterior e você conseguir substituí-lo por "o qual", "a qual", etc.</p>
+            </div>
+        </section>
+
+        <!-- Tópico: Exemplos Corretos e Incorretos -->
+        <section class="mb-8 border-t border-gray-700 pt-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-4 flex items-center">
+                <span class="mr-2">✅❌</span> Exemplos Corretos e Incorretos
+            </h2>
+            <p class="text-lg leading-relaxed mb-4">
+                Vamos ver algumas frases para fixar a diferença, principalmente sobre o uso das vírgulas.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Exemplo 1 -->
+                <div class="bg-gray-700 border border-gray-600 rounded-md p-4">
+                    <h3 class="text-xl font-semibold text-emerald-300 mb-2 flex items-center"><span class="mr-2">✅</span> Correto (Restritiva)</h3>
+                    <p class="text-lg mb-2">"Os alunos <strong class="text-orange-300">que estudam</strong> merecem prêmios."</p>
+                    <p class="text-base text-gray-200">
+                        <strong class="text-blue-300">Explicação:</strong> A oração "que estudam" <strong class="text-emerald-300">restringe</strong> o grupo de alunos. Não são todos, só os que estudam. Por isso, <strong class="text-red-300">sem vírgula</strong>.
+                    </p>
+                </div>
+                <!-- Exemplo 2 -->
+                <div class="bg-gray-700 border border-gray-600 rounded-md p-4">
+                    <h3 class="text-xl font-semibold text-red-300 mb-2 flex items-center"><span class="mr-2">❌</span> Incorreto (Restritiva com vírgula)</h3>
+                    <p class="text-lg mb-2">"Os alunos<strong class="text-orange-300">, que estudam,</strong> merecem prêmios."</p>
+                    <p class="text-base text-gray-200">
+                        <strong class="text-blue-300">Explicação:</strong> Usar vírgula aqui indicaria que <strong class="text-red-300">TODOS</strong> os alunos estudam, o que pode não ser verdade na prática. A vírgula mudou o sentido!
+                    </p>
+                </div>
+
+                <!-- Exemplo 3 -->
+                <div class="bg-gray-700 border border-gray-600 rounded-md p-4">
+                    <h3 class="text-xl font-semibold text-emerald-300 mb-2 flex items-center"><span class="mr-2">✅</span> Correto (Explicativa)</h3>
+                    <p class="text-lg mb-2">"O Sol<strong class="text-orange-300">, que é uma estrela,</strong> ilumina a Terra."</p>
+                    <p class="text-base text-gray-200">
+                        <strong class="text-blue-300">Explicação:</strong> "Que é uma estrela" é uma <strong class="text-emerald-300">informação extra</strong> sobre o Sol, que já sabemos que é uma estrela. A oração pode ser retirada sem prejuízo de sentido. Por isso, <strong class="text-emerald-300">com vírgulas</strong>.
+                    </p>
+                </div>
+                <!-- Exemplo 4 -->
+                <div class="bg-gray-700 border border-gray-600 rounded-md p-4">
+                    <h3 class="text-xl font-semibold text-red-300 mb-2 flex items-center"><span class="mr-2">❌</span> Incorreto (Explicativa sem vírgula)</h3>
+                    <p class="text-lg mb-2">"O Sol <strong class="text-orange-300">que é uma estrela</strong> ilumina a Terra."</p>
+                    <p class="text-base text-gray-200">
+                        <strong class="text-blue-300">Explicação:</strong> Sem vírgulas, a frase sugere que existe mais de um Sol e que estamos falando especificamente do "Sol que é uma estrela" (o que não faz sentido). A ausência de vírgulas aqui torna a frase gramaticalmente incorreta para o sentido que se quer dar.
+                    </p>
+                </div>
+            </div>
+            <div class="bg-blue-900 border border-blue-700 rounded-md p-4 mt-6">
+                <p class="text-md text-gray-200"><strong class="text-blue-300">Moral da história:</strong> As vírgulas mudam TUDO! Fique sempre atento a elas nas Orações Subordinadas Adjetivas.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Atividades -->
+        <section class="mb-8 border-t border-gray-700 pt-8">
+            <h2 class="text-3xl font-bold text-sky-300 mb-6 flex items-center">
+                <span class="mr-2">🧠</span> Atividades
+            </h2>
+
+            <!-- Questão 1 -->
+            <div id="question1" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">1. Qual das frases abaixo contém uma Oração Subordinada Adjetiva?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q1" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Espero que você venha.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q1" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) O menino que corre é meu irmão.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q1" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">d) Cheguei tarde, por isso perdi o início.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q1', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q1" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 2 -->
+            <div id="question2" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">2. Na frase "Comprei o celular que estava em promoção.", a oração em destaque é:</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q2" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Oração Subordinada Adjetiva Restritiva.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q2" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Oração Subordinada Adjetiva Explicativa.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q2" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">d) Oração Subordinada Substantiva.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q2', 'a')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q2" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 3 -->
+            <div id="question3" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">3. Qual pronome relativo pode ser usado apenas para pessoas?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q3" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Que</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q3" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Onde</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q3" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Quem</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q3', 'c')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q3" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 4 -->
+            <div id="question4" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">4. A frase "O livro, que é meu favorito, está na estante." apresenta uma Oração Subordinada Adjetiva:</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q4" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Restritiva.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q4" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Explicativa.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q4" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Substantiva.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q4', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q4" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 5 -->
+            <div id="question5" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">5. Qual frase usa corretamente a vírgula com Oração Subordinada Adjetiva?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q5" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Os pássaros, que voam alto, são lindos.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q5" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Os pássaros que voam alto, são lindos.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q5" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Os pássaros, que voam alto são lindos.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q5', 'a')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q5" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 6 -->
+            <div id="question6" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">6. Qual das orações abaixo é uma Adjetiva Restritiva?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q6" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Meu amigo, que é médico, me ajudou.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q6" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Gosto de filmes que me fazem rir.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q6" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) O mar, que é vasto, esconde muitos segredos.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q6', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q6" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 7 -->
+            <div id="question7" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">7. Assinale a alternativa em que a oração adjetiva é explicativa.</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q7" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) As pessoas que usam óculos enxergam melhor.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q7" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) A água, que é um elemento essencial, está acabando.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q7" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Os livros que li me ensinaram muito.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q7', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q7" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 8 -->
+            <div id="question8" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">8. Qual pronome relativo indica posse?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q8" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Onde</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q8" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Cujo</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q8" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">d) Que</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q8', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q8" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 9 -->
+            <div id="question9" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">9. A oração subordinada adjetiva tem a função de:</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q9" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) Complementar um verbo.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q9" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Indicar uma circunstância.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q9" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Caracterizar um substantivo ou pronome.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q9', 'c')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q9" class="mt-3 font-semibold"></p>
+            </div>
+
+            <!-- Questão 10 -->
+            <div id="question10" class="bg-gray-700 border border-gray-600 rounded-lg p-6 mb-6">
+                <p class="text-lg font-semibold text-blue-300 mb-4">10. Em qual frase o "que" NÃO é um pronome relativo?</p>
+                <div class="flex flex-col space-y-3">
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q10" value="a" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">a) A casa que comprei é grande.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q10" value="b" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">b) Desejo que você seja feliz.</span>
+                    </label>
+                    <label class="inline-flex items-center text-gray-100">
+                        <input type="radio" name="q10" value="c" class="form-radio text-emerald-500 h-5 w-5">
+                        <span class="ml-3">c) Os amigos que chegaram foram bem recebidos.</span>
+                    </label>
+                </div>
+                <button onclick="checkAnswer('q10', 'b')" class="mt-5 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus="ring-blue-500 focus:ring-opacity-50 transition duration-200">Verificar</button>
+                <p id="feedback-q10" class="mt-3 font-semibold"></p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="max-w-4xl mx-auto mt-10 text-center text-gray-400 text-sm">
+        <p>&copy; 2025 - Genius Labs, nenhum direito reservado.</p>
+    </footer>
+
+    <!-- JavaScript for Quiz Interaction -->
+    <script>
+        function checkAnswer(questionName, correctAnswer) {
+            const radios = document.getElementsByName(questionName);
+            let selectedValue = null;
+            for (let i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selectedValue = radios[i].value;
+                    break;
+                }
+            }
+
+            const feedbackElement = document.getElementById(`feedback-${questionName}`);
+
+            if (selectedValue === null) {
+                feedbackElement.textContent = "Por favor, selecione uma opção.";
+                feedbackElement.className = "mt-3 font-semibold text-orange-400";
+            } else if (selectedValue === correctAnswer) {
+                feedbackElement.textContent = "✅ Parabéns! Resposta correta!";
+                feedbackElement.className = "mt-3 font-semibold text-emerald-400";
+            } else {
+                feedbackElement.textContent = "❌ Que pena! Resposta incorreta. Tente novamente!";
+                feedbackElement.className = "mt-3 font-semibold text-red-400";
+            }
+        }
+    </script>
+</div>
+  <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-20">
+    GeniusLab RC 2
+  </div>
+</body>
+</html>
