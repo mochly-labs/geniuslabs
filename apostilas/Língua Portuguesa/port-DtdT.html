@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeniusLabs</title>
+    <script src="https://cdn.tailwindcss.com" />
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-900">
+    <!-- Main container for the entire content, ensuring dark mode and Nordic theme -->
+    <div
+      class="min-h-screen bg-gradient-to-br from-slate-900 to-gray-900 text-slate-100 font-sans p-4 sm:p-6 md:p-8 lg:p-12"
+    >
+      <!-- Header Section -->
+      <header class="text-center mb-12">
+        <h1
+          class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-blue-300 leading-tight mb-4"
+        >
+          Pronomes Relativos
+        </h1>
+      </header>
+
+      <!-- Main Content Area -->
+      <main class="max-w-4xl mx-auto space-y-10 md:space-y-16">
+        <!-- O Que São Pronomes Relativos? -->
+        <section
+          class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg border border-slate-700"
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-blue-300 mb-6">
+            1. O Que São Pronomes Relativos?
+          </h2>
+          <p class="mb-4 leading-relaxed text-lg text-slate-200">
+            Imagine que você está escrevendo e usa a mesma palavra várias vezes
+            seguidas. Fica um pouco repetitivo, certo? Veja este exemplo:
+          </p>
+          <ul
+            class="list-disc list-inside ml-4 mb-6 text-slate-200 text-lg space-y-2"
+          >
+            <li>
+              Eu tenho <span class="font-bold text-blue-300">um gato</span>.
+            </li>
+            <li>
+              <span class="font-bold text-blue-300">O gato</span> gosta de
+              dormir.
+            </li>
+          </ul>
+          <p class="mb-6 leading-relaxed text-lg text-slate-200">
+            A palavra "<span class="font-bold text-blue-300">gato</span>"
+            apareceu duas vezes. Os
+            <span class="font-bold text-blue-300">Pronomes Relativos</span>
+            servem para evitar essa repetição e, ao mesmo tempo,
+            <span class="font-bold text-green-300">conectar as duas frases</span
+            >, transformando-as em uma só.
+          </p>
+          <div class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-6">
+            <p class="text-lg leading-relaxed text-slate-200">
+              Um
+              <span class="font-bold text-green-300">Pronome Relativo</span> é
+              uma palavra que liga duas partes de uma frase (chamadas orações) e
+              substitui um termo que já foi mencionado antes, tornando a frase
+              mais <span class="font-bold text-green-300">fluida e clara</span>.
+            </p>
+          </div>
+          <p class="mb-4 leading-relaxed text-lg text-slate-200">
+            Usando um pronome relativo, nossas frases de exemplo ficariam assim:
+          </p>
+          <div class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-6">
+            <p class="text-lg leading-relaxed text-blue-200 font-bold">
+              Eu tenho um gato <span class="text-green-300">que</span> gosta de
+              dormir.
+            </p>
+            <p class="text-sm text-slate-400 mt-2">
+              Aqui, "<span class="font-bold text-green-300">que</span>"
+              substitui "o gato" e conecta as duas ideias.
+            </p>
+          </div>
+        </section>
+
+        <!-- Principais Pronomes Relativos e Seus Usos -->
+        <section
+          class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg border border-slate-700"
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-blue-300 mb-6">
+            2. Quais São e Como Usar os Pronomes Relativos? 📝
+          </h2>
+          <p class="mb-6 leading-relaxed text-lg text-slate-200">
+            Existem vários pronomes relativos, e cada um tem seu uso específico.
+            Vamos conhecer os mais importantes:
+          </p>
+
+          <!-- QUE -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.1. QUE (o "coringa"!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              O <span class="font-bold text-green-300">QUE</span> é o pronome
+              mais usado! Ele pode se referir a quase tudo:
+            </p>
+            <ul
+              class="list-disc list-inside ml-4 mb-4 text-slate-200 text-lg space-y-2"
+            >
+              <li>
+                <span class="font-bold text-blue-300">Pessoas</span> (A menina
+                <span class="font-bold text-green-300">que</span> canta é
+                talentosa.)
+              </li>
+              <li>
+                <span class="font-bold text-blue-300">Coisas</span> (Comprei o
+                livro <span class="font-bold text-green-300">que</span> você
+                indicou.)
+              </li>
+              <li>
+                <span class="font-bold text-blue-300">Animais</span> (O cachorro
+                <span class="font-bold text-green-300">que</span> late muito é
+                meu.)
+              </li>
+              <li>
+                <span class="font-bold text-blue-300">Lugares</span> (A cidade
+                <span class="font-bold text-green-300">que</span> visitamos é
+                linda.)
+              </li>
+            </ul>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              Ele é <span class="font-bold text-blue-300">invariável</span>, ou
+              seja, não muda (não tem "quês", "quás", etc.). É sempre "que".
+            </p>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com QUE:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o filme
+                  <span class="font-bold text-green-300">que</span> mais gosto.
+                </li>
+                <li>
+                  As ideias <span class="font-bold text-green-300">que</span> me
+                  inspiram são fantásticas.
+                </li>
+              </ul>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">
+              👉 Lembre-se: O QUE sempre retoma um termo que veio antes na
+              frase!
+            </p>
+          </div>
+
+          <!-- QUEM -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.2. QUEM (só para pessoas!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              O <span class="font-bold text-green-300">QUEM</span> é usado
+              <span class="font-bold text-blue-300">apenas para pessoas</span>.
+              Ele geralmente aparece com uma preposição antes (a, com, de, em,
+              para, por, etc.).
+            </p>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com QUEM:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o amigo
+                  <span class="font-bold text-green-300">com quem</span> viajei.
+                  (Viajei COM alguém)
+                </li>
+                <li>
+                  As pessoas
+                  <span class="font-bold text-green-300">a quem</span> ele se
+                  referiu estão aqui. (Ele se referiu A alguém)
+                </li>
+              </ul>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">
+              👉 Não use "quem" para coisas ou animais! É um erro comum.
+            </p>
+          </div>
+
+          <!-- ONDE -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.3. ONDE (só para lugares!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              O <span class="font-bold text-green-300">ONDE</span> serve
+              exclusivamente para indicar
+              <span class="font-bold text-blue-300">lugar</span>. Você pode,
+              muitas vezes, substituí-lo por "em que".
+            </p>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com ONDE:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Visitei a casa
+                  <span class="font-bold text-green-300">onde</span> meus avós
+                  moravam. (A casa é um lugar)
+                </li>
+                <li>
+                  O restaurante
+                  <span class="font-bold text-green-300">onde</span> almoçamos é
+                  famoso. (O restaurante é um lugar)
+                </li>
+              </ul>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">
+              👉 Se o verbo da frase indicar
+              <span class="font-bold text-blue-300"
+                >movimento para um lugar</span
+              >
+              (ir, chegar, voltar), use "AONDE". Ex: "A cidade
+              <span class="font-bold text-green-300">aonde</span> você vai é
+              bonita."
+            </p>
+          </div>
+
+          <!-- CUJO(A)(S) -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.4. CUJO(A)(S) (indica posse!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              O <span class="font-bold text-green-300">CUJO(A)(S)</span> é usado
+              para mostrar
+              <span class="font-bold text-blue-300">posse</span> (algo que
+              pertence a alguém ou a algo). Ele concorda em gênero
+              (masculino/feminino) e número (singular/plural) com o substantivo
+              que vem <span class="font-bold text-blue-300">DEPOIS</span> dele.
+              <span class="font-bold text-red-300">Atenção</span>: nunca se usa
+              artigo (o, a, os, as) depois de "cujo"!
+            </p>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com CUJO(A)(S):
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o escritor
+                  <span class="font-bold text-green-300">cujo</span> livro está
+                  na lista dos mais vendidos. (O livro é DO escritor)
+                </li>
+                <li>
+                  Conheci a artista
+                  <span class="font-bold text-green-300">cujas</span> pinturas
+                  são famosas. (As pinturas são DA artista)
+                </li>
+              </ul>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">
+              🚫 Errado: "O escritor
+              <span class="text-red-400">cujo o</span> livro..." <br />
+              ✅ Certo: "O escritor
+              <span class="text-green-300">cujo</span> livro..."
+            </p>
+          </div>
+
+          <!-- QUANTO(A)(S) -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.5. QUANTO(A)(S) (só com "tudo" ou "todos"!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              O <span class="font-bold text-green-300">QUANTO(A)(S)</span> só
+              deve ser usado quando tem uma palavra como
+              <span class="font-bold text-blue-300"
+                >TUDO, TODO(A) ou TODOS(AS)</span
+              >
+              antes dele na frase. Ele também concorda em gênero e número com
+              essa palavra.
+            </p>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com QUANTO(A)(S):
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Fiz <span class="font-bold text-blue-300">tudo</span>
+                  <span class="font-bold text-green-300">quanto</span> pude.
+                  ("Tudo" é singular, então "quanto" é singular)
+                </li>
+                <li>
+                  Gastei <span class="font-bold text-blue-300">todas</span>
+                  <span class="font-bold text-green-300">quantas</span> moedas
+                  tinha. ("Todas" é plural e feminino, então "quantas" é plural
+                  e feminino)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- O(A) QUAL, OS(AS) QUAIS -->
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              2.6. O(A) QUAL, OS(AS) QUAIS (para mais clareza!)
+            </h3>
+            <p class="mb-4 leading-relaxed text-lg text-slate-200">
+              Estes pronomes (O QUAL, A QUAL, OS QUAIS, AS QUAIS) se referem a
+              pessoas ou coisas e concordam em gênero e número com o termo que
+              eles retomam. São muito úteis para:
+            </p>
+            <ul
+              class="list-disc list-inside ml-4 mb-4 text-slate-200 text-lg space-y-2"
+            >
+              <li>
+                Evitar que a frase tenha mais de um sentido (ambiguidade).
+              </li>
+              <li>Deixar a frase mais formal ou elegante.</li>
+              <li>
+                Quando há preposições mais longas (como "para", "com", "sem").
+              </li>
+            </ul>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                Exemplos com O(A) QUAL, OS(AS) QUAIS:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Comprei um novo computador,
+                  <span class="font-bold text-green-300">o qual</span> é muito
+                  rápido. (Refere-se ao "computador")
+                </li>
+                <li>
+                  As alunas,
+                  <span class="font-bold text-green-300">as quais</span> tiraram
+                  notas altas, foram premiadas. (Refere-se às "alunas")
+                </li>
+                <li>
+                  Esta é a escola
+                  <span class="font-bold text-green-300">na qual</span> estudei.
+                  (Para "em a qual")
+                </li>
+              </ul>
+            </div>
+            <p class="text-sm text-slate-400 mt-2">
+              👉 Muitas vezes, você pode usar "que" no lugar de "o qual". Mas "o
+              qual" é mais preciso.
+            </p>
+          </div>
+
+          <h3 class="text-2xl sm:text-3xl font-bold text-blue-300 mb-4 mt-8">
+            Tabela Resumo dos Pronomes Relativos 📊
+          </h3>
+          <div class="overflow-x-auto">
+            <table
+              class="w-full text-left border-collapse rounded-lg overflow-hidden"
+            >
+              <thead>
+                <tr class="bg-slate-700 text-slate-200">
+                  <th class="p-3 border-b border-slate-600">Pronome</th>
+                  <th class="p-3 border-b border-slate-600">Para que serve?</th>
+                  <th class="p-3 border-b border-slate-600">
+                    Observações importantes
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    QUE
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Pessoas, coisas, lugares, animais
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    É o "coringa", invariável (não muda)
+                  </td>
+                </tr>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    QUEM
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Somente para pessoas
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Geralmente vem com preposição antes (a, com, de, por...)
+                  </td>
+                </tr>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    ONDE
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Somente para lugares
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Se tiver movimento, use "AONDE"
+                  </td>
+                </tr>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    CUJO(A)(S)
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Indica posse (de quem?)
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Concorda com a palavra
+                    <span class="font-bold">DEPOIS</span> dele.
+                    <span class="font-bold text-red-300">NUNCA</span> use artigo
+                    depois!
+                  </td>
+                </tr>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    QUANTO(A)(S)
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Quando tem "TUDO", "TODO(A)", "TODOS(AS)" antes
+                  </td>
+                  <td class="p-3 border-b border-slate-600">
+                    Concorda com essas palavras
+                  </td>
+                </tr>
+                <tr class="bg-slate-800 hover:bg-slate-700 transition-colors">
+                  <td
+                    class="p-3 border-b border-slate-600 font-bold text-green-300"
+                  >
+                    O(A) QUAL, OS(AS) QUAIS
+                  </td>
+                  <td class="p-3 border-b border-slate-600">Pessoas, coisas</td>
+                  <td class="p-3 border-b border-slate-600">
+                    Para deixar a frase mais clara ou formal. Pode vir com
+                    preposição.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- Utilização na Prática: Exemplos Corretos e Incorretos -->
+        <section
+          class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg border border-slate-700"
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-blue-300 mb-6">
+            3. Na Prática: Exemplos Corretos e Incorretos 🚦
+          </h2>
+          <p class="mb-6 leading-relaxed text-lg text-slate-200">
+            Vamos ver como é fácil usar os pronomes relativos de forma correta e
+            quais erros são mais comuns para você não cair neles.
+          </p>
+
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              3.1. Uso do QUE
+            </h3>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                ✅ Certo:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  A menina
+                  <span class="font-bold text-green-300">que</span> mora perto é
+                  minha amiga.
+                </li>
+                <li>
+                  Este é o brinquedo
+                  <span class="font-bold text-green-300">que</span> eu queria.
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-red-300 font-bold mb-2">
+                ❌ Errado:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  A menina <span class="font-bold text-red-300">quem</span> mora
+                  perto é minha amiga. (🚫 "Quem" precisa de preposição ou de um
+                  verbo que a exija)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              3.2. Uso do QUEM
+            </h3>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                ✅ Certo:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Ele é o professor
+                  <span class="font-bold text-green-300">a quem</span> todos
+                  respeitam. (Quem respeita, respeita A alguém)
+                </li>
+                <li>
+                  Estas são as pessoas
+                  <span class="font-bold text-green-300">com quem</span>
+                  conversei. (Conversei COM alguém)
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-red-300 font-bold mb-2">
+                ❌ Errado:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o filme
+                  <span class="font-bold text-red-300">quem</span> vi ontem. (🚫
+                  "Quem" não se usa para coisas)
+                </li>
+                <li>
+                  O gato <span class="font-bold text-red-300">quem</span> fugiu
+                  voltou. (🚫 "Quem" não se usa para animais)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              3.3. Uso do ONDE
+            </h3>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                ✅ Certo:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  A praça
+                  <span class="font-bold text-green-300">onde</span> brincávamos
+                  está reformada. (A praça é um lugar)
+                </li>
+                <li>
+                  A escola
+                  <span class="font-bold text-green-300">aonde</span> vamos é
+                  nova. (Ir A algum lugar)
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-red-300 font-bold mb-2">
+                ❌ Errado:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  A situação
+                  <span class="font-bold text-red-300">onde</span> vivemos é
+                  complicada. (🚫 "Onde" não se usa para "situação", use "em
+                  que")
+                </li>
+                <li>
+                  O problema
+                  <span class="font-bold text-red-300">onde</span> pensamos é
+                  complexo. (🚫 "Onde" não se usa para "problema", use "em que")
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="mb-8 border-b border-slate-700 pb-6">
+            <h3 class="text-2xl sm:text-3xl font-semibold text-green-300 mb-4">
+              3.4. Uso do CUJO(A)(S)
+            </h3>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-blue-200 font-bold mb-2">
+                ✅ Certo:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o aluno
+                  <span class="font-bold text-green-300">cujo</span> nome foi
+                  sorteado. (O nome é DO aluno)
+                </li>
+                <li>
+                  Admiro a professora
+                  <span class="font-bold text-green-300">cujas</span> aulas são
+                  muito boas. (As aulas são DA professora)
+                </li>
+              </ul>
+            </div>
+            <div
+              class="bg-slate-700 p-5 rounded-lg border border-slate-600 mb-4"
+            >
+              <p class="text-lg leading-relaxed text-red-300 font-bold mb-2">
+                ❌ Errado:
+              </p>
+              <ul
+                class="list-disc list-inside ml-4 text-slate-300 text-base space-y-2"
+              >
+                <li>
+                  Este é o aluno
+                  <span class="font-bold text-red-300">cujo o</span> nome foi
+                  sorteado. (🚫 Nunca use artigo depois de "cujo")
+                </li>
+                <li>
+                  A menina
+                  <span class="font-bold text-red-300">que sua</span> mochila
+                  sumiu está chorando. (🚫 Repetição, use "cuja")
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Atividades -->
+        <section
+          class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg border border-slate-700"
+          id="atividades"
+        >
+          <h2
+            class="text-3xl sm:text-4xl font-bold text-blue-300 mb-6 text-center"
+          >
+            4. Atividades: Hora de Praticar! 🚀
+          </h2>
+          <p class="mb-8 leading-relaxed text-lg text-slate-200 text-center">
+            Teste seus conhecimentos sobre os pronomes relativos. Escolha a
+            alternativa correta para cada frase.
+          </p>
+
+          <!-- Question 1 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              1. Qual pronome relativo completa a frase: "Comprei o livro
+              _______ você me indicou."?
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) cujo</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) quem</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) onde</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q1', 'c')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q1" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 2 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              2. "Aquela é a cidade _______ nasci e cresci." Qual pronome
+              relativo se encaixa melhor?
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) onde</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) cujo</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) quem</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q2', 'b')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q2" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 3 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              3. Qual frase usa o pronome relativo QUEM corretamente?
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >a) A mesa quem estava suja foi limpa.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >b) Este é o professor a quem me refiro.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >c) O filme quem vimos era bom.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >d) A árvore quem plantei cresceu.</span
+                >
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q3', 'b')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q3" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 4 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              4. Assinale a alternativa em que "cujo" está empregado
+              corretamente:
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >a) O aluno cujo o caderno sumiu está triste.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >b) Comprei um carro cujo o motor é potente.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >c) A escola cujas paredes foram pintadas ficou nova.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >d) Ele é o artista cujo a obra admiro.</span
+                >
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q4', 'c')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q4" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 5 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              5. Qual pronome relativo deve ser usado com "TUDO"? Ex: "A menina
+              _______ canta é talentosa."
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) quanto</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) o qual</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) cujo</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q5', 'a')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q5" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 6 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              6. Em qual alternativa o pronome relativo "onde" está
+              <span class="text-red-300">INCORRETAMENTE</span> usado?
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >a) O Brasil é um país onde a diversidade cultural é
+                  vasta.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >b) As ideias onde me baseio são antigas.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >c) A livraria onde encontrei o livro fechou.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >d) O lugar onde moramos é tranquilo.</span
+                >
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q6', 'b')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q6" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 7 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              7. Complete com o pronome relativo adequado: "Essa é a causa
+              _______ luto."
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) por que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) pela qual</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) cujo</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q7', 'c')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q7" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 8 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              8. Assinale a frase em que o pronome "cujo" indica posse
+              corretamente.
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >a) A casa cujo o telhado desabou será reformada.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >b) Vi o filme cujas cenas são emocionantes.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >c) O professor de cujo falo muito bem é meu pai.</span
+                >
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg"
+                  >d) Os alunos, cujos os pais vieram à reunião, foram
+                  elogiados.</span
+                >
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q8', 'b')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q8" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 9 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              9. Qual pronome relativo completa a frase: "Recebi
+              <span class="font-bold text-blue-300">tudo</span> _______
+              precisava para o projeto."?
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) de que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) o qual</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) quanto</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q9', 'a')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q9" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Question 10 -->
+          <div
+            class="mb-8 p-6 bg-slate-700 rounded-lg shadow-md border border-slate-600"
+          >
+            <p class="font-semibold text-xl text-slate-100 mb-4">
+              10. Assinale a alternativa que completa corretamente a frase: "Os
+              colegas, _______ nos ajudaram, são muito competentes."
+            </p>
+            <div class="space-y-3">
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="a"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">a) que</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="b"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">b) os quais</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="c"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">c) quem</span>
+              </label>
+              <label class="block cursor-pointer">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="d"
+                  class="mr-2 text-blue-500 focus:ring-blue-500"
+                />
+                <span class="text-slate-200 text-lg">d) onde</span>
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q10', 'b')"
+              class="mt-6 px-6 py-3 bg-blue-700 text-blue-100 font-bold rounded-lg hover:bg-blue-600 transition-colors"
+            >
+              Verificar Resposta
+            </button>
+            <div id="feedback-q10" class="mt-4 font-bold text-lg"></div>
+          </div>
+
+          <!-- Basic JavaScript for checking answers -->
+          <script>
+            function checkAnswer(questionName, correctAnswer) {
+              const radios = document.getElementsByName(questionName);
+              let selectedValue;
+              for (const radio of radios) {
+                if (radio.checked) {
+                  selectedValue = radio.value;
+                  break;
+                }
+              }
+
+              const feedbackDiv = document.getElementById(
+                "feedback-" + questionName
+              );
+              if (selectedValue === correctAnswer) {
+                feedbackDiv.className = "mt-4 font-bold text-lg text-green-400";
+                feedbackDiv.innerHTML = "✅ Parabéns! Resposta correta!";
+              } else if (selectedValue) {
+                feedbackDiv.className = "mt-4 font-bold text-lg text-red-400";
+                feedbackDiv.innerHTML =
+                  "❌ Resposta incorreta. Tente novamente!";
+              } else {
+                feedbackDiv.className =
+                  "mt-4 font-bold text-lg text-yellow-400";
+                feedbackDiv.innerHTML = "Por favor, selecione uma opção.";
+              }
+            }
+          </script>
+        </section>
+
+        <!-- Conclusão -->
+        <section
+          class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-lg border border-slate-700 text-center"
+        >
+          <h2 class="text-3xl sm:text-4xl font-bold text-blue-300 mb-6">
+            Fim da Apostila! 🎉
+          </h2>
+        </section>
+      </main>
+    </div>
+    <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-20">
+      GeniusLab RC 2
+    </div>
+  </body>
+</html>
