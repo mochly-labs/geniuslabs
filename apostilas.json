@@ -15,8 +15,40 @@
     {
       "id": "gram-sec-PaBZ",
       "link": "/apostilas/Língua Portuguesa/gram-sec-PaBZ.html",
-      "nome": "Orações Subordinadas Adverbiais",
-      "descricao": "Vamos descobrir as frases secretas que contam quando, onde, como e por que as coisas acontecem!"
+      "nome": "As Super Orações que dão Pistas!",
+      "descricao": "Vamos descobrir as frases secretas que contam quando, onde, como e por que as coisas acontecem! Prepare-se para virar um detetive da gramática!"
+    }
+  ],
+  "Artes": [
+    {
+      "id": "art-sensacoes-zVDm",
+      "link": "/apostilas/Artes/art-sensacoes-zVDm.html",
+      "nome": "Sons que trazem sensações",
+      "descricao": "Descubra como os sons e as musicas podem expressar diferentes sentimentos e sensacoes, conhecendo artistas e periodos da historia da musica."
+    },
+    {
+      "id": "art-generos-xERd",
+      "link": "/apostilas/Artes/art-generos-xERd.html",
+      "nome": "Tragédia da Alergia a Desgraça",
+      "descricao": "Uma introdução aos gêneros dramáticos do teatro como a tragédia e a comédia, explorando suas origens na Grécia Antiga, características e exemplos clássicos."
+    },
+    {
+      "id": "artes-danca-vsIM",
+      "link": "/apostilas/Artes/artes-danca-vsIM.html",
+      "nome": "No Palco Mágico: Uma Viagem pelo Balé",
+      "descricao": "Descubra o mundo encantado do balé, onde a dança conta histórias de fadas, príncipes e grandes amores no palco!"
+    },
+    {
+      "id": "art-emotions-MVjq",
+      "link": "/apostilas/Arte/art-emotions-MVjq.html",
+      "nome": "O que a Arte me Faz Sentir?",
+      "descricao": "Uma viagem divertida para descobrir como a arte expressa sentimentos com formas malucas, cores vibrantes e materiais inusitados!"
+    },
+    {
+      "id": "art-mod-ksxm",
+      "link": "/apostilas/Artes/art-mod-ksxm.html",
+      "nome": "Artista e Suas Múltiplas Profissões",
+      "descricao": "Explore como os artistas modernos mudaram a arte com novas ideias e estilos, e descubra como alguns deles tiveram outras profissões, como a de engenheiro."
     }
   ]
 }
