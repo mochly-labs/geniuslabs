@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeniusLabs</title>
+    <script src="https://cdn.tailwindcss.com" />
+    <script>
+      tailwind.config = {
+        // darkMode: "class", // Kept as-is from original, assuming manual toggle or default dark
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Poppins", "sans-serif"], // Original: Poppins. Inter was in CSS. Let's use Poppins as per config.
+            },
+            colors: {
+              // Nord-inspired Palette
+              nord: {
+                night0: "#2E3440", // Darkest background
+                night1: "#3B4252", // Dark background
+                night2: "#434C5E", // Medium background
+                night3: "#4C566A", // Light background / Borders
+                snow0: "#D8DEE9", // Default text, lighter elements
+                snow1: "#E5E9F0", // Lighter text
+                snow2: "#ECEFF4", // Lightest text / white
+                frost_blue_light: "#8FBCBB", // Pale Teal accent
+                frost_blue_medium: "#88C0D0", // Light Blue accent
+                frost_blue_dark: "#81A1C1", // Blue accent
+                frost_blue_deep: "#5E81AC", // Darker Blue primary accent
+                aurora_red: "#BF616A", // Error
+                aurora_orange: "#D08770", // Warning
+                aurora_yellow: "#EBCB8B", // Info accent
+                aurora_green: "#A3BE8C", // Success
+                aurora_purple: "#B48EAD", // Secondary accent
+              },
+            },
+            animation: {
+              fadeIn: "fadeIn 0.5s ease-out",
+              fadeInUp: "fadeInUp 0.5s ease-out",
+              scaleIn: "scaleIn 0.3s ease-out",
+              pulse: "pulse 2s infinite",
+              float: "float 3s ease-in-out infinite",
+              spin: "spin 1s linear infinite",
+              slide: "slide 1.5s infinite linear",
+            },
+            keyframes: {
+              fadeIn: {
+                from: { opacity: 0 },
+                to: { opacity: 1 },
+              },
+              fadeInUp: {
+                from: { opacity: 0, transform: "translateY(20px)" },
+                to: { opacity: 1, transform: "translateY(0)" },
+              },
+              scaleIn: {
+                from: { opacity: 0, transform: "scale(0.95)" },
+                to: { opacity: 1, transform: "scale(1)" },
+              },
+              pulse: {
+                "0%, 100%": { transform: "scale(1)" },
+                "50%": { transform: "scale(1.03)" },
+              },
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-6px)" },
+              },
+              spin: {
+                from: { transform: "rotate(0deg)" },
+                to: { transform: "rotate(360deg)" },
+              },
+              slide: {
+                // For progress bar indeterminate
+                "0%": { left: "-50%", width: "50%" },
+                "100%": { left: "100%", width: "50%" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-gray-900">
+    <div
+      class="min-h-screen bg-gradient-to-br from-slate-900 to-gray-800 text-slate-100 font-sans p-4 antialiased"
+    >
+      <style>
+        /* Estilos básicos para o tema nórdico escuro e responsividade */
+        /* Estas classes Tailwind são projetadas para funcionar com o CDN. */
+        /* Se o Tailwind não estiver configurado corretamente, esses estilos podem não aparecer. */
+
+        /* Cores Nordic Dark */
+        :root {
+          --nordic-bg-dark: #1f2937; /* slate-900 */
+          --nordic-bg-medium: #374151; /* gray-800 */
+          --nordic-text-light: #f8fafc; /* slate-50 */
+          --nordic-text-medium: #cbd5e1; /* slate-300 */
+          --nordic-accent-blue: #38bdf8; /* sky-400 */
+          --nordic-accent-green: #34d399; /* emerald-400 */
+          --nordic-accent-red: #f87171; /* red-400 */
+          --nordic-button-bg: #0369a1; /* sky-700 */
+          --nordic-button-hover: #075985; /* sky-800 */
+        }
+
+        body {
+          background-color: var(--nordic-bg-dark);
+          color: var(--nordic-text-light);
+          font-family: "Inter", sans-serif; /* Uma fonte sans-serif moderna e legível */
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+          color: var(--nordic-accent-blue);
+          font-weight: 700;
+        }
+
+        /* Estilo para inputs radio para que se destaquem no tema escuro */
+        input[type="radio"] {
+          accent-color: var(
+            --nordic-accent-blue
+          ); /* Usa a cor de destaque para o radio button */
+        }
+
+        /* Estilo para o feedback das questões */
+        .feedback-correct {
+          color: var(--nordic-accent-green);
+        }
+        .feedback-incorrect {
+          color: var(--nordic-accent-red);
+        }
+
+        /* Removendo outline de foco padrão para um visual mais limpo */
+        *:focus {
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.5); /* sky-400 com opacidade */
+        }
+      </style>
+
+      <div
+        class="max-w-4xl mx-auto p-4 md:p-8 bg-gray-900 rounded-lg shadow-2xl border border-gray-700"
+      >
+        <h1
+          class="text-4xl md:text-5xl font-extrabold mb-8 text-center leading-tight text-sky-300"
+        >
+          Orações Subordinadas Adverbiais
+        </h1>
+
+        <!-- Seção 1: O que são Orações Subordinadas Adverbiais? -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-300">
+            1. O que são Orações Subordinadas Adverbiais? 🤔
+          </h2>
+          <p class="mb-4 text-lg leading-relaxed text-gray-200">
+            Imagine que uma frase é como uma casa. Nela, temos um cômodo
+            principal (a
+            <strong class="text-emerald-300">Oração Principal</strong>) e outros
+            cômodos que "dependem" desse principal, adicionando detalhes.
+          </p>
+          <p class="mb-4 text-lg leading-relaxed text-gray-200">
+            As
+            <strong class="text-sky-300"
+              >Orações Subordinadas Adverbiais</strong
+            >
+            são como esses cômodos extras. Elas
+            <strong class="text-sky-300">dependem</strong> da Oração Principal e
+            funcionam como um
+            <strong class="text-sky-300">Advérbio grandão</strong>!
+          </p>
+          <p class="mb-4 text-lg leading-relaxed text-gray-200">
+            Um advérbio serve para indicar uma
+            <strong class="text-emerald-300">circunstância</strong> (tempo,
+            causa, modo, lugar, etc.). A Oração Subordinada Adverbial faz a
+            mesma coisa, mas com um
+            <strong class="text-emerald-300">verbo</strong> dentro dela!
+          </p>
+          <p class="mb-6 text-lg leading-relaxed text-gray-200">
+            Elas sempre vêm ligadas à Oração Principal por uma
+            <strong class="text-red-300">palavrinha especial</strong>, que
+            chamamos de
+            <strong class="text-red-300">conjunção subordinativa</strong> (ou
+            locução conjuntiva). Pense nelas como pontes que ligam as frases.
+          </p>
+
+          <div class="p-4 bg-gray-900 rounded-md border border-gray-700 mb-6">
+            <p class="text-xl font-semibold text-sky-400 mb-2">
+              Exemplo Simples:
+            </p>
+            <p class="text-lg mb-2">
+              <span class="font-bold text-emerald-300">Fui à escola</span>
+              <span class="text-red-300">porque queria estudar</span>.
+            </p>
+            <ul class="list-disc list-inside text-gray-300 text-lg">
+              <li>
+                <strong class="text-emerald-300">Fui à escola:</strong> Oração
+                Principal (a parte mais importante).
+              </li>
+              <li>
+                <strong class="text-red-300">porque:</strong> Conjunção (a
+                "ponte").
+              </li>
+              <li>
+                <strong class="text-red-300">queria estudar:</strong> Oração
+                Subordinada Adverbial (diz o *motivo* de eu ter ido à escola).
+              </li>
+            </ul>
+          </div>
+          <p class="text-lg leading-relaxed text-gray-200">
+            Viu? A segunda parte adiciona uma
+            <strong class="text-sky-300">causa</strong> para a primeira parte. É
+            bem simples!
+          </p>
+        </section>
+
+        <!-- Seção 2: Tipos de Orações Subordinadas Adverbiais -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-300">
+            2. Os 9 Tipos de Orações Subordinadas Adverbiais ✨
+          </h2>
+          <p class="mb-6 text-lg leading-relaxed text-gray-200">
+            Existem 9 tipos dessas orações "detetives", e cada uma adiciona um
+            tipo diferente de informação. Vamos conhecê-las!
+          </p>
+
+          <div class="space-y-8">
+            <!-- Tipo 1: Causais -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.1. Causais (Motivo, Porquê?) 🧐
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica a <strong class="text-emerald-300">CAUSA</strong>, o
+                motivo de algo acontecer. Pense: "Por que isso aconteceu?"
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >porque</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >já que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >como</span
+                >
+                (no início),
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >visto que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >uma vez que</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-sky-400">Ele ficou feliz</span>
+                <span class="text-red-300">porque ganhou um presente</span>.
+                (Por que ficou feliz? Porque ganhou um presente.)
+              </div>
+            </div>
+
+            <!-- Tipo 2: Consecutivas (Consequência, Resultado) 🤯 -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.2. Consecutivas (Consequência, Resultado) 🤯
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica a <strong class="text-emerald-300">CONSEQUÊNCIA</strong>,
+                o resultado de algo que aconteceu na oração principal.
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >tão... que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >tamanho... que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >de modo que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >tanto... que</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-sky-400">Ele falou tão alto</span>
+                <span class="text-red-300">que sua voz sumiu</span>. (Qual a
+                consequência de falar tão alto? Sua voz sumiu.)
+              </div>
+            </div>
+
+            <!-- Tipo 3: Condicionais (Condição, "Se... então...") 🚦 -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.3. Condicionais (Condição, "Se... então...") 🚦
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica uma
+                <strong class="text-emerald-300">CONDIÇÃO</strong> para que algo
+                aconteça. Pense no "Se... então..."
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >se</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >caso</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >contanto que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >desde que</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-red-300">Se você estudar</span>,
+                <span class="text-sky-400">tirará boa nota</span>. (Qual a
+                condição para tirar boa nota? Estudar.)
+              </div>
+            </div>
+
+            <!-- Tipo 4: Concessivas (Contrário, Mesmo que...) ⚖️ -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.4. Concessivas (Contrário, Mesmo que...) ⚖️
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica uma ideia de
+                <strong class="text-emerald-300">CONTRÁRIO</strong>, de algo que
+                poderia impedir a ação principal, mas não impede. Pense no
+                "Mesmo que..."
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >embora</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >ainda que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >mesmo que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >conquanto</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo:
+                <span class="text-red-300">Embora estivesse chovendo</span>,
+                <span class="text-sky-400">fomos ao parque</span>. (A chuva não
+                impediu que fossem ao parque.)
+              </div>
+            </div>
+
+            <!-- Tipo 5: Conformativas (Conforme, Segundo) 📏 -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.5. Conformativas (Conforme, Segundo) 📏
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica uma
+                <strong class="text-emerald-300">CONFORMIDADE</strong>, que algo
+                está de acordo com algo. Pense: "De acordo com..."
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >conforme</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >segundo</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >como</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >consoante</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-sky-400">Fiz o bolo</span>
+                <span class="text-red-300">conforme a receita</span>. (Fiz de
+                acordo com a receita.)
+              </div>
+            </div>
+
+            <!-- Tipo 6: Finais (Finalidade, Para quê?) 🎯 -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.6. Finais (Finalidade, Para quê?) 🎯
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica a <strong class="text-emerald-300">FINALIDADE</strong>, o
+                objetivo de algo. Pense: "Para quê?"
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >para que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >a fim de que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >que</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-sky-400">Estudo muito</span>
+                <span class="text-red-300">para que eu passe de ano</span>.
+                (Para quê estudo? Para passar de ano.)
+              </div>
+            </div>
+
+            <!-- Tipo 7: Proporcionais (Proporção, À medida que...) 📈 -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.7. Proporcionais (Proporção, À medida que...) 📈
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica uma <strong class="text-emerald-300">PROPORÇÃO</strong>,
+                algo que acontece ao mesmo tempo que outra coisa. Pense: "Quanto
+                mais... mais..."
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >à medida que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >à proporção que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >quanto mais... mais</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo:
+                <span class="text-red-300">Quanto mais você estuda</span>,
+                <span class="text-sky-400">mais aprende</span>. (Uma coisa
+                aumenta junto com a outra.)
+              </div>
+            </div>
+
+            <!-- Tipo 8: Temporais (Tempo, Quando?) ⏰ -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.8. Temporais (Tempo, Quando?) ⏰
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica o <strong class="text-emerald-300">TEMPO</strong> em que
+                algo acontece. Pense: "Quando?"
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >quando</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >enquanto</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >assim que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >logo que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >depois que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >antes que</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo:
+                <span class="text-red-300">Quando a aula terminou</span>,
+                <span class="text-sky-400">fomos para casa</span>. (Em que tempo
+                foram para casa? Quando a aula terminou.)
+              </div>
+            </div>
+
+            <!-- Tipo 9: Comparativas (Comparação, Como...) ↔️ -->
+            <div
+              class="p-5 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+            >
+              <h3
+                class="text-2xl md:text-3xl font-semibold mb-3 text-emerald-300"
+              >
+                2.9. Comparativas (Comparação, Como...) ↔️
+              </h3>
+              <p class="mb-3 text-lg text-gray-200">
+                Indica uma
+                <strong class="text-emerald-300">COMPARAÇÃO</strong> com a
+                oração principal.
+              </p>
+              <p class="mb-3 text-lg text-gray-200">
+                <strong class="text-red-300">Conectivos Comuns:</strong>
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >como</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >mais... (do) que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >menos... (do) que</span
+                >,
+                <span
+                  class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                  >tal qual</span
+                >.
+              </p>
+              <div
+                class="bg-gray-800 p-3 rounded-md text-lg italic border border-gray-700"
+              >
+                Exemplo: <span class="text-sky-400">Ele corre</span>
+                <span class="text-red-300">como se fosse um atleta</span>.
+                (Compara a corrida dele com a de um atleta.)
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Seção 3: Como Identificar uma Oração Subordinada Adverbial? -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-300">
+            3. Como Identificar uma Oração Subordinada Adverbial? 🔍
+          </h2>
+          <p class="mb-4 text-lg leading-relaxed text-gray-200">
+            Para não se confundir, siga estes passos simples:
+          </p>
+          <ol
+            class="list-decimal list-inside space-y-3 text-lg text-gray-200 pl-4"
+          >
+            <li>
+              👉
+              <strong class="text-emerald-300">Procure os verbos:</strong> Cada
+              oração tem um verbo (ou uma locução verbal). Conte quantos verbos
+              tem a frase para saber quantas orações existem.
+            </li>
+            <li>
+              👉
+              <strong class="text-emerald-300">Separe as orações:</strong>
+              Divida a frase em partes, cada uma com seu verbo.
+            </li>
+            <li>
+              👉
+              <strong class="text-emerald-300"
+                >Ache o "conectivo mágico":</strong
+              >
+              Procure as conjunções subordinativas (as palavrinhas especiais que
+              ligam as orações, como
+              <span
+                class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                >porque</span
+              >,
+              <span
+                class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                >quando</span
+              >,
+              <span
+                class="font-mono text-gray-300 bg-gray-700 px-2 py-1 rounded"
+                >se</span
+              >, etc.). A oração que vem DEPOIS (ou antes) desse conectivo é a
+              subordinada.
+            </li>
+            <li>
+              👉
+              <strong class="text-emerald-300">Veja o que ela "fala":</strong>
+              Qual informação extra a oração subordinada está dando à principal?
+              É tempo? Causa? Condição? Com essa informação, você descobre o
+              tipo!
+            </li>
+          </ol>
+
+          <div class="p-4 bg-gray-900 rounded-md border border-gray-700 mt-6">
+            <p class="text-xl font-semibold text-sky-400 mb-2">
+              Vamos praticar:
+            </p>
+            <p class="text-lg mb-2">
+              <span class="text-sky-400 font-bold"
+                >Quando eu cheguei em casa</span
+              >,
+              <span class="text-emerald-300 font-bold"
+                >ele já estava dormindo</span
+              >.
+            </p>
+            <ul class="list-disc list-inside text-gray-300 text-lg">
+              <li>
+                Verbos: <span class="text-red-300">cheguei</span>,
+                <span class="text-red-300">estava dormindo</span> (2
+                verbos/locução = 2 orações).
+              </li>
+              <li>Conectivo: <span class="text-red-300">Quando</span>.</li>
+              <li>
+                Oração com o conectivo:
+                <span class="text-red-300">Quando eu cheguei em casa</span>.
+              </li>
+              <li>
+                Informação: Indica o
+                <strong class="text-sky-300">tempo</strong>.
+              </li>
+              <li>
+                Tipo: Oração Subordinada Adverbial
+                <strong class="text-sky-300">Temporal</strong>! ✅
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- Seção 4: Utilização: Por que e quando usar? -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-300">
+            4. Utilização: Por que e quando usar? 🗣️
+          </h2>
+          <p class="mb-4 text-lg leading-relaxed text-gray-200">
+            Usamos as Orações Subordinadas Adverbiais o tempo todo! Elas servem
+            para:
+          </p>
+          <ul
+            class="list-disc list-inside space-y-3 text-lg text-gray-200 pl-4"
+          >
+            <li>
+              ✨
+              <strong class="text-emerald-300">Dar mais detalhes:</strong> Sua
+              fala ou texto fica mais rico e interessante. Em vez de dizer "Fui
+              feliz. Ganhei um presente.", você diz "Fui feliz
+              <span class="text-red-300">porque ganhei um presente</span>." Fica
+              mais claro, né?
+            </li>
+            <li>
+              ✨
+              <strong class="text-emerald-300">Explicar motivos:</strong> "Não
+              fui à aula
+              <span class="text-red-300">porque estava doente</span>."
+            </li>
+            <li>
+              ✨
+              <strong class="text-emerald-300">Indicar condições:</strong>
+              "<span class="text-red-300">Se chover</span>, não sairemos."
+            </li>
+            <li>
+              ✨ <strong class="text-emerald-300">Mostrar tempo:</strong> "<span
+                class="text-red-300"
+                >Quando terminar o trabalho</span
+              >, me avise."
+            </li>
+            <li>
+              ✨ E muito mais! Elas conectam ideias e tornam a comunicação mais
+              <strong class="text-sky-300">completa e elegante</strong>.
+            </li>
+          </ul>
+          <p class="mt-6 text-lg leading-relaxed text-gray-200">
+            Dominar as Orações Subordinadas Adverbiais te ajuda a
+            <strong class="text-sky-300">escrever e falar melhor</strong>,
+            organizando suas ideias de forma lógica e clara.
+          </p>
+        </section>
+
+        <!-- Seção 5: Exemplos Corretos e Incorretos -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 text-sky-300">
+            5. Exemplos: Certo e Errado
+          </h2>
+
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <h3 class="text-xl md:text-2xl font-semibold mb-3 text-emerald-300">
+              Exemplo 1: Causa
+            </h3>
+            <p class="mb-2 text-lg">
+              ✅ <strong class="text-emerald-400">Correto:</strong> "Ele não
+              veio <span class="text-red-300">porque estava doente</span>." (A
+              segunda oração explica o motivo.)
+            </p>
+            <p class="mb-2 text-lg">
+              ❌
+              <strong class="text-red-400"
+                >Incorreto (mas comum na fala informal):</strong
+              >
+              "Ele não veio, ele estava doente." (Duas frases separadas, perde a
+              ligação de causa-consequência).
+            </p>
+          </div>
+
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <h3 class="text-xl md:text-2xl font-semibold mb-3 text-emerald-300">
+              Exemplo 2: Tempo
+            </h3>
+            <p class="mb-2 text-lg">
+              ✅ <strong class="text-emerald-400">Correto:</strong> "<span
+                class="text-red-300"
+                >Assim que o sinal tocou</span
+              >, saímos para o recreio." (Indica o momento exato.)
+            </p>
+            <p class="mb-2 text-lg">
+              ❌ <strong class="text-red-400">Incorreto (confuso):</strong> "O
+              sinal tocou. Saímos para o recreio." (Qual a relação entre os
+              eventos? Um aconteceu depois do outro, mas a ligação não está
+              clara.)
+            </p>
+          </div>
+
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <h3 class="text-xl md:text-2xl font-semibold mb-3 text-emerald-300">
+              Exemplo 3: Condição
+            </h3>
+            <p class="mb-2 text-lg">
+              ✅ <strong class="text-emerald-400">Correto:</strong> "<span
+                class="text-red-300"
+                >Se você estudar</span
+              >, aprenderá mais." (Aprender mais depende de estudar.)
+            </p>
+            <p class="mb-2 text-lg">
+              ❌
+              <strong class="text-red-400">Incorreto (sem condição):</strong>
+              "Você estuda e aprenderá mais." (A conjunção 'e' apenas soma, não
+              impõe uma condição.)
+            </p>
+          </div>
+          <p class="mt-6 text-lg leading-relaxed text-gray-200">
+            A chave é entender que a conjunção é como um "temperinho" que dá o
+            sabor (o sentido) da relação entre as orações!
+          </p>
+        </section>
+
+        <!-- Seção de Atividades -->
+        <section
+          class="mb-10 p-6 bg-gray-800 rounded-lg shadow-lg border border-gray-700"
+        >
+          <h2
+            class="text-3xl md:text-4xl font-bold mb-6 text-sky-300 text-center"
+          >
+            Atividades
+          </h2>
+          <p class="mb-8 text-lg md:text-xl text-gray-300 text-center">
+            Chegou a hora de testar seus conhecimentos. Leia as frases e escolha
+            a alternativa correta!
+          </p>
+
+          <!-- Questão 1 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 1: Qual é o tipo da oração subordinada adverbial em: "Fui
+              à festa
+              <span class="text-red-300">embora não estivesse convidado</span
+              >."?
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Causal
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Concessiva
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Temporal
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q1"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Final
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q1', 'b')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q1" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 2 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 2: Em "Não fui ao jogo
+              <span class="text-red-300">porque choveu muito</span>.", a oração
+              destacada indica:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Tempo
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Consequência
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Causa
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q2"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Condição
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q2', 'c')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q2" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 3 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 3: A oração "<span class="text-red-300"
+                >Se você estudar</span
+              >, passará de ano." é classificada como:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Final
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Conformativa
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Condicional
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q3"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Comparativa
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q3', 'c')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q3" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 4 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 4: Qual conectivo indica tempo?
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                porque
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                embora
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                quando
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q4"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                para que
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q4', 'c')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q4" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 5 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 5: "Ele fala
+              <span class="text-red-300">como se fosse um ator</span>." Esta
+              oração expressa:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Causa
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Comparação
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Finalidade
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q5"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Consequência
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q5', 'b')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q5" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 6 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 6: A oração "Trabalho muito
+              <span class="text-red-300"
+                >para que minha família tenha conforto</span
+              >." é:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Causal
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Temporal
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Final
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q6"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Consecutiva
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q6', 'c')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q6" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 7 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 7: Em "Ele é
+              <span class="text-red-300"
+                >tão inteligente que resolveu tudo rapidamente</span
+              >.", a oração destacada é:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Causal
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Concessiva
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Condicional
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q7"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Consecutiva
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q7', 'd')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q7" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 8 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 8: "Fiz o desenho
+              <span class="text-red-300">conforme o modelo</span>." Qual o tipo
+              da oração destacada?
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                Comparativa
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                Conformativa
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                Proporcional
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q8"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                Final
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q8', 'b')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q8" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 9 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 9: A oração subordinada adverbial que indica uma ideia de
+              proporção é:
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                "Chorei <span class="text-red-300">quando vi o filme</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                "Ele estuda
+                <span class="text-red-300">à medida que o tempo passa</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                "Fiquei em casa
+                <span class="text-red-300">já que estava doente</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q9"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                "Ela come <span class="text-red-300">como um passarinho</span>."
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q9', 'b')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q9" class="mt-3 text-lg font-semibold"></p>
+          </div>
+
+          <!-- Questão 10 -->
+          <div
+            class="mb-6 p-4 bg-gray-900 rounded-lg shadow-md border border-gray-700"
+          >
+            <p class="mb-3 text-lg font-semibold text-gray-200">
+              Questão 10: Qual das frases contém uma oração subordinada
+              adverbial condicional?
+            </p>
+            <div class="space-y-2 text-gray-300">
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="a"
+                  class="mr-2 accent-sky-400"
+                />
+                "Saímos
+                <span class="text-red-300">assim que a aula acabou</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="b"
+                  class="mr-2 accent-sky-400"
+                />
+                "Vou viajar
+                <span class="text-red-300">se tiver dinheiro</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="c"
+                  class="mr-2 accent-sky-400"
+                />
+                "Comprei o livro
+                <span class="text-red-300">para que você leia</span>."
+              </label>
+              <label class="block">
+                <input
+                  type="radio"
+                  name="q10"
+                  value="d"
+                  class="mr-2 accent-sky-400"
+                />
+                "Ele canta <span class="text-red-300">como um rouxinol</span>."
+              </label>
+            </div>
+            <button
+              onclick="checkAnswer('q10', 'b')"
+              class="mt-4 px-6 py-2 bg-sky-700 text-white rounded-md hover:bg-sky-600 focus:outline-none focus:ring-2 focus:ring-sky-500 focus:ring-opacity-75 transition-colors duration-200"
+            >
+              Verificar Resposta
+            </button>
+            <p id="feedback-q10" class="mt-3 text-lg font-semibold"></p>
+          </div>
+        </section>
+      </div>
+
+      <script>
+        function checkAnswer(questionName, correctAnswer) {
+          const selectedOption = document.querySelector(
+            `input[name="${questionName}"]:checked`
+          );
+          const feedbackElement = document.getElementById(
+            `feedback-${questionName}`
+          );
+
+          if (!selectedOption) {
+            feedbackElement.innerHTML = "Por favor, selecione uma opção.";
+            feedbackElement.className =
+              "mt-3 text-lg font-semibold text-yellow-400";
+            return;
+          }
+
+          if (selectedOption.value === correctAnswer) {
+            feedbackElement.innerHTML = "✅ Correto! Muito bem!";
+            feedbackElement.className =
+              "mt-3 text-lg font-semibold feedback-correct";
+          } else {
+            feedbackElement.innerHTML = "❌ Incorreto. Tente novamente!";
+            feedbackElement.className =
+              "mt-3 text-lg font-semibold feedback-incorrect";
+          }
+        }
+      </script>
+    </div>
+    <div class="sticky bottom-0 right-0 p-4 text-gray-500 text-opacity-20">
+      GeniusLab RC 2
+    </div>
+  </body>
+</html>
