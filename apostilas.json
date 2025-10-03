@@ -50,5 +50,21 @@
       "nome": "Artista e Suas Múltiplas Profissões",
       "descricao": "Explore como os artistas modernos mudaram a arte com novas ideias e estilos, e descubra como alguns deles tiveram outras profissões, como a de engenheiro."
     }
+  ],
+  "Física": [
+    {
+      "id": "physics-thermo-PFXO",
+      "link": "/apostilas/Física/physics-thermo-PFXO.html",
+      "nome": "A Aventura do Quente e do Frio",
+      "descricao": "Vamos descobrir a diferenca entre calor e temperatura como o calor viaja e como a agua vira gelo ou vapor de um jeito divertido e com poucas contas!"
+    }
+  ],
+  "Matemática": [
+    {
+      "id": "math-lHwu",
+      "link": "/apostilas/Matemática/math-lHwu.html",
+      "nome": "Fundamentos da Trigonometria e Geometria Plana",
+      "descricao": "Estudo sobre semelhanca de triangulos, relacoes metricas no triangulo retangulo, razoes trigonometricas e as leis dos senos e cossenos."
+    }
   ]
 }
